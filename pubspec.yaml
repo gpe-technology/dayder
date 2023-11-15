@@ -1,0 +1,48 @@
+name: dayder
+description: daily announcement.
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  #https://pub.dev/packages/riverpod
+  riverpod: ^2.4.6
+  #https://pub.dev/packages/flutter_riverpod
+  flutter_riverpod: ^2.4.6
+  #https://pub.dev/packages/json_annotation
+  json_annotation: ^4.8.1
+  #https://pub.dev/packages/get_it
+  get_it: ^7.6.4
+  #https://pub.dev/packages/google_fonts
+  google_fonts: ^6.1.0
+  #https://pub.dev/packages/auto_route
+  auto_route: ^7.8.4
+  #https://pub.dev/packages/logger
+  logger: ^2.0.2+1
+  #https://pub.dev/packages/flex_color_scheme
+  flex_color_scheme: ^7.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  #https://pub.dev/packages/build_runner
+  build_runner: ^2.4.6
+  #https://pub.dev/packages/freezed
+  freezed: ^2.4.5
+  #https://pub.dev/packages/json_serializable
+  json_serializable: ^6.7.1
+  #https://pub.dev/packages/auto_route_generator
+  auto_route_generator: ^7.3.2
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
