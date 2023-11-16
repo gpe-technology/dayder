@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "779293068741",
+    "project_id": "dayder-d7398",
+    "storage_bucket": "dayder-d7398.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:779293068741:android:392276c12eac8cc20dcfac",
+        "android_client_info": {
+          "package_name": "com.dayder.application.dayder"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRFh7k8dZSkX3VVOZDmoJoMhfJeiAnxwk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

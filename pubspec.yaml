@@ -28,6 +28,12 @@ dependencies:
   logger: ^2.0.2+1
   #https://pub.dev/packages/flex_color_scheme
   flex_color_scheme: ^7.3.1
+  #https://pub.dev/packages/firebase_core
+  firebase_core: ^2.22.0
+  #https://pub.dev/packages/firebase_crashlytics
+  firebase_crashlytics: ^3.4.4
+  #https://pub.dev/packages/firebase_auth
+  firebase_auth: ^4.14.0
 
 dev_dependencies:
   flutter_test:
