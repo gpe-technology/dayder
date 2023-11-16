@@ -28,8 +28,7 @@ class FirebaseAuthentication implements Authentication {
   Future<void> signInWithPhoneBy(String verificationId, String smsCode) async {
     PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: verificationId, smsCode: smsCode);
-    UserCredential userCredential = await auth.signInWithCredential(credential);
-    Logger().i(userCredential);
+    await auth.signInWithCredential(credential);
   }
 
   @override
@@ -38,7 +37,7 @@ class FirebaseAuthentication implements Authentication {
   }
 
   @override
-  currentUser() {
+  User? currentUser() {
     return auth.currentUser;
   }
 }

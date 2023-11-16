@@ -12,30 +12,26 @@ final authNotifierProvider =
 class AuthStateNotifier extends StateNotifier<AuthState> {
   AuthStateNotifier(super.state);
 
-  final _getIt = GetIt.instance;
-
   String _verificationId = '';
 
+  final _auth = GetIt.instance<FirebaseAuthentication>();
+
+  get currentUser => _auth.currentUser();
+
   Future<void> login(String smsCode) async {
-    await _getIt<FirebaseAuthentication>()
-        .signInWithPhoneBy(_verificationId, smsCode);
+    await _auth.signInWithPhoneBy(_verificationId, smsCode);
     state = AuthState.isLogin;
   }
 
   Future<void> verifyPhone(String number) async {
-    await _getIt<FirebaseAuthentication>().verifyPhone(number,
-        (verificationId, numberOfVerification) {
+    await _auth.verifyPhone(number, (verificationId, numberOfVerification) {
       _verificationId = verificationId;
       state = AuthState.isCodeVerification;
     });
   }
 
   Future<void> logout() async {
-    await _getIt<FirebaseAuthentication>().logout();
+    await _auth.logout();
     state = AuthState.isLogout;
-  }
-
-  update(AuthState state) {
-    this.state = state;
   }
 }
