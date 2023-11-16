@@ -1,8 +1,12 @@
 import 'package:dayder/features/authentication/authentication.dart';
 import 'package:get_it/get_it.dart';
 
-final getIt = GetIt.instance;
+class Setup {
+  static final _getIt = GetIt.instance;
 
-void setUp() {
-  getIt.registerLazySingleton<FirebaseAuthentication>(() => FirebaseAuthentication());
+  static GetIt init() {
+    _getIt.registerLazySingleton<FirebaseAuthentication>(
+        () => FirebaseAuthentication());
+    return _getIt;
+  }
 }
