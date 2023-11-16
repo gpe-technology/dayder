@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/src/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -29,16 +28,7 @@ class LoginPage extends ConsumerWidget {
                 onPressed: () async {
                   await ref
                       .read(authNotifierProvider.notifier)
-                      .verifyPhone(controller.text,
-                          (verificationId, numberOfVerification) async {
-                    final smsCode = await context
-                        .pushRoute<String>(const CodeVerificationRoute());
-                    if (smsCode != null) {
-                      await ref
-                          .watch(authNotifierProvider.notifier)
-                          .login(verificationId, smsCode);
-                    }
-                  });
+                      .verifyPhone(controller.text);
                 },
                 child: const Text('SingIn'),
               )

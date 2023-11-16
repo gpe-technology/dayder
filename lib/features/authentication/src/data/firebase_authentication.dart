@@ -1,13 +1,15 @@
-import 'package:dayder/src/domain/i_authentication.dart';
+import 'package:dayder/features/authentication/src/domain/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:logger/logger.dart';
 
-class Authentication implements IAuthentication {
+class FirebaseAuthentication implements Authentication {
   FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Future<void> verifyPhone(
-      String number, Function(String, int?) codeSent) async {
+    String number,
+    Function(String, int?) codeSent,
+  ) async {
     await auth.verifyPhoneNumber(
       phoneNumber: number,
       timeout: const Duration(seconds: 60),
@@ -33,5 +35,10 @@ class Authentication implements IAuthentication {
   @override
   Future<void> logout() async {
     await auth.signOut();
+  }
+
+  @override
+  currentUser() {
+    return auth.currentUser;
   }
 }

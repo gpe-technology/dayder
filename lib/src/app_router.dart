@@ -8,6 +8,14 @@ class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           initial: true,
+          path: '/login',
+          page: LoginRoute.page,
+        ),
+        AutoRoute(
+          path: '/code-verification',
+          page: CodeVerificationRoute.page,
+        ),
+        AutoRoute(
           path: '/dashboard',
           page: DashboardRoute.page,
           children: [
@@ -28,14 +36,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           path: '/publish',
           page: PublishRoute.page,
-        ),
-        AutoRoute(
-          path: '/login',
-          page: LoginRoute.page,
-        ),
-        AutoRoute(
-          path: '/code-verification',
-          page: CodeVerificationRoute.page,
+          fullscreenDialog: true,
         ),
       ];
 }

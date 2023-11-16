@@ -1,12 +1,14 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dayder/src/presentation/logics/auth_notifier_provider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage<String>()
-class CodeVerificationPage extends StatelessWidget {
+class CodeVerificationPage extends ConsumerWidget {
   const CodeVerificationPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     TextEditingController controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(
@@ -20,8 +22,10 @@ class CodeVerificationPage extends StatelessWidget {
               controller: controller,
             ),
             ElevatedButton(
-              onPressed: () {
-                context.router.pop<String>(controller.text);
+              onPressed: () async {
+                await ref
+                    .read(authNotifierProvider.notifier)
+                    .login(controller.text);
               },
               child: const Text('Send'),
             ),

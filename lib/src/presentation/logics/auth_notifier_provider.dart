@@ -1,32 +1,39 @@
-import 'package:dayder/src/data/authentication.dart';
+import 'package:dayder/core/setup.dart';
+import 'package:dayder/features/authentication/authentication.dart';
 import 'package:dayder/src/presentation/logics/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-Authentication auth = Authentication();
-
 final authNotifierProvider =
-    StateNotifierProvider.autoDispose<AuthStateNotifier, bool>((ref) {
-  final isAuth = ref.watch(authProvider);
-  return AuthStateNotifier(isAuth);
+    StateNotifierProvider.autoDispose<AuthStateNotifier, AuthState>((ref) {
+  final authState = ref.watch(authProvider);
+  return AuthStateNotifier(authState);
 });
 
-class AuthStateNotifier extends StateNotifier<bool> {
+class AuthStateNotifier extends StateNotifier<AuthState> {
   AuthStateNotifier(super.state);
 
-  Future<void> login(String verificationId, String smsCode) async {
-    await auth.signInWithPhoneBy(verificationId, smsCode);
-    state = true;
+  String _verificationId = '';
+
+  Future<void> login(String smsCode) async {
+    await getIt<FirebaseAuthentication>()
+        .signInWithPhoneBy(_verificationId, smsCode);
+    state = AuthState.isLogin;
   }
 
-  Future<void> verifyPhone(
-    String number,
-    Function(String, int?) codeSent,
-  ) async {
-    await auth.verifyPhone(number, codeSent);
+  Future<void> verifyPhone(String number) async {
+    await getIt<FirebaseAuthentication>().verifyPhone(number,
+        (verificationId, numberOfVerification) {
+      _verificationId = verificationId;
+      state = AuthState.isCodeVerification;
+    });
   }
 
   Future<void> logout() async {
-    await auth.logout();
-    state = false;
+    await getIt<FirebaseAuthentication>().logout();
+    state = AuthState.isLogout;
+  }
+
+  update(AuthState state) {
+    this.state = state;
   }
 }

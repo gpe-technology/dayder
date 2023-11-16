@@ -1,4 +1,5 @@
 import 'package:dayder/core/setup.dart';
+import 'package:dayder/features/authentication/authentication.dart';
 import 'package:dayder/src/presentation/logics/auth_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -19,7 +20,10 @@ void main() async {
   runApp(
     ProviderScope(
       overrides: [
-        authProvider.overrideWithValue(true),
+        authProvider.overrideWithValue(
+            getIt<FirebaseAuthentication>().currentUser() != null
+                ? AuthState.isLogin
+                : AuthState.isLogout),
       ],
       child: App(),
     ),
