@@ -13,7 +13,9 @@ class CodeVerificationPage extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () {
+            ref.read(authNotifierProvider.notifier).backToLogin();
+          },
           icon: Icon(Icons.adaptive.arrow_back),
         ),
         title: const Text('Code vérification'),

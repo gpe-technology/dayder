@@ -37,7 +37,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     state = AuthState.isLogout;
   }
 
-  update(AuthState state) {
-    this.state = state;
+  backToLogin() {
+    state = AuthState.isLogout;
   }
 }
