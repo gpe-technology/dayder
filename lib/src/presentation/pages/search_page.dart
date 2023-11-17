@@ -11,7 +11,7 @@ class SearchPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.router.root.push(const Publish());
+          context.pushRoute(const Publish());
         },
         tooltip: 'Publish',
         mini: true,

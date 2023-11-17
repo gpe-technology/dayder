@@ -12,6 +12,10 @@ class CodeVerificationPage extends ConsumerWidget {
     TextEditingController controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {},
+          icon: Icon(Icons.adaptive.arrow_back),
+        ),
         title: const Text('Code vérification'),
       ),
       body: Padding(

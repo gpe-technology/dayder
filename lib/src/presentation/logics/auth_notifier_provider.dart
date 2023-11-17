@@ -36,4 +36,8 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
     await _auth.logout();
     state = AuthState.isLogout;
   }
+
+  update(AuthState state) {
+    this.state = state;
+  }
 }
