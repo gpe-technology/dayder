@@ -1,5 +1,6 @@
-import 'package:dayder/src/domain/models/announcement_model/announcement_model.dart';
 import 'package:flutter/material.dart';
+
+import '../../data/models/announcement_model/announcement_model.dart';
 
 class AnnouncementCard extends StatelessWidget {
   const AnnouncementCard(
