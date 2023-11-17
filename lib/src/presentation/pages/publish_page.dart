@@ -9,6 +9,9 @@ class PublishPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
+      body: const Center(
+        child: Text('Publish'),
+      ),
     );
   }
 }

@@ -2,6 +2,7 @@ import 'package:dayder/features/authentication/authentication.dart';
 import 'package:dayder/src/presentation/logics/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
+import 'package:logger/logger.dart';
 
 final authNotifierProvider =
     StateNotifierProvider.autoDispose<AuthStateNotifier, AuthState>((ref) {
@@ -24,9 +25,10 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
   }
 
   Future<void> verifyPhone(String number) async {
+    state = AuthState.isCodeVerification;
     await _auth.verifyPhone(number, (verificationId, numberOfVerification) {
       _verificationId = verificationId;
-      state = AuthState.isCodeVerification;
+      Logger().i(_verificationId);
     });
   }
 

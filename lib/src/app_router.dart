@@ -7,29 +7,34 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          initial: true,
-          path: '/login',
-          page: LoginRoute.page,
-        ),
-        AutoRoute(
-          path: '/code-verification',
-          page: CodeVerificationRoute.page,
-        ),
-        AutoRoute(
-          path: '/dashboard',
-          page: DashboardRoute.page,
+          path: '/',
+          page: AppDeclarative.page,
           children: [
             AutoRoute(
-              path: 'search',
-              page: SearchRoute.page,
+              path: 'dashboard',
+              page: DashboardRoute.page,
+              children: [
+                AutoRoute(
+                  path: 'search',
+                  page: SearchRoute.page,
+                ),
+                AutoRoute(
+                  path: 'chat',
+                  page: ChatRoute.page,
+                ),
+                AutoRoute(
+                  path: 'my-account',
+                  page: MyAccountRoute.page,
+                ),
+              ],
             ),
             AutoRoute(
-              path: 'chat',
-              page: ChatRoute.page,
+              path: 'login',
+              page: LoginRoute.page,
             ),
             AutoRoute(
-              path: 'my-account',
-              page: MyAccountRoute.page,
+              path: 'code-verification',
+              page: CodeVerificationRoute.page,
             ),
           ],
         ),
