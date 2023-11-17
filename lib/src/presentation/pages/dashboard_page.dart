@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dayder/src/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
-@RoutePage()
+@RoutePage(name: 'Dashboard')
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
 
@@ -11,13 +11,13 @@ class DashboardPage extends StatelessWidget {
     return AutoTabsScaffold(
       appBarBuilder: (_, tabsRouter) {
         return AppBar(
-          title: Text(tabsRouter.current.path),
+          title: Text(tabsRouter.current.name),
         );
       },
       routes: const [
-        SearchRoute(),
-        ChatRoute(),
-        MyAccountRoute(),
+        Search(),
+        Chat(),
+        Account(),
       ],
       bottomNavigationBuilder: (_, tabsRouter) {
         return BottomNavigationBar(

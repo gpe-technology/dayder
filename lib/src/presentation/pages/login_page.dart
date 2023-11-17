@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../logics/auth_notifier_provider.dart';
 
-@RoutePage()
+@RoutePage(name: 'Login')
 class LoginPage extends ConsumerWidget {
   const LoginPage({super.key});
 

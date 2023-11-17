@@ -8,40 +8,44 @@ class AppRouter extends $AppRouter {
   List<AutoRoute> get routes => [
         AutoRoute(
           path: '/',
-          page: AppDeclarative.page,
+          page: AuthWrapper.page,
           children: [
             AutoRoute(
               path: 'dashboard',
-              page: DashboardRoute.page,
+              page: Dashboard.page,
               children: [
                 AutoRoute(
                   path: 'search',
-                  page: SearchRoute.page,
+                  page: Search.page,
                 ),
                 AutoRoute(
                   path: 'chat',
-                  page: ChatRoute.page,
+                  page: Chat.page,
                 ),
                 AutoRoute(
                   path: 'my-account',
-                  page: MyAccountRoute.page,
+                  page: Account.page,
                 ),
               ],
             ),
             AutoRoute(
               path: 'login',
-              page: LoginRoute.page,
+              page: Login.page,
             ),
             AutoRoute(
               path: 'code-verification',
-              page: CodeVerificationRoute.page,
+              page: Code.page,
             ),
           ],
         ),
         AutoRoute(
           path: '/publish',
-          page: PublishRoute.page,
+          page: Publish.page,
           fullscreenDialog: true,
+        ),
+        AutoRoute(
+          path: '/profile',
+          page: Profile.page,
         ),
       ];
 }

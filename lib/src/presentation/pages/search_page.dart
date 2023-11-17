@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dayder/src/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
-@RoutePage()
+@RoutePage(name: 'Search')
 class SearchPage extends StatelessWidget {
   const SearchPage({super.key});
 
@@ -11,7 +11,7 @@ class SearchPage extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.router.root.push(const PublishRoute());
+          context.router.root.push(const Publish());
         },
         tooltip: 'Publish',
         mini: true,

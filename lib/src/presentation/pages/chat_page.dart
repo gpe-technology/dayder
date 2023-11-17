@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 
-@RoutePage()
+@RoutePage(name: 'Chat')
 class ChatPage extends StatelessWidget {
   const ChatPage({super.key});
 
