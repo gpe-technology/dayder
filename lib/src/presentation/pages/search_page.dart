@@ -13,6 +13,7 @@ class SearchPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final scrollController = ScrollController();
     final announcements = ref.watch(announcementFutureProvider);
     const double spacing = 15.0;
     const double childAspectRation = 3 / 4.5;
@@ -21,8 +22,9 @@ class SearchPage extends ConsumerWidget {
       body: RefreshIndicator(
         onRefresh: () async => ref.refresh(announcementFutureProvider.future),
         child: Scrollbar(
-          thumbVisibility: true,
+          controller: scrollController,
           child: ListView(
+            controller: scrollController,
             children: [
               SizedBox(
                 height: 220,
