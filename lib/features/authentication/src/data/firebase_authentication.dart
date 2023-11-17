@@ -19,7 +19,7 @@ class FirebaseAuthentication implements Authentication {
         await auth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException exception) {
-        Logger().e(exception.code);
+        Logger().e(exception.toString());
       },
       codeSent: codeSent,
       codeAutoRetrievalTimeout: (String verificationId) {},
@@ -40,17 +40,20 @@ class FirebaseAuthentication implements Authentication {
 
   @override
   UserModel? currentUser() {
-    return UserModel.fromJson({
-      "uid": auth.currentUser?.uid,
-      "phoneNumber": auth.currentUser?.phoneNumber,
-      "displayName": auth.currentUser?.displayName,
-      "email": auth.currentUser?.email,
-      "emailVerified": auth.currentUser?.emailVerified,
-      "isAnonymous": auth.currentUser?.isAnonymous,
-      "refreshToken": auth.currentUser?.refreshToken,
-      "tenantId": auth.currentUser?.tenantId,
-      "photoURL": auth.currentUser?.photoURL,
-    });
+    if (auth.currentUser != null) {
+      return UserModel.fromJson({
+        "uid": auth.currentUser?.uid,
+        "phoneNumber": auth.currentUser?.phoneNumber,
+        "displayName": auth.currentUser?.displayName,
+        "email": auth.currentUser?.email,
+        "emailVerified": auth.currentUser?.emailVerified,
+        "isAnonymous": auth.currentUser?.isAnonymous,
+        "refreshToken": auth.currentUser?.refreshToken,
+        "tenantId": auth.currentUser?.tenantId,
+        "photoURL": auth.currentUser?.photoURL,
+      });
+    }
+    return null;
   }
 }
 

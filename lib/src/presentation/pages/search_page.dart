@@ -16,34 +16,70 @@ class SearchPage extends ConsumerWidget {
     final announcements = ref.watch(announcementFutureProvider);
     const double spacing = 15.0;
     const double childAspectRation = 3 / 4.5;
-    const int crossAxisCount = 2;
+    const int crossAxisCount = 1;
     return Scaffold(
-      body: announcements.when(
-        data: (data) {
-          return RefreshIndicator(
-            onRefresh: () async =>
-                ref.refresh(announcementFutureProvider.future),
-            child: GridView.count(
-              padding: const EdgeInsets.all(8.0),
-              childAspectRatio: childAspectRation,
-              crossAxisCount: crossAxisCount,
-              mainAxisSpacing: spacing,
-              crossAxisSpacing: spacing,
-              children: data
-                  .map(
-                    (e) => AnnouncementCard(
-                      e,
-                      onTap: () {
-                        Logger().i(e.id);
-                      },
-                    ),
-                  )
-                  .toList(),
-            ),
-          );
-        },
-        error: (error, _) => Center(child: Text(error.toString())),
-        loading: () => const Center(child: CircularProgressIndicator()),
+      body: RefreshIndicator(
+        onRefresh: () async => ref.refresh(announcementFutureProvider.future),
+        child: Scrollbar(
+          thumbVisibility: true,
+          child: ListView(
+            children: [
+              SizedBox(
+                height: 220,
+                child: announcements.when(
+                  data: (data) {
+                    return GridView.count(
+                      shrinkWrap: true,
+                      scrollDirection: Axis.horizontal,
+                      padding: const EdgeInsets.all(8.0),
+                      childAspectRatio: 1 / childAspectRation,
+                      crossAxisCount: crossAxisCount,
+                      mainAxisSpacing: spacing,
+                      crossAxisSpacing: spacing,
+                      children: data
+                          .map(
+                            (e) => AnnouncementCard(
+                              e,
+                              onTap: () {
+                                Logger().i(e.id);
+                              },
+                            ),
+                          )
+                          .toList(),
+                    );
+                  },
+                  error: (error, _) => Center(child: Text(error.toString())),
+                  loading: () => const SizedBox.shrink(),
+                ),
+              ),
+              announcements.when(
+                data: (data) {
+                  return GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.all(8.0),
+                    childAspectRatio: childAspectRation,
+                    crossAxisCount: crossAxisCount * 2,
+                    mainAxisSpacing: spacing,
+                    crossAxisSpacing: spacing,
+                    children: data
+                        .map(
+                          (e) => AnnouncementCard(
+                            e,
+                            onTap: () {
+                              Logger().i(e.id);
+                            },
+                          ),
+                        )
+                        .toList(),
+                  );
+                },
+                error: (error, _) => Center(child: Text(error.toString())),
+                loading: () => const SizedBox.shrink(),
+              ),
+            ],
+          ),
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {

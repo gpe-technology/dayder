@@ -42,5 +42,9 @@ final announcementFutureProvider =
         id: "9",
         url: faker.image.image(),
         description: faker.lorem.words(20).toString()),
+    AnnouncementModel(
+        id: "10",
+        url: faker.image.image(),
+        description: faker.lorem.words(20).toString()),
   ];
 });

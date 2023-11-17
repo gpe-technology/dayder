@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dayder/src/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/search_text_field.dart';
+
 @RoutePage(name: 'Dashboard')
 class DashboardPage extends StatelessWidget {
   const DashboardPage({super.key});
@@ -10,9 +12,14 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       appBarBuilder: (_, tabsRouter) {
-        return AppBar(
-          title: Text(tabsRouter.current.name),
-        );
+        return tabsRouter.current.name != const Search().routeName
+            ? AppBar(
+                title: Text(tabsRouter.current.name),
+              )
+            : const PreferredSize(
+                preferredSize: Size.fromHeight(56),
+                child: SearchTextField(),
+              );
       },
       routes: const [
         Search(),

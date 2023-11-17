@@ -3,6 +3,8 @@ import 'package:dayder/src/presentation/logics/auth_notifier_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../widgets/text_field_input.dart';
+
 @RoutePage<String>(name: 'Code')
 class CodeVerificationPage extends ConsumerWidget {
   const CodeVerificationPage({super.key});
@@ -24,7 +26,8 @@ class CodeVerificationPage extends ConsumerWidget {
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
         child: Column(
           children: [
-            TextField(
+            TestFieldInput(
+              hintText: '123456',
               controller: controller,
             ),
             ElevatedButton(
