@@ -22,7 +22,7 @@ class UpdateEmailPage extends ConsumerWidget {
           },
           icon: Icon(Icons.adaptive.arrow_back_rounded),
         ),
-        title: const Text('Updated'),
+        title: const Text('Updated Email'),
       ),
       body: Center(
         child: update.when(

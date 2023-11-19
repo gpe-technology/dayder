@@ -3,7 +3,7 @@ import 'package:dayder/src/presentation/logics/auth_notifier_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../widgets/input_text_field.dart';
+import '../../widgets/input_text_field.dart';
 
 @RoutePage<String>(name: 'Code')
 class CodeVerificationPage extends ConsumerWidget {

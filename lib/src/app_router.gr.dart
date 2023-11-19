@@ -9,24 +9,25 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i15;
+import 'package:dayder/src/presentation/pages/account/my_account_page.dart'
+    as _i6;
+import 'package:dayder/src/presentation/pages/account/profile_page.dart' as _i7;
+import 'package:dayder/src/presentation/pages/account/profile_wrapper.dart'
+    as _i8;
+import 'package:dayder/src/presentation/pages/account/set_email_page.dart'
+    as _i12;
+import 'package:dayder/src/presentation/pages/account/set_name_page.dart'
+    as _i11;
+import 'package:dayder/src/presentation/pages/account/update_email_page.dart'
+    as _i13;
+import 'package:dayder/src/presentation/pages/account/update_name_page.dart'
+    as _i14;
 import 'package:dayder/src/presentation/pages/auth_wrapper.dart' as _i1;
 import 'package:dayder/src/presentation/pages/chat_page.dart' as _i2;
-import 'package:dayder/src/presentation/pages/code_verification_page.dart'
-    as _i3;
 import 'package:dayder/src/presentation/pages/dashboard_page.dart' as _i4;
-import 'package:dayder/src/presentation/pages/login_page.dart' as _i5;
-import 'package:dayder/src/presentation/pages/my_account_page.dart' as _i6;
-import 'package:dayder/src/presentation/pages/profile/profile_page.dart' as _i7;
-import 'package:dayder/src/presentation/pages/profile/profile_wrapper.dart'
-    as _i8;
-import 'package:dayder/src/presentation/pages/profile/set_email_page.dart'
-    as _i12;
-import 'package:dayder/src/presentation/pages/profile/set_name_page.dart'
-    as _i11;
-import 'package:dayder/src/presentation/pages/profile/update_email_page.dart'
-    as _i13;
-import 'package:dayder/src/presentation/pages/profile/update_name_page.dart'
-    as _i14;
+import 'package:dayder/src/presentation/pages/login/code_verification_page.dart'
+    as _i3;
+import 'package:dayder/src/presentation/pages/login/login_page.dart' as _i5;
 import 'package:dayder/src/presentation/pages/publish_page.dart' as _i9;
 import 'package:dayder/src/presentation/pages/search_page.dart' as _i10;
 
