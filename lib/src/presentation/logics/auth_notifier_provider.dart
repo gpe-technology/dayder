@@ -1,4 +1,5 @@
 import 'package:dayder/features/authentication/authentication.dart';
+import 'package:dayder/features/authentication/src/data/user_model/user_model.dart';
 import 'package:dayder/src/presentation/logics/auth_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -17,7 +18,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
 
   final _auth = GetIt.instance<FirebaseAuthentication>();
 
-  get currentUser => _auth.currentUser();
+  UserModel? get currentUser => _auth.currentUser();
 
   Future<void> login(String smsCode) async {
     await _auth.signInWithPhoneBy(_verificationId, smsCode);

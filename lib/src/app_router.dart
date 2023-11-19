@@ -57,10 +57,15 @@ class AppRouter extends $AppRouter {
               fullscreenDialog: true,
             ),
             AutoRoute(
-              path: 'update',
-              page: UpdateProfile.page,
+              path: 'set',
+              page: SetValue.page,
               fullscreenDialog: true,
-            )
+            ),
+            AutoRoute(
+              path: 'update',
+              page: UpdateValue.page,
+              fullscreenDialog: true,
+            ),
           ],
         ),
       ];

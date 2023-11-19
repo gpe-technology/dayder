@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/features/authentication/src/data/user_model/user_model.dart';
 import 'package:dayder/src/presentation/logics/auth_notifier_provider.dart';
-import 'package:dayder/src/presentation/logics/update_notifier_provider.dart';
 import 'package:dayder/src/presentation/widgets/app_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -12,7 +10,8 @@ class ProfilePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    UserModel user = ref.watch(authNotifierProvider.notifier).currentUser;
+    final user = ref.watch(authNotifierProvider.notifier);
+    final name = user.currentUser?.displayName ?? 'Add name';
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -29,17 +28,12 @@ class ProfilePage extends ConsumerWidget {
           tiles: [
             AppListTile(
               icon: Icons.person_rounded,
-              title: user.displayName ?? 'Add name',
-              onTap: () {
-                ref.watch(updateNotifierProvider.notifier).updateName();
-              },
+              title: name,
+              onTap: () {},
             ),
             AppListTile(
               icon: Icons.email_rounded,
-              title: user.email ?? 'Add email',
-              onTap: () {
-                ref.watch(updateNotifierProvider.notifier).updateEmail();
-              },
+              title: user.currentUser?.email ?? 'Add email',
             ),
           ],
         ).toList(),

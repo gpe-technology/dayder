@@ -2,11 +2,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 enum UpdateState {
   isProfile,
-  isUpdate,
-  isVerify,
+  isSetValue,
+  isUpdateValue,
+  isVerifyValue,
 }
 
-final updateNotifierProvider =
+final updateNavigationNotifierProvider =
     StateNotifierProvider<UpdateControllerNotifier, UpdateState>(
   (ref) => UpdateControllerNotifier(UpdateState.isProfile),
 );
@@ -14,15 +15,19 @@ final updateNotifierProvider =
 class UpdateControllerNotifier extends StateNotifier<UpdateState> {
   UpdateControllerNotifier(super.state);
 
-  updateName() {
-    state = UpdateState.isUpdate;
+  setValue() {
+    state = UpdateState.isSetValue;
   }
 
-  updateEmail() {
-    state = UpdateState.isUpdate;
+  verify() {
+    state = UpdateState.isVerifyValue;
   }
 
-  profile() {
+  updateValue() {
+    state = UpdateState.isUpdateValue;
+  }
+
+  pop() {
     state = UpdateState.isProfile;
   }
 }
