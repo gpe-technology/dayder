@@ -5,7 +5,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../logics/profile/update_navigation_notifier_provider.dart';
 
-
 @RoutePage()
 class ProfileWrapper extends ConsumerWidget {
   const ProfileWrapper({super.key});
@@ -16,8 +15,10 @@ class ProfileWrapper extends ConsumerWidget {
     return AutoRouter.declarative(
       routes: (_) => [
         if (state == UpdateState.isProfile) const Profile(),
-        if (state == UpdateState.isSetValue) const SetValue(),
-        if (state == UpdateState.isUpdateValue) const UpdateValue(),
+        if (state == UpdateState.isSetName) const SetName(),
+        if (state == UpdateState.isSetEmail) const SetEmail(),
+        if (state == UpdateState.isUpdateName) const UpdateName(),
+        if (state == UpdateState.isUpdateEmail) const UpdateEmail(),
       ],
     );
   }

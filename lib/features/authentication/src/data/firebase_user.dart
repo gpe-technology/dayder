@@ -5,12 +5,12 @@ fb.FirebaseAuth auth = fb.FirebaseAuth.instance;
 
 mixin FirebaseUser implements User {
   @override
-  Future<void> setEmail(String value) async {
-    await auth.currentUser?.verifyBeforeUpdateEmail(value);
+  Future<void> setName(String value) async {
+    await auth.currentUser?.updateDisplayName(value);
   }
 
   @override
-  Future<void> setName(String value) async {
-    await auth.currentUser?.updateDisplayName(value);
+  Future<void> setEmail(String value) async {
+    await auth.currentUser?.verifyBeforeUpdateEmail(value);
   }
 }

@@ -38,6 +38,8 @@ dependencies:
   freezed_annotation: ^2.4.1
   #https://pub.dev/packages/faker
   faker: ^2.1.0
+  #https://pub.dev/packages/riverpod_annotation
+  riverpod_annotation: ^2.3.1
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +53,8 @@ dev_dependencies:
   json_serializable: ^6.7.1
   #https://pub.dev/packages/auto_route_generator
   auto_route_generator: ^7.3.2
+  #https://pub.dev/packages/riverpod_generator
+  riverpod_generator: ^2.3.6
 
 flutter:
   uses-material-design: true

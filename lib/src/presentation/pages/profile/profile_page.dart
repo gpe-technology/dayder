@@ -15,8 +15,8 @@ class ProfilePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authNotifierProvider.notifier);
-    final name = user.currentUser?.displayName ?? 'Add name';
-    // final email = user.currentUser?.email ?? 'Add email';
+    final name = user.currentUser?.displayName ?? '';
+    final email = user.currentUser?.email ?? '';
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -41,12 +41,21 @@ class ProfilePage extends ConsumerWidget {
                         value: name,
                       ),
                     );
-                ref.read(updateNavigationNotifierProvider.notifier).setValue();
+                ref.read(updateNavigationNotifierProvider.notifier).setName();
               },
             ),
             AppListTile(
               icon: Icons.email_rounded,
               title: user.currentUser?.email ?? 'Add email',
+              onTap: () {
+                ref.read(selectedValueProvider.notifier).update(
+                      (state) => SelectedValue(
+                        title: 'Email',
+                        value: email,
+                      ),
+                    );
+                ref.read(updateNavigationNotifierProvider.notifier).setEmail();
+              },
             ),
           ],
         ).toList(),

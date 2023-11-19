@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:logger/logger.dart';
 
-import '../logics/announcement_future_provider.dart';
+import '../logics/fetch_announcement/fetch_announcements.dart';
 import 'announcement_card.dart';
 
 class ColumnGridAnnouncement extends ConsumerWidget {
@@ -10,7 +10,7 @@ class ColumnGridAnnouncement extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final announcements = ref.watch(announcementFutureProvider(''));
+    final announcements = ref.watch(fetchAnnouncementProvider);
     return Card(
       elevation: .2,
       shape: const Border(),

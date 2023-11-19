@@ -1,15 +1,15 @@
 import 'package:auto_route/annotations.dart';
-import 'package:dayder/src/presentation/logics/profile/selected_value_provider.dart';
-import 'package:dayder/src/presentation/logics/profile/value_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../logics/profile/selected_value_provider.dart';
 import '../../logics/profile/update_navigation_notifier_provider.dart';
+import '../../logics/profile/value_provider.dart';
 import '../../widgets/input_text_field.dart';
 
-@RoutePage(name: 'SetValue')
-class SetValuePage extends ConsumerWidget {
-  const SetValuePage({super.key});
+@RoutePage(name: 'SetEmail')
+class SetNamePage extends ConsumerWidget {
+  const SetNamePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -40,7 +40,7 @@ class SetValuePage extends ConsumerWidget {
                       .update((state) => controller.text.trim());
                   ref
                       .watch(updateNavigationNotifierProvider.notifier)
-                      .updateValue();
+                      .updateEmail();
                 },
                 child: const Text('Update'),
               ),

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/src/app_router.gr.dart';
-import 'package:dayder/src/presentation/logics/announcement_future_provider.dart';
+import 'package:dayder/src/presentation/logics/fetch_announcement/fetch_announcements.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,8 +16,7 @@ class SearchPage extends ConsumerWidget {
     final scrollController = ScrollController();
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () async =>
-            ref.refresh(announcementFutureProvider('').future),
+        onRefresh: () async => ref.refresh(fetchAnnouncementProvider.future),
         child: Scrollbar(
           controller: scrollController,
           child: ListView(
