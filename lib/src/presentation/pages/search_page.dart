@@ -23,8 +23,6 @@ class SearchPage extends ConsumerWidget {
             controller: scrollController,
             children: const [
               RowGridAnnouncement(),
-              RowGridAnnouncement(),
-              RowGridAnnouncement(),
               ColumnGridAnnouncement(),
             ],
           ),
