@@ -1,4 +1,5 @@
 import 'package:auto_route/annotations.dart';
+import 'package:dayder/src/presentation/logics/profile/value_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,7 +12,8 @@ class UpdateValuePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final updateName = ref.watch(updateNameFutureProvider(''));
+    final value = ref.watch(valueProvider);
+    final update = ref.watch(updateNameFutureProvider(value));
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -23,7 +25,7 @@ class UpdateValuePage extends ConsumerWidget {
         title: const Text('Updated'),
       ),
       body: Center(
-        child: updateName.when(
+        child: update.when(
             data: (_) {
               return const Text('Success');
             },

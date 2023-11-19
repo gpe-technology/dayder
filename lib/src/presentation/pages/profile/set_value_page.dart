@@ -1,4 +1,6 @@
 import 'package:auto_route/annotations.dart';
+import 'package:dayder/src/presentation/logics/profile/selected_value_provider.dart';
+import 'package:dayder/src/presentation/logics/profile/value_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -11,7 +13,9 @@ class SetValuePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    TextEditingController controller = TextEditingController();
+    final selected = ref.watch(selectedValueProvider);
+    TextEditingController controller =
+        TextEditingController(text: selected?.value);
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -20,19 +24,24 @@ class SetValuePage extends ConsumerWidget {
           },
           icon: const Icon(Icons.close_rounded),
         ),
-        title: const Text('Set'),
+        title: Text('Update ${selected?.title}'),
       ),
       body: Column(
         children: [
-          InputTextField(
-            controller: controller,
-          ),
+          InputTextField(controller: controller),
           SizedBox(
             width: double.infinity,
             child: Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  ref
+                      .read(valueProvider.notifier)
+                      .update((state) => controller.text.trim());
+                  ref
+                      .watch(updateNavigationNotifierProvider.notifier)
+                      .updateValue();
+                },
                 child: const Text('Update'),
               ),
             ),

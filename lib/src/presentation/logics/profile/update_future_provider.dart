@@ -12,3 +12,10 @@ final updateNameFutureProvider = FutureProvider.family.autoDispose(
     ref.read(updateNavigationNotifierProvider.notifier).pop();
   },
 );
+
+final updateEmailFutureProvider = FutureProvider.family.autoDispose(
+  (ref, String value) async {
+    await _auth.currentUser()?.setEmail(value);
+    ref.read(updateNavigationNotifierProvider.notifier).pop();
+  },
+);

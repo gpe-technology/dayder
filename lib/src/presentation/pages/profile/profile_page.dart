@@ -1,8 +1,12 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dayder/src/domain/update_value.dart';
 import 'package:dayder/src/presentation/logics/auth_notifier_provider.dart';
+import 'package:dayder/src/presentation/logics/profile/update_navigation_notifier_provider.dart';
 import 'package:dayder/src/presentation/widgets/app_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../../logics/profile/selected_value_provider.dart';
 
 @RoutePage(name: 'Profile')
 class ProfilePage extends ConsumerWidget {
@@ -12,6 +16,7 @@ class ProfilePage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authNotifierProvider.notifier);
     final name = user.currentUser?.displayName ?? 'Add name';
+    // final email = user.currentUser?.email ?? 'Add email';
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -29,7 +34,15 @@ class ProfilePage extends ConsumerWidget {
             AppListTile(
               icon: Icons.person_rounded,
               title: name,
-              onTap: () {},
+              onTap: () {
+                ref.read(selectedValueProvider.notifier).update(
+                      (state) => SelectedValue(
+                        title: 'Name',
+                        value: name,
+                      ),
+                    );
+                ref.read(updateNavigationNotifierProvider.notifier).setValue();
+              },
             ),
             AppListTile(
               icon: Icons.email_rounded,
