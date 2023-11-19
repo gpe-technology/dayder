@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/src/app_router.gr.dart';
 import 'package:dayder/src/presentation/logics/auth_notifier_provider.dart';
-import 'package:dayder/src/presentation/widgets/list_tile_account.dart';
+import 'package:dayder/src/presentation/widgets/app_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -16,14 +16,14 @@ class MyAccountPage extends ConsumerWidget {
         children: ListTile.divideTiles(
           context: context,
           tiles: [
-            ListTileAccount(
+            AppListTile(
               title: 'Profile',
               icon: Icons.person_rounded,
               onTap: () {
-                context.pushRoute(const Profile());
+                context.pushRoute(const ProfileWrapper());
               },
             ),
-            const ListTileAccount(
+            const AppListTile(
               title: 'Help',
               icon: Icons.help_rounded,
             ),

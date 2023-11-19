@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../logics/auth_notifier_provider.dart';
-import '../widgets/text_field_input.dart';
+import '../widgets/input_text_field.dart';
 
 @RoutePage(name: 'Login')
 class LoginPage extends ConsumerWidget {
@@ -22,7 +22,7 @@ class LoginPage extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
-            TestFieldInput(
+            InputTextField(
               hintText: '+33 7 00 00 00 00 ',
               controller: controller,
             ),

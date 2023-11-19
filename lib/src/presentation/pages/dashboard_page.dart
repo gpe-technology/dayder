@@ -14,7 +14,7 @@ class DashboardPage extends StatelessWidget {
       appBarBuilder: (_, tabsRouter) {
         return tabsRouter.current.name != const Search().routeName
             ? AppBar(
-                title: Text(tabsRouter.current.name),
+                title: Text(tabsRouter.current.title(context)),
               )
             : const PreferredSize(
                 preferredSize: Size.fromHeight(56),

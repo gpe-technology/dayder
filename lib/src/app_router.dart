@@ -17,14 +17,17 @@ class AppRouter extends $AppRouter {
                 AutoRoute(
                   path: 'search',
                   page: Search.page,
+                  title: (_, routeData) => 'Search',
                 ),
                 AutoRoute(
                   path: 'chat',
                   page: Chat.page,
+                  title: (_, routeData) => 'Chat',
                 ),
                 AutoRoute(
                   path: 'my-account',
                   page: Account.page,
+                  title: (_, routeData) => 'My account',
                 ),
               ],
             ),
@@ -45,7 +48,20 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(
           path: '/profile',
-          page: Profile.page,
+          page: ProfileWrapper.page,
+          title: (_, routeData) => 'Profile',
+          children: [
+            AutoRoute(
+              path: '',
+              page: Profile.page,
+              fullscreenDialog: true,
+            ),
+            AutoRoute(
+              path: 'update',
+              page: UpdateProfile.page,
+              fullscreenDialog: true,
+            )
+          ],
         ),
       ];
 }

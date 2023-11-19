@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ListTileAccount extends StatelessWidget {
-  const ListTileAccount({
+class AppListTile extends StatelessWidget {
+  const AppListTile({
     super.key,
     required this.title,
     this.icon,

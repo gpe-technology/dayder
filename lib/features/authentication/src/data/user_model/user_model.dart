@@ -1,3 +1,4 @@
+import 'package:dayder/features/authentication/src/data/firebase_user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'user_model.freezed.dart';
@@ -5,7 +6,7 @@ part 'user_model.freezed.dart';
 part 'user_model.g.dart';
 
 @freezed
-class UserModel with _$UserModel {
+class UserModel with _$UserModel, FirebaseUser {
   const UserModel._();
 
   factory UserModel({
