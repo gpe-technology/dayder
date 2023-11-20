@@ -45,7 +45,9 @@ class ProfilePage extends ConsumerWidget {
               },
             ),
             AppListTile(
-              icon: Icons.email_rounded,
+              icon: user.currentUser!.emailVerified
+                  ? Icons.verified_rounded
+                  : Icons.email_rounded,
               title: user.currentUser?.email ?? 'Add email',
               onTap: () {
                 ref.read(selectedValueProvider.notifier).update(
