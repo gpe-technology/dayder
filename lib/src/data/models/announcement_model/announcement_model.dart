@@ -12,6 +12,7 @@ class AnnouncementModel with _$AnnouncementModel {
     required String id,
     required String url,
     required String description,
+    required String price,
   }) = _AnnouncementModel;
 
   factory AnnouncementModel.fromJson(json) => _$AnnouncementModelFromJson(json);

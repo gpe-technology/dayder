@@ -12,6 +12,7 @@ _$AnnouncementModelImpl _$$AnnouncementModelImplFromJson(
       id: json['id'] as String,
       url: json['url'] as String,
       description: json['description'] as String,
+      price: json['price'] as String,
     );
 
 Map<String, dynamic> _$$AnnouncementModelImplToJson(
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$AnnouncementModelImplToJson(
       'id': instance.id,
       'url': instance.url,
       'description': instance.description,
+      'price': instance.price,
     };

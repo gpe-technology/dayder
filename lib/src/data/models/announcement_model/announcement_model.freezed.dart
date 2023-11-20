@@ -23,6 +23,7 @@ mixin _$AnnouncementModel {
   String get id => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
+  String get price => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,7 @@ abstract class $AnnouncementModelCopyWith<$Res> {
           AnnouncementModel value, $Res Function(AnnouncementModel) then) =
       _$AnnouncementModelCopyWithImpl<$Res, AnnouncementModel>;
   @useResult
-  $Res call({String id, String url, String description});
+  $Res call({String id, String url, String description, String price});
 }
 
 /// @nodoc
@@ -55,6 +56,7 @@ class _$AnnouncementModelCopyWithImpl<$Res, $Val extends AnnouncementModel>
     Object? id = null,
     Object? url = null,
     Object? description = null,
+    Object? price = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -69,6 +71,10 @@ class _$AnnouncementModelCopyWithImpl<$Res, $Val extends AnnouncementModel>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String,
     ) as $Val);
   }
 }
@@ -81,7 +87,7 @@ abstract class _$$AnnouncementModelImplCopyWith<$Res>
       __$$AnnouncementModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String url, String description});
+  $Res call({String id, String url, String description, String price});
 }
 
 /// @nodoc
@@ -98,6 +104,7 @@ class __$$AnnouncementModelImplCopyWithImpl<$Res>
     Object? id = null,
     Object? url = null,
     Object? description = null,
+    Object? price = null,
   }) {
     return _then(_$AnnouncementModelImpl(
       id: null == id
@@ -112,6 +119,10 @@ class __$$AnnouncementModelImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      price: null == price
+          ? _value.price
+          : price // ignore: cast_nullable_to_non_nullable
+              as String,
     ));
   }
 }
@@ -120,7 +131,10 @@ class __$$AnnouncementModelImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AnnouncementModelImpl extends _AnnouncementModel {
   _$AnnouncementModelImpl(
-      {required this.id, required this.url, required this.description})
+      {required this.id,
+      required this.url,
+      required this.description,
+      required this.price})
       : super._();
 
   factory _$AnnouncementModelImpl.fromJson(Map<String, dynamic> json) =>
@@ -132,10 +146,12 @@ class _$AnnouncementModelImpl extends _AnnouncementModel {
   final String url;
   @override
   final String description;
+  @override
+  final String price;
 
   @override
   String toString() {
-    return 'AnnouncementModel(id: $id, url: $url, description: $description)';
+    return 'AnnouncementModel(id: $id, url: $url, description: $description, price: $price)';
   }
 
   @override
@@ -146,12 +162,13 @@ class _$AnnouncementModelImpl extends _AnnouncementModel {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            (identical(other.price, price) || other.price == price));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, url, description);
+  int get hashCode => Object.hash(runtimeType, id, url, description, price);
 
   @JsonKey(ignore: true)
   @override
@@ -172,7 +189,8 @@ abstract class _AnnouncementModel extends AnnouncementModel {
   factory _AnnouncementModel(
       {required final String id,
       required final String url,
-      required final String description}) = _$AnnouncementModelImpl;
+      required final String description,
+      required final String price}) = _$AnnouncementModelImpl;
   _AnnouncementModel._() : super._();
 
   factory _AnnouncementModel.fromJson(Map<String, dynamic> json) =
@@ -184,6 +202,8 @@ abstract class _AnnouncementModel extends AnnouncementModel {
   String get url;
   @override
   String get description;
+  @override
+  String get price;
   @override
   @JsonKey(ignore: true)
   _$$AnnouncementModelImplCopyWith<_$AnnouncementModelImpl> get copyWith =>

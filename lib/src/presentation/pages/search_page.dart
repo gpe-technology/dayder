@@ -13,19 +13,14 @@ class SearchPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final scrollController = ScrollController();
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () async => ref.refresh(fetchAnnouncementProvider.future),
-        child: Scrollbar(
-          controller: scrollController,
-          child: ListView(
-            controller: scrollController,
-            children: const [
-              RowGridAnnouncement(),
-              ColumnGridAnnouncement(),
-            ],
-          ),
+        onRefresh: () => ref.refresh(fetchAnnouncementProvider.future),
+        child: ListView(
+          children: const [
+            RowGridAnnouncement(),
+            ColumnGridAnnouncement(),
+          ],
         ),
       ),
       floatingActionButton: FloatingActionButton(

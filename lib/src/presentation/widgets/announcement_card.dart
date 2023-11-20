@@ -29,20 +29,20 @@ class AnnouncementCard extends StatelessWidget {
               ),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.symmetric(vertical: 2.0),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 2.0),
             child: Text(
-              'Title',
-              style: TextStyle(
+              announcementModel.description,
+              style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 overflow: TextOverflow.ellipsis,
               ),
               maxLines: 2,
             ),
           ),
-          const Text(
-            'Price',
-            style: TextStyle(overflow: TextOverflow.ellipsis),
+          Text(
+            '€ ${announcementModel.price}',
+            style: const TextStyle(overflow: TextOverflow.ellipsis),
             maxLines: 1,
           ),
         ],
