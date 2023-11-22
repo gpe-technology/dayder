@@ -52,16 +52,15 @@ class PublishPage extends HookConsumerWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       onPressed: () {
-                        const uuid = Uuid();
+                        final announcement = AnnouncementModel(
+                          //TODO Encapsulate generate id
+                          id: const Uuid().v1(),
+                          url: "",
+                          description: descriptionController.text,
+                          price: priceController.text,
+                        );
                         final future = ref.read(
-                          postProvider(
-                            AnnouncementModel(
-                              id: uuid.v1(),
-                              url: "",
-                              description: descriptionController.text,
-                              price: priceController.text,
-                            ),
-                          ).future,
+                          postProvider(announcement).future,
                         );
                         pendingAdd.value = future;
                       },
