@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/src/app_router.gr.dart';
-import 'package:dayder/src/presentation/logics/fetch_announcement/fetch_announcements.dart';
+import 'package:dayder/src/presentation/logics/announcement/announcement.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,7 +15,7 @@ class SearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       body: RefreshIndicator(
-        onRefresh: () => ref.refresh(fetchAnnouncementProvider.future),
+        onRefresh: () => ref.refresh(getAllProvider.future),
         child: ListView(
           children: const [
             RowGridAnnouncement(),
@@ -25,7 +25,7 @@ class SearchPage extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.pushRoute(const Publish());
+          context.pushRoute(Publish());
         },
         tooltip: 'Publish',
         mini: true,
