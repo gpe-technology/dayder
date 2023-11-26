@@ -21,6 +21,7 @@ AnnouncementModel _$AnnouncementModelFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$AnnouncementModel {
   String get id => throw _privateConstructorUsedError;
+  String get title => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
   String get price => throw _privateConstructorUsedError;
@@ -37,7 +38,8 @@ abstract class $AnnouncementModelCopyWith<$Res> {
           AnnouncementModel value, $Res Function(AnnouncementModel) then) =
       _$AnnouncementModelCopyWithImpl<$Res, AnnouncementModel>;
   @useResult
-  $Res call({String id, String url, String description, String price});
+  $Res call(
+      {String id, String title, String url, String description, String price});
 }
 
 /// @nodoc
@@ -54,6 +56,7 @@ class _$AnnouncementModelCopyWithImpl<$Res, $Val extends AnnouncementModel>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? url = null,
     Object? description = null,
     Object? price = null,
@@ -62,6 +65,10 @@ class _$AnnouncementModelCopyWithImpl<$Res, $Val extends AnnouncementModel>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       url: null == url
           ? _value.url
@@ -87,7 +94,8 @@ abstract class _$$AnnouncementModelImplCopyWith<$Res>
       __$$AnnouncementModelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String url, String description, String price});
+  $Res call(
+      {String id, String title, String url, String description, String price});
 }
 
 /// @nodoc
@@ -102,6 +110,7 @@ class __$$AnnouncementModelImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? id = null,
+    Object? title = null,
     Object? url = null,
     Object? description = null,
     Object? price = null,
@@ -110,6 +119,10 @@ class __$$AnnouncementModelImplCopyWithImpl<$Res>
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      title: null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
               as String,
       url: null == url
           ? _value.url
@@ -132,6 +145,7 @@ class __$$AnnouncementModelImplCopyWithImpl<$Res>
 class _$AnnouncementModelImpl extends _AnnouncementModel {
   _$AnnouncementModelImpl(
       {required this.id,
+      required this.title,
       required this.url,
       required this.description,
       required this.price})
@@ -143,6 +157,8 @@ class _$AnnouncementModelImpl extends _AnnouncementModel {
   @override
   final String id;
   @override
+  final String title;
+  @override
   final String url;
   @override
   final String description;
@@ -151,7 +167,7 @@ class _$AnnouncementModelImpl extends _AnnouncementModel {
 
   @override
   String toString() {
-    return 'AnnouncementModel(id: $id, url: $url, description: $description, price: $price)';
+    return 'AnnouncementModel(id: $id, title: $title, url: $url, description: $description, price: $price)';
   }
 
   @override
@@ -160,6 +176,7 @@ class _$AnnouncementModelImpl extends _AnnouncementModel {
         (other.runtimeType == runtimeType &&
             other is _$AnnouncementModelImpl &&
             (identical(other.id, id) || other.id == id) &&
+            (identical(other.title, title) || other.title == title) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.description, description) ||
                 other.description == description) &&
@@ -168,7 +185,8 @@ class _$AnnouncementModelImpl extends _AnnouncementModel {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, url, description, price);
+  int get hashCode =>
+      Object.hash(runtimeType, id, title, url, description, price);
 
   @JsonKey(ignore: true)
   @override
@@ -188,6 +206,7 @@ class _$AnnouncementModelImpl extends _AnnouncementModel {
 abstract class _AnnouncementModel extends AnnouncementModel {
   factory _AnnouncementModel(
       {required final String id,
+      required final String title,
       required final String url,
       required final String description,
       required final String price}) = _$AnnouncementModelImpl;
@@ -198,6 +217,8 @@ abstract class _AnnouncementModel extends AnnouncementModel {
 
   @override
   String get id;
+  @override
+  String get title;
   @override
   String get url;
   @override

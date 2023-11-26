@@ -25,7 +25,7 @@ class SearchPage extends ConsumerWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          context.pushRoute(Publish());
+          context.pushRoute(const Publish());
         },
         tooltip: 'Publish',
         mini: true,

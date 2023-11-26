@@ -10,6 +10,7 @@ class AnnouncementModel with _$AnnouncementModel {
 
   factory AnnouncementModel({
     required String id,
+    required String title,
     required String url,
     required String description,
     required String price,

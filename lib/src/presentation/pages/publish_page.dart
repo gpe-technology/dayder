@@ -13,6 +13,7 @@ class PublishPage extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
     TextEditingController priceController = TextEditingController();
     final pendingAdd = useState<Future<void>?>(null);
@@ -35,8 +36,13 @@ class PublishPage extends HookConsumerWidget {
                     ),
                   ),
                   InputTextField(
+                    controller: titleController,
+                    hintText: 'Title',
+                  ),
+                  InputTextField(
                     controller: descriptionController,
                     hintText: 'Description',
+                    maxLines: 10,
                   ),
                   InputTextField(
                     controller: priceController,
@@ -55,7 +61,8 @@ class PublishPage extends HookConsumerWidget {
                         final announcement = AnnouncementModel(
                           //TODO Encapsulate generate id
                           id: const Uuid().v1(),
-                          url: "",
+                          title: titleController.text,
+                          url: '',
                           description: descriptionController.text,
                           price: priceController.text,
                         );

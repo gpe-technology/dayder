@@ -1,21 +1,23 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dayder/src/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
 import '../../data/models/announcement_model/announcement_model.dart';
 
 class AnnouncementCard extends StatelessWidget {
   const AnnouncementCard(
-    this.announcementModel, {
-    this.onTap,
+    this.announcement, {
     super.key,
   });
 
-  final AnnouncementModel announcementModel;
-  final Function()? onTap;
+  final AnnouncementModel announcement;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () {
+        context.pushRoute(Detail(announcement: announcement));
+      },
       child: Column(
         children: [
           Expanded(
@@ -23,16 +25,13 @@ class AnnouncementCard extends StatelessWidget {
             child: Card(
               margin: EdgeInsets.zero,
               elevation: 0.0,
-              child: Image.network(
-                announcementModel.url,
-                fit: BoxFit.cover,
-              ),
+              child: Image.network(announcement.url, fit: BoxFit.cover),
             ),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 2.0),
             child: Text(
-              announcementModel.description,
+              announcement.description,
               style: const TextStyle(
                 fontWeight: FontWeight.bold,
                 overflow: TextOverflow.ellipsis,
@@ -41,7 +40,7 @@ class AnnouncementCard extends StatelessWidget {
             ),
           ),
           Text(
-            '€ ${announcementModel.price}',
+            '€ ${announcement.price}',
             style: const TextStyle(overflow: TextOverflow.ellipsis),
             maxLines: 1,
           ),

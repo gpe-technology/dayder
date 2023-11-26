@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:logger/logger.dart';
 
 import '../logics/announcement/announcement.dart';
 import 'announcement_card.dart';
@@ -29,16 +28,7 @@ class RowGridAnnouncement extends ConsumerWidget {
                 crossAxisCount: 1,
                 mainAxisSpacing: 12.0,
                 crossAxisSpacing: 12.0,
-                children: data
-                    .map(
-                      (e) => AnnouncementCard(
-                        e,
-                        onTap: () {
-                          Logger().i(e.id);
-                        },
-                      ),
-                    )
-                    .toList(),
+                children: data.map((e) => AnnouncementCard(e)).toList(),
               );
             },
             error: (error, _) => Center(child: Text(error.toString())),
