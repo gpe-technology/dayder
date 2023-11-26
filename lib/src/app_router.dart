@@ -81,7 +81,7 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           path: '/detail',
           page: Detail.page,
-          fullscreenDialog: true,
+          title: (_, routeData) => 'Detail',
         )
       ];
 }
