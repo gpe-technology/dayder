@@ -14,7 +14,7 @@ class Repository {
     return result;
   }
 
-  Future<void> post(String id, AnnouncementModel announcement) async {
-    await db.collection('announcements').doc(id).set(announcement.toJson());
+  Future<void> post(AnnouncementModel announcement) async {
+    await db.collection('announcements').doc(announcement.id).set(announcement.toJson());
   }
 }

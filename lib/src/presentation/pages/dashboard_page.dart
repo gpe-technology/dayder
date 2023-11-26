@@ -12,14 +12,15 @@ class DashboardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
       appBarBuilder: (_, tabsRouter) {
-        return tabsRouter.current.name != const Search().routeName
-            ? AppBar(
-                title: Text(tabsRouter.current.title(context)),
-              )
-            : const PreferredSize(
-                preferredSize: Size.fromHeight(56),
-                child: SearchTextField(),
-              );
+        return AppBar(
+          title: Text(tabsRouter.current.title(context)),
+          bottom: tabsRouter.current.name != const Search().routeName
+              ? null
+              : const PreferredSize(
+                  preferredSize: Size.fromHeight(56),
+                  child: SearchTextField(),
+                ),
+        );
       },
       routes: const [
         Search(),

@@ -12,5 +12,5 @@ Future<List<AnnouncementModel>> getAll(GetAllRef ref) {
 
 @riverpod
 Future<void> post(PostRef ref, AnnouncementModel announcement) async {
-  await Repository().post(announcement.id, announcement);
+  await Repository().post(announcement);
 }

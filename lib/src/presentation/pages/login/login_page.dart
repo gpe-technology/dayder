@@ -29,7 +29,7 @@ class LoginPage extends ConsumerWidget {
             ElevatedButton(
               onPressed: () async {
                 ref
-                    .read(phoneNumberProvider.notifier)
+                    .read(phoneNumberStateProvider.notifier)
                     .update((state) => controller.text);
                 await ref
                     .read(authNotifierProvider.notifier)
