@@ -44,39 +44,14 @@ class AppRouter extends $AppRouter {
         AutoRoute(
           path: '/publish',
           page: Publish.page,
-          fullscreenDialog: true,
         ),
         AutoRoute(
           path: '/profile',
-          page: ProfileWrapper.page,
-          title: (_, routeData) => 'Profile',
-          children: [
-            AutoRoute(
-              path: '',
-              page: Profile.page,
-              fullscreenDialog: true,
-            ),
-            AutoRoute(
-              path: 'set-name',
-              page: SetName.page,
-              fullscreenDialog: true,
-            ),
-            AutoRoute(
-              path: 'set-email',
-              page: SetEmail.page,
-              fullscreenDialog: true,
-            ),
-            AutoRoute(
-              path: 'update-name',
-              page: UpdateName.page,
-              fullscreenDialog: true,
-            ),
-            AutoRoute(
-              path: 'update-email',
-              page: UpdateEmail.page,
-              fullscreenDialog: true,
-            ),
-          ],
+          page: Profile.page,
+        ),
+        AutoRoute(
+          path: '/set-name',
+          page: SetName.page,
         ),
         AutoRoute(
           path: '/detail',

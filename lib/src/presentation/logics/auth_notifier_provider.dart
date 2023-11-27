@@ -1,27 +1,32 @@
 import 'package:dayder/features/authentication/authentication.dart';
-import 'package:dayder/features/authentication/src/data/user_model/user_model.dart';
 import 'package:dayder/src/presentation/logics/auth_provider.dart';
+import 'package:dayder/src/presentation/logics/user_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 
-final authNotifierProvider =
+final authProvider = Provider.autoDispose<AuthState>(
+  (ref) => ref.watch(authStateNotifierProvider),
+);
+
+final authStateNotifierProvider =
     StateNotifierProvider.autoDispose<AuthStateNotifier, AuthState>((ref) {
-  final authState = ref.watch(authProvider);
-  return AuthStateNotifier(authState);
+  final authState = ref.watch(authStateProvider);
+  return AuthStateNotifier(ref, authState);
 });
 
 class AuthStateNotifier extends StateNotifier<AuthState> {
-  AuthStateNotifier(super.state);
+  AuthStateNotifier(this.ref, super.state);
+
+  final Ref ref;
 
   String _verificationId = '';
 
   final _auth = GetIt.instance<FirebaseAuthentication>();
 
-  UserModel? get currentUser => _auth.currentUser();
-
   Future<void> login(String smsCode) async {
     await _auth.signInWithPhoneBy(_verificationId, smsCode);
+    ref.read(userStateProvider.notifier).update((state) => _auth.currentUser());
     state = AuthState.isLogin;
   }
 
@@ -35,6 +40,7 @@ class AuthStateNotifier extends StateNotifier<AuthState> {
 
   Future<void> logout() async {
     await _auth.logout();
+    ref.invalidate(userStateProvider);
     state = AuthState.isLogout;
   }
 

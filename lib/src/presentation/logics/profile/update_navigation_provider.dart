@@ -9,8 +9,11 @@ enum UpdateState {
   isVerifyEmail,
 }
 
-final updateNavigationNotifierProvider =
-    StateNotifierProvider<UpdateControllerNotifier, UpdateState>(
+final updateNavigationProvider = Provider.autoDispose(
+    (ref) => ref.watch(updateNavigationStateNotifierProvider));
+
+final updateNavigationStateNotifierProvider =
+    StateNotifierProvider.autoDispose<UpdateControllerNotifier, UpdateState>(
   (ref) => UpdateControllerNotifier(UpdateState.isProfile),
 );
 

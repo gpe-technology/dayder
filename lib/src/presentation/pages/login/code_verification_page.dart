@@ -16,7 +16,7 @@ class CodeVerificationPage extends ConsumerWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            ref.read(authNotifierProvider.notifier).backToLogin();
+            ref.read(authStateNotifierProvider.notifier).backToLogin();
           },
           icon: Icon(Icons.adaptive.arrow_back),
         ),
@@ -33,7 +33,7 @@ class CodeVerificationPage extends ConsumerWidget {
             ElevatedButton(
               onPressed: () async {
                 await ref
-                    .read(authNotifierProvider.notifier)
+                    .read(authStateNotifierProvider.notifier)
                     .login(controller.text);
               },
               child: const Text('Send'),

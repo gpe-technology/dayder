@@ -32,7 +32,7 @@ class LoginPage extends ConsumerWidget {
                     .read(phoneNumberStateProvider.notifier)
                     .update((state) => controller.text);
                 await ref
-                    .read(authNotifierProvider.notifier)
+                    .read(authStateNotifierProvider.notifier)
                     .verifyPhone(controller.text);
               },
               child: const Text('SingIn'),

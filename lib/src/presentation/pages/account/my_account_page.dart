@@ -20,7 +20,7 @@ class MyAccountPage extends ConsumerWidget {
               title: 'Profile',
               icon: Icons.person_rounded,
               onTap: () {
-                context.pushRoute(const ProfileWrapper());
+                context.pushRoute(const Profile());
               },
             ),
             const AppListTile(
@@ -29,7 +29,7 @@ class MyAccountPage extends ConsumerWidget {
             ),
             TextButton(
               onPressed: () async {
-                await ref.read(authNotifierProvider.notifier).logout();
+                await ref.read(authStateNotifierProvider.notifier).logout();
               },
               child: const Text('Logout'),
             ),

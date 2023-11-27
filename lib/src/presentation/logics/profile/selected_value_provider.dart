@@ -2,4 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../domain/update_value.dart';
 
-final selectedValueProvider = StateProvider<SelectedValue?>((ref) => null);
+final selectedValueProvider =
+    Provider((ref) => ref.watch(selectedValueStateProvider));
+
+final selectedValueStateProvider = StateProvider<SelectedValue?>((ref) => null);

@@ -1,30 +1,25 @@
 import 'package:auto_route/annotations.dart';
 import 'package:dayder/src/presentation/logics/profile/selected_value_provider.dart';
-import 'package:dayder/src/presentation/logics/profile/value_provider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_hooks/flutter_hooks.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../logics/profile/update_navigation_notifier_provider.dart';
+import '../../logics/profile/update_name/update_name.dart';
 import '../../widgets/input_text_field.dart';
 
 @RoutePage(name: 'SetName')
-class SetNamePage extends ConsumerWidget {
+class SetNamePage extends HookConsumerWidget {
   const SetNamePage({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final selected = ref.watch(selectedValueProvider);
-    TextEditingController controller =
-        TextEditingController(text: selected?.value);
+    final name = ref.watch(selectedValueProvider);
+    TextEditingController controller = TextEditingController(text: name?.value);
+    final pendingUpdate = useState<Future<void>?>(null);
+    final snapshot = useFuture(pendingUpdate.value);
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {
-            ref.read(updateNavigationNotifierProvider.notifier).pop();
-          },
-          icon: const Icon(Icons.close_rounded),
-        ),
-        title: Text('Update ${selected?.title}'),
+        title: Text('Update ${name?.title}'),
       ),
       body: Column(
         children: [
@@ -35,14 +30,13 @@ class SetNamePage extends ConsumerWidget {
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
                 onPressed: () {
-                  ref
-                      .read(valueProvider.notifier)
-                      .update((state) => controller.text.trim());
-                  ref
-                      .watch(updateNavigationNotifierProvider.notifier)
-                      .updateName();
+                  final future = ref.watch(
+                      updateNameProvider(value: controller.text.trim()).future);
+                  pendingUpdate.value = future;
                 },
-                child: const Text('Update'),
+                child: snapshot.connectionState == ConnectionState.waiting
+                    ? const CircularProgressIndicator()
+                    : const Text('Update'),
               ),
             ),
           )

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dayder/src/app_router.gr.dart';
 import 'package:dayder/src/domain/update_value.dart';
-import 'package:dayder/src/presentation/logics/auth_notifier_provider.dart';
-import 'package:dayder/src/presentation/logics/profile/update_navigation_notifier_provider.dart';
+import 'package:dayder/src/presentation/logics/user_provider.dart';
 import 'package:dayder/src/presentation/widgets/app_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,9 +14,8 @@ class ProfilePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(authNotifierProvider.notifier);
-    final name = user.currentUser?.displayName ?? '';
-    final email = user.currentUser?.email ?? '';
+    final user = ref.watch(userProvider);
+    final name = user?.displayName ?? '';
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -35,28 +34,13 @@ class ProfilePage extends ConsumerWidget {
               icon: Icons.person_rounded,
               title: name,
               onTap: () {
-                ref.read(selectedValueProvider.notifier).update(
+                ref.read(selectedValueStateProvider.notifier).update(
                       (state) => SelectedValue(
                         title: 'Name',
                         value: name,
                       ),
                     );
-                ref.read(updateNavigationNotifierProvider.notifier).setName();
-              },
-            ),
-            AppListTile(
-              icon: user.currentUser!.emailVerified
-                  ? Icons.verified_rounded
-                  : Icons.email_rounded,
-              title: user.currentUser?.email ?? 'Add email',
-              onTap: () {
-                ref.read(selectedValueProvider.notifier).update(
-                      (state) => SelectedValue(
-                        title: 'Email',
-                        value: email,
-                      ),
-                    );
-                ref.read(updateNavigationNotifierProvider.notifier).setEmail();
+                context.pushRoute(const SetName());
               },
             ),
           ],

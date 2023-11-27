@@ -12,7 +12,7 @@ class AuthWrapper extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    AuthState authState = ref.watch(authNotifierProvider);
+    AuthState authState = ref.watch(authProvider);
     return AutoRouter.declarative(
       routes: (_) => [
         if (authState == AuthState.isLogin) const Dashboard(),

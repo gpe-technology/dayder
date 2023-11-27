@@ -20,7 +20,7 @@ void main() async {
   runApp(
     ProviderScope(
       overrides: [
-        authProvider.overrideWithValue(
+        authStateProvider.overrideWithValue(
             getIt<FirebaseAuthentication>().currentUser() != null
                 ? AuthState.isLogin
                 : AuthState.isLogout),
