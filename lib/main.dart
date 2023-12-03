@@ -1,12 +1,13 @@
 import 'package:dayder/core/setup.dart';
 import 'package:dayder/features/authentication/authentication.dart';
-import 'package:dayder/src/presentation/logics/auth_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 import 'firebase_options.dart';
 import 'src/app.dart';
+import 'src/presentation/logics/auth/auth_provider.dart';
 
 late final FirebaseAuth auth;
 

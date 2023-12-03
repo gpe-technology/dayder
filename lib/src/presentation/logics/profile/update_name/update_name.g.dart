@@ -6,7 +6,7 @@ part of 'update_name.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$updateNameHash() => r'35edee61c48b3156e296ba238fd0a55e2b236594';
+String _$updateNameHash() => r'665a005c211e781e0f554ebf44fa4b8adf2bdd8e';
 
 /// Copied from Dart SDK
 class _SystemHash {

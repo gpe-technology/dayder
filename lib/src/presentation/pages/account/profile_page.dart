@@ -1,12 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/src/app_router.gr.dart';
-import 'package:dayder/src/domain/update_value.dart';
-import 'package:dayder/src/presentation/logics/user_provider.dart';
-import 'package:dayder/src/presentation/widgets/app_list_tile.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../app_router.gr.dart';
+import '../../../domain/update_value.dart';
+import '../../logics/auth/user_provider.dart';
 import '../../logics/profile/selected_value_provider.dart';
+import '../../widgets/app_list_tile.dart';
 
 @RoutePage(name: 'Profile')
 class ProfilePage extends ConsumerWidget {

@@ -18,9 +18,7 @@ class SetNamePage extends HookConsumerWidget {
     final pendingUpdate = useState<Future<void>?>(null);
     final snapshot = useFuture(pendingUpdate.value);
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Update ${name?.title}'),
-      ),
+      appBar: AppBar(title: Text('Update ${name?.title}')),
       body: Column(
         children: [
           InputTextField(controller: controller),

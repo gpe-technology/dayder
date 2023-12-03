@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/src/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../logics/auth_notifier_provider.dart';
-import '../logics/auth_provider.dart';
+import '../../app_router.gr.dart';
+import '../logics/auth/auth_notifier_provider.dart';
+import '../logics/auth/auth_provider.dart';
 
 @RoutePage()
 class AuthWrapper extends ConsumerWidget {

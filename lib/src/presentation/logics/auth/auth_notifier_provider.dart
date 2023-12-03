@@ -1,9 +1,10 @@
 import 'package:dayder/features/authentication/authentication.dart';
-import 'package:dayder/src/presentation/logics/auth_provider.dart';
-import 'package:dayder/src/presentation/logics/user_provider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
+
+import 'auth_provider.dart';
+import 'user_provider.dart';
 
 final authProvider = Provider.autoDispose<AuthState>(
   (ref) => ref.watch(authStateNotifierProvider),
