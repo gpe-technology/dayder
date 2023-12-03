@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../logics/auth/auth_notifier_provider.dart';
+import '../../logics/auth/auth_provider.dart';
 import '../../logics/auth/phone_number_provider.dart';
 import '../../widgets/input_text_field.dart';
 
@@ -28,11 +28,8 @@ class LoginPage extends ConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () async {
-                ref
-                    .read(phoneNumberStateProvider.notifier)
-                    .update((state) => controller.text);
                 await ref
-                    .read(authStateNotifierProvider.notifier)
+                    .read(authStateProvider.notifier)
                     .verifyPhone(controller.text);
               },
               child: const Text('SingIn'),
