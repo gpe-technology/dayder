@@ -29,7 +29,7 @@ class MyAccountPage extends ConsumerWidget {
             ),
             TextButton(
               onPressed: () async {
-                await ref.read(authStateProvider.notifier).logout();
+                await ref.read(authNotifierProvider.notifier).logout();
               },
               child: const Text('Logout'),
             ),

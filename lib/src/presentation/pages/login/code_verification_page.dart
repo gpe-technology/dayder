@@ -19,7 +19,7 @@ class CodeVerificationPage extends HookConsumerWidget {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            ref.read(authStateProvider.notifier).backToLogin();
+            ref.read(authNotifierProvider.notifier).backToLogin();
           },
           icon: Icon(Icons.adaptive.arrow_back),
         ),
@@ -37,7 +37,7 @@ class CodeVerificationPage extends HookConsumerWidget {
             ElevatedButton(
               onPressed: () {
                 final future =
-                    ref.read(authStateProvider.notifier).login(controller.text);
+                    ref.read(authNotifierProvider.notifier).login(controller.text);
                 pendingVerification.value = future;
               },
               child: snapshot.connectionState != ConnectionState.waiting

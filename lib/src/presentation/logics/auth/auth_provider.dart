@@ -9,10 +9,10 @@ import 'user_provider.dart';
 
 final authProvider = Provider<AuthState>((ref) => throw UnimplementedError());
 
-final authStateProvider =
-    NotifierProvider<AuthStateNotifier, AuthState>(AuthStateNotifier.new);
+final authNotifierProvider =
+    NotifierProvider<AuthNotifier, AuthState>(AuthNotifier.new);
 
-class AuthStateNotifier extends Notifier<AuthState> {
+class AuthNotifier extends Notifier<AuthState> {
   @override
   AuthState build() {
     final auth = ref.watch(authProvider);

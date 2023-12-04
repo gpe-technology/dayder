@@ -35,7 +35,7 @@ class ProfilePage extends ConsumerWidget {
               icon: Icons.person_rounded,
               title: name,
               onTap: () {
-                ref.read(selectedValueStateProvider.notifier).update(
+                ref.read(selectedValueProvider.notifier).update(
                       (state) => SelectedValue(
                         title: 'Name',
                         value: name,

@@ -12,7 +12,7 @@ class AuthWrapper extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final authState = ref.watch(authStateProvider);
+    final authState = ref.watch(authNotifierProvider);
     return AutoRouter.declarative(
       routes: (_) => [
         switch (authState) {

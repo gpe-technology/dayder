@@ -29,7 +29,7 @@ class LoginPage extends ConsumerWidget {
             ElevatedButton(
               onPressed: () async {
                 await ref
-                    .read(authStateProvider.notifier)
+                    .read(authNotifierProvider.notifier)
                     .verifyPhone(controller.text);
               },
               child: const Text('SingIn'),
