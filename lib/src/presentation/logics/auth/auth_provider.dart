@@ -10,15 +10,14 @@ import 'user_provider.dart';
 final authProvider = Provider<AuthState>((ref) => throw UnimplementedError());
 
 final authStateProvider =
-    StateNotifierProvider<AuthStateNotifier, AuthState>((ref) {
-  final auth = ref.watch(authProvider);
-  return AuthStateNotifier(ref, auth);
-});
+    NotifierProvider<AuthStateNotifier, AuthState>(AuthStateNotifier.new);
 
-class AuthStateNotifier extends StateNotifier<AuthState> {
-  AuthStateNotifier(this.ref, super.state);
-
-  final Ref ref;
+class AuthStateNotifier extends Notifier<AuthState> {
+  @override
+  AuthState build() {
+    final auth = ref.watch(authProvider);
+    return auth;
+  }
 
   String _verificationId = '';
 
