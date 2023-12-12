@@ -27,7 +27,7 @@ void main() async {
                 ? const AuthState.login()
                 : const AuthState.logout()),
       ],
-      child: App(),
+      child: App(title: 'Dayder'),
     ),
   );
 }

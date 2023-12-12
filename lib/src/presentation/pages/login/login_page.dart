@@ -7,35 +7,38 @@ import '../../logics/auth/phone_number_provider.dart';
 import '../../widgets/input_text_field.dart';
 
 @RoutePage(name: 'Login')
-class LoginPage extends ConsumerWidget {
+class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final phoneNumber = ref.watch(phoneNumberProvider);
-    TextEditingController controller = TextEditingController(text: phoneNumber);
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Login'),
       ),
       body: SafeArea(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: [
-            InputTextField(
-              hintText: '+33 7 00 00 00 00 ',
-              controller: controller,
-            ),
-            ElevatedButton(
-              onPressed: () async {
-                await ref
-                    .read(authNotifierProvider.notifier)
-                    .verifyPhone(controller.text);
-              },
-              child: const Text('SingIn'),
-            )
-          ],
-        ),
+        child: Consumer(builder: (context, WidgetRef ref, _) {
+          final phoneNumber = ref.watch(phoneNumberProvider);
+          TextEditingController controller =
+              TextEditingController(text: phoneNumber);
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              InputTextField(
+                hintText: '+33 7 00 00 00 00 ',
+                controller: controller,
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  await ref
+                      .read(authNotifierProvider.notifier)
+                      .verifyPhone(controller.text);
+                },
+                child: const Text('SingIn'),
+              )
+            ],
+          );
+        }),
       ),
     );
   }

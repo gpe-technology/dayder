@@ -44,7 +44,7 @@ class AuthNotifier extends Notifier<AuthState> {
     state = const AuthState.logout();
   }
 
-  backToLogin() {
+  void backToLogin() {
     state = const AuthState.logout();
   }
 }

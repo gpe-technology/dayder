@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class App extends ConsumerWidget {
-  App({super.key});
+  App({required this.title, super.key});
+
+  final String title;
 
   final _appRouter = AppRouter();
 
@@ -12,7 +14,7 @@ class App extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      title: 'Dayder',
+      title: title,
       theme: theme,
       darkTheme: darkTheme,
       routerConfig: _appRouter.config(),

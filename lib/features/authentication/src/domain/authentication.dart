@@ -1,5 +1,7 @@
+import '../data/user_model/user_model.dart';
+
 abstract class Authentication {
-  currentUser();
+  UserModel? currentUser();
 
   Future<void> verifyPhone(String number, Function(String, int?) codeSent);
 
