@@ -31,4 +31,3 @@ jobs:
         with:
           lane: 'test'
           subdirectory: "android"
-          bundle-install-path: "vendor/bundle"

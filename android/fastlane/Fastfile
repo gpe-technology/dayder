@@ -18,7 +18,7 @@ default_platform(:android)
 platform :android do
   desc "Runs all the tests"
   lane :test do |options|
-    sh("flutter", "pub", "get")
+    sh("flutter", "test", "--machine", "--coverage")
   end
 
   desc "Submit a new Beta Build to Crashlytics Beta"
