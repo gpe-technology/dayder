@@ -40,7 +40,7 @@ jobs:
 #          subdirectory: "android"
 
       - name: Copy play store upload key to app
-        run: echo -e ${{ env.PLAY_STORE_UPLOAD_KEY }} | base64 -d > android/fastlane/play-store-credentials.json
+        run: echo "${{env.PLAY_STORE_UPLOAD_KEY}}" | base64 --decode > android/fastlane/play-store-credentials.json
 
       - name: validate play store key
         uses: maierj/fastlane-action@v3.0.0
