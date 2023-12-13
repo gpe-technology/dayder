@@ -36,7 +36,7 @@ jobs:
           lane: 'beta'
           subdirectory: "android"
 
-      - name: Copy upload to play store to app
+      - name: Copy play store upload key to app
         run: echo -e ${{ env.PLAY_STORE_UPLOAD_KEY }} | base64 -d > android/fastlane/play-store-credentials.json
 
       - name: validate play store key

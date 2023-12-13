@@ -22,9 +22,9 @@ platform :android do
   end
 
   desc "validate play store key"
-  lane :validate do
+  lane :deploy do
     validate_play_store_json_key(
-      json_key_data: "fastlane/play-store-credentials.json"
+      json_key: "fastlane/play-store-credentials.json"
     )
   end
 end
