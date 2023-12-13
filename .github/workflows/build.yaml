@@ -22,6 +22,5 @@ jobs:
           channel: "stable"
       - name: Get dependencies
         run: |
-          flutter --disable-telemetry
           flutter pub get
 
