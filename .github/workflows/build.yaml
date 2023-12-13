@@ -4,8 +4,8 @@ on:
       - main
 name: Build android
 jobs:
-  install-env:
-    name: Install environment
+  build-apk:
+    name: Build android apk
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -20,14 +20,6 @@ jobs:
         with:
           flutter-version: '3.13.2'
           channel: "stable"
-
-  build-apk:
-    name: build apk
-    runs-on: [ self-hosted, linux, x64, gpu ]
-    needs: install-env
-    steps:
       - name: Get dependencies
         run: |
           flutter pub get
-    
-
