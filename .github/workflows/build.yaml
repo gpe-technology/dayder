@@ -8,30 +8,30 @@ jobs:
     name: Build android apk
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Install java
-        uses: actions/setup-java@v3
-        with:
-          java-version: "17"
-          distribution: "temurin"
-
-      - name: Install flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.13.2'
-          channel: "stable"
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
-
-      - name: Setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0'
-          working-directory: 'android'
-          bundler-cache: true
+#      - name: Checkout repository
+#        uses: actions/checkout@v3
+#
+#      - name: Install java
+#        uses: actions/setup-java@v3
+#        with:
+#          java-version: "17"
+#          distribution: "temurin"
+#
+#      - name: Install flutter
+#        uses: subosito/flutter-action@v2
+#        with:
+#          flutter-version: '3.13.2'
+#          channel: "stable"
+#
+#      - name: Setup Android SDK
+#        uses: android-actions/setup-android@v2
+#
+#      - name: Setup ruby
+#        uses: ruby/setup-ruby@v1
+#        with:
+#          ruby-version: '3.0'
+#          working-directory: 'android'
+#          bundler-cache: true
 #
 #      - name: Build app bundle release
 #        uses: maierj/fastlane-action@v3.0.0
@@ -40,10 +40,10 @@ jobs:
 #          subdirectory: "android"
 
       - name: Copy play store upload key to app
-        run: echo "${{env.PLAY_STORE_UPLOAD_KEY}}" | base64 --decode > android/fastlane/play-store-credentials.json
+        run: echo "${{env.PLAY_STORE_UPLOAD_KEY}}" | base64 --decode
 
-      - name: validate play store key
-        uses: maierj/fastlane-action@v3.0.0
-        with:
-          lane: 'deploy'
-          subdirectory: "android"
+#      - name: validate play store key
+#        uses: maierj/fastlane-action@v3.0.0
+#        with:
+#          lane: 'deploy'
+#          subdirectory: "android"
