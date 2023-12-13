@@ -23,18 +23,21 @@ jobs:
           flutter-version: '3.13.2'
           channel: "stable"
 
-      - name: install ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0'
-          working-directory: 'android'
-          bundler-cache: true
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
 
-      - name: Build app bundle release
-        uses: maierj/fastlane-action@v3.0.0
-        with:
-          lane: 'beta'
-          subdirectory: "android"
+#      - name: Setup ruby
+#        uses: ruby/setup-ruby@v1
+#        with:
+#          ruby-version: '3.0'
+#          working-directory: 'android'
+#          bundler-cache: true
+#
+#      - name: Build app bundle release
+#        uses: maierj/fastlane-action@v3.0.0
+#        with:
+#          lane: 'beta'
+#          subdirectory: "android"
 
       - name: Copy play store upload key to app
         run: echo -e ${{ env.PLAY_STORE_UPLOAD_KEY }} | base64 -d > android/fastlane/play-store-credentials.json
