@@ -32,15 +32,15 @@ jobs:
           ruby-version: '3.0'
           working-directory: 'android'
           bundler-cache: true
-#
-#      - name: Build app bundle release
-#        uses: maierj/fastlane-action@v3.0.0
-#        with:
-#          lane: 'beta'
-#          subdirectory: "android"
+      #
+      #      - name: Build app bundle release
+      #        uses: maierj/fastlane-action@v3.0.0
+      #        with:
+      #          lane: 'beta'
+      #          subdirectory: "android"
 
       - name: Copy play store upload key to app
-        run: echo "${vars.PLAY_STORE_UPLOAD_KEY}" > android/fastlane/play-store-credentials.json
+        run: echo "${{vars.PLAY_STORE_UPLOAD_KEY}}" > android/fastlane/play-store-credentials.json
 
       - name: validate play store key
         uses: maierj/fastlane-action@v3.0.0
