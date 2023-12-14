@@ -23,8 +23,9 @@ platform :android do
 
   desc "validate play store key"
   lane :deploy do
-    validate_play_store_json_key(
-      json_key: "fastlane/play-store-credentials.json"
-    )
+    sh("ls")
+#     validate_play_store_json_key(
+#       json_key: "play-store-credentials.json"
+#     )
   end
 end
