@@ -42,8 +42,11 @@ jobs:
       - name: Copy play store upload key to app
         run: echo "${{vars.PLAY_STORE_UPLOAD_KEY}}" > android/fastlane/play-store-credentials.json
 
-      - name: validate play store key
-        uses: maierj/fastlane-action@v3.0.0
-        with:
-          lane: 'deploy'
-          subdirectory: "android"
+      - name: current path
+        run: pwd
+
+#      - name: validate play store key
+#        uses: maierj/fastlane-action@v3.0.0
+#        with:
+#          lane: 'deploy'
+#          subdirectory: "android"
