@@ -20,7 +20,7 @@ platform :android do
   lane :beta do
     gradle(task: 'clean')
     build_android_app(
-        task: 'assemble',
+        task: 'bundle',
         build_type: 'Release',
         properties: {
             "android.injected.signing.store.file" => ENV["KEYSTORE_PATH"],
@@ -34,7 +34,7 @@ platform :android do
                   service_credentials_file: "fastlane/service-account-key.json",
                   groups: "testers",
                   release_notes: "Lots of amazing new features to test out!",
-                  android_artifact_path:"../build/app/outputs/apk/release/app-release.apk",
+                  android_artifact_path:"../build/app/outputs/bundle/release/app-release.aab",
                   android_artifact_type:"AAB",
                 )
   end
@@ -42,7 +42,8 @@ platform :android do
   desc "Upload to playstore"
   lane :deploy do
     upload_to_play_store(
-      json_key: "fastlane/play-store-credentials.json",
+        json_key: "fastlane/play-store-credentials.json",
+        apk: "../build/app/outputs/apk/release/app-release.apk"
     )
   end
 end
