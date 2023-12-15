@@ -18,10 +18,11 @@ default_platform(:android)
 platform :android do
   desc "Build app bundle release"
   lane :beta do
+    gradle(task: 'clean')
     gradle(
-       task: "assemble",
-       flavor: "build",
-       build_type: "Release"
+       task: 'bundle',
+       build_type: 'Release',
+       print_command: true,
     )
   end
 
