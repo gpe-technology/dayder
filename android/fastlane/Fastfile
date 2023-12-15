@@ -18,7 +18,7 @@ default_platform(:android)
 platform :android do
   desc "Build app bundle release"
   lane :beta do
-     gradle(task: "clean assembleRelease")
+     sh('pwd')
   end
 
   desc "validate play store key"
