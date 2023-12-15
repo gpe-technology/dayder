@@ -22,7 +22,6 @@ platform :android do
     gradle(
           task: 'build',
           build_type: 'Release',
-          print_command: true,
        )
   end
 
