@@ -36,11 +36,11 @@ jobs:
           working-directory: 'android'
           bundler-cache: true
 
-      - name: Build app bundle release
-        uses: maierj/fastlane-action@v3.0.0
-        with:
-          lane: 'beta'
-          subdirectory: "android"
+#      - name: Build app bundle release
+#        uses: maierj/fastlane-action@v3.0.0
+#        with:
+#          lane: 'beta'
+#          subdirectory: "android"
 
       - name: validate play store key
         uses: maierj/fastlane-action@v3.0.0
