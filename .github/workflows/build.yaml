@@ -46,10 +46,13 @@ jobs:
     name: Deploy android apk to app distrib
     runs-on: ubuntu-latest
     steps:
+      - name: Service account key
+        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > service-account-key.json
+
       - name: upload artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
-          serviceCredentialsFileContent: ${{ secrets.SA_FIREBASE }}
+          serviceCredentialsFile: service-account-key.json
           groups: testers
           file: build/outputs/apk/flutter-apk/app-debug.apk
