@@ -23,9 +23,9 @@ platform :android do
         build_type: 'Release'
          properties: {
             "android.injected.signing.store.file" => "keystore.jks",
-            "android.injected.signing.store.password" => ${{secrets.ANDROID_STORE_PASSWORD}},
-            "android.injected.signing.key.alias" => ${{secrets.ANDROID_KEY_ALIAS}},
-            "android.injected.signing.key.password" => ${{secrets.ANDROID_STORE_PASSWORD}},
+            "android.injected.signing.store.password" => ENV["ANDROID_STORE_PASSWORD"],
+            "android.injected.signing.key.alias" => ENV["ANDROID_KEY_ALIAS"],
+            "android.injected.signing.key.password" => ENV["ANDROID_STORE_PASSWORD"],
          }
     )
   end
