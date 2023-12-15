@@ -18,6 +18,7 @@ default_platform(:android)
 platform :android do
   desc "Build app bundle release"
   lane :beta do
+    sh('pwd')
     gradle(
           task: 'build',
           build_type: 'Release',
