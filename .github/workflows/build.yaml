@@ -46,8 +46,8 @@ jobs:
       - name: Build app bundle release
         uses: maierj/fastlane-action@v3.0.0
         env:
-          ANDROID_STORE_PASSWORD: ${{secret.ANDROID_STORE_PASSWORD}}
-          ANDROID_KEY_ALIAS: ${{secret.ANDROID_KEY_ALIAS}}
+          ANDROID_STORE_PASSWORD: ${{secrets.ANDROID_STORE_PASSWORD}}
+          ANDROID_KEY_ALIAS: ${{secrets.ANDROID_KEY_ALIAS}}
         with:
           lane: 'beta'
           subdirectory: "android"
