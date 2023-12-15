@@ -20,7 +20,7 @@ platform :android do
   lane :beta do
     gradle(
         task: 'assemble',
-        build_type: 'Release'
+        build_type: 'Release',
         properties: {
             "android.injected.signing.store.file" => "keystore.jks",
             "android.injected.signing.store.password" => ENV["ANDROID_STORE_PASSWORD"],
