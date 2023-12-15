@@ -62,7 +62,7 @@ platform :android do
   lane :playstore do
     upload_to_play_store(
         json_key: "fastlane/play-store-credentials.json",
-        apk: "../build/app/outputs/bundle/release/app-release.aab"
+        aab: "../build/app/outputs/bundle/release/app-release.aab"
     )
   end
 end
