@@ -11,3 +11,4 @@ key.properties
 **/*.keystore
 **/*.jks
 /fastlane/play-store-credentials.json
+/fastlane/service-account-key.json

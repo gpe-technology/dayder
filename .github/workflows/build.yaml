@@ -49,6 +49,7 @@ jobs:
       - name: Build app bundle release
         uses: maierj/fastlane-action@v3.0.0
         env:
+          KEYSTORE_PATH: "/home/runner/work/dayder/dayder/android/app/keystore.jks"
           ANDROID_STORE_PASSWORD: ${{secrets.ANDROID_STORE_PASSWORD}}
           ANDROID_KEY_ALIAS: ${{secrets.ANDROID_KEY_ALIAS}}
           FIREBASE_APP_ID_ANDROID: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
