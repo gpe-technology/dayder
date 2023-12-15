@@ -22,12 +22,18 @@ platform :android do
         task: 'assemble',
         build_type: 'Release',
         properties: {
-            "android.injected.signing.store.file" => "keystore.jks",
+            "android.injected.signing.store.file" => "fastlane/keystore.jks",
             "android.injected.signing.store.password" => ENV["ANDROID_STORE_PASSWORD"],
             "android.injected.signing.key.alias" => ENV["ANDROID_KEY_ALIAS"],
             "android.injected.signing.key.password" => ENV["ANDROID_STORE_PASSWORD"],
         }
     )
+    release = firebase_app_distribution(
+                  app: ENV["FIREBASE_APP_ID_ANDROID"],
+                  service_credentials_file: "fastlane/service-account-key.json",
+                  testers: "testers",
+                  release_notes: "Lots of amazing new features to test out!"
+                )
   end
 
   desc "Upload to playstore"

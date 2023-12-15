@@ -43,25 +43,18 @@ jobs:
         run: |
           flutter pub get
 
+      - name: Service account key
+        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > app/fastlane/service-account-key.json
+
       - name: Build app bundle release
         uses: maierj/fastlane-action@v3.0.0
         env:
           ANDROID_STORE_PASSWORD: ${{secrets.ANDROID_STORE_PASSWORD}}
           ANDROID_KEY_ALIAS: ${{secrets.ANDROID_KEY_ALIAS}}
+          FIREBASE_APP_ID_ANDROID: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
         with:
           lane: 'beta'
           subdirectory: "android"
-
-      #      - name: Service account key
-      #        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > service-account-key.json
-
-      #      - name: upload artifact to Firebase App Distribution
-      #        uses: wzieba/Firebase-Distribution-Github-Action@v1
-      #        with:
-      #          appId: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
-      #          serviceCredentialsFile: service-account-key.json
-      #          groups: testers
-      #          file: app/release/app-release.aab
 
       - name: Deploy to playstore
         uses: maierj/fastlane-action@v3.0.0
