@@ -27,7 +27,7 @@ jobs:
         uses: android-actions/setup-android@v2
 
       - name: Copy play store upload key to app
-        run: echo "${{vars.PLAY_STORE_UPLOAD_KEY}}" > android/fastlane/play-store-credentials.json
+        run: echo "${{vars.PLAY_STORE_UPLOAD_KEY}}" | base64 -d > android/fastlane/play-store-credentials.json
 
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
@@ -36,11 +36,11 @@ jobs:
           working-directory: 'android'
           bundler-cache: true
 
-      #      - name: Build app bundle release
-      #        uses: maierj/fastlane-action@v3.0.0
-      #        with:
-      #          lane: 'beta'
-      #          subdirectory: "android"
+      - name: Build app bundle release
+        uses: maierj/fastlane-action@v3.0.0
+        with:
+          lane: 'beta'
+          subdirectory: "android"
 
       - name: validate play store key
         uses: maierj/fastlane-action@v3.0.0
