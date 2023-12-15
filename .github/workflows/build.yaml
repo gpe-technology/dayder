@@ -42,10 +42,6 @@ jobs:
           lane: 'beta'
           subdirectory: "android"
 
-  deploy-apk:
-    name: Deploy android apk to app distrib
-    runs-on: ubuntu-latest
-    steps:
       - name: Service account key
         run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > service-account-key.json
 
