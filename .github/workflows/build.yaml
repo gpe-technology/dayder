@@ -39,6 +39,10 @@ jobs:
           working-directory: 'android'
           bundler-cache: true
 
+      - name: Get dependencies
+        run: |
+          flutter pub get
+
       - name: Build app bundle release
         uses: maierj/fastlane-action@v3.0.0
         with:
