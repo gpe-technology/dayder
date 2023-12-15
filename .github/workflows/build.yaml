@@ -46,9 +46,6 @@ jobs:
       - name: Service account key
         run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
 
-      - name: Android key store
-        run: echo "${{ secrets.ANDROID_KEYSTORE }}" | base64 -d > android/app/keystore.jks
-
       - name: Build app bundle release
         uses: maierj/fastlane-action@v3.0.0
         env:
