@@ -19,7 +19,9 @@ platform :android do
   desc "Build app bundle release"
   lane :beta do
     gradle(
-       build_type: "Release",
+       task: "assemble",
+       flavor: "build",
+       build_type: "Release"
     )
   end
 
