@@ -44,7 +44,7 @@ jobs:
           flutter pub get
 
       - name: Service account key
-        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > app/fastlane/service-account-key.json
+        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
 
       - name: Build app bundle release
         uses: maierj/fastlane-action@v3.0.0
