@@ -5,7 +5,7 @@ on:
 name: Build android
 jobs:
   build-apk:
-    name: Build android apk
+    name: Build and deploy to test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository

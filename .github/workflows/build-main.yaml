@@ -4,8 +4,8 @@ on:
       - main
 name: Build android
 jobs:
-  build-apk:
-    name: Build android apk
+  build-aab:
+    name: Build and deploy to prod
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
