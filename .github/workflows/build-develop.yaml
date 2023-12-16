@@ -26,9 +26,6 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Copy play store upload key to app
-        run: echo "${{vars.PLAY_STORE_UPLOAD_KEY}}" | base64 -d > android/fastlane/play-store-credentials.json
-
       - name: Make gradlew executable
         run: chmod +x android/gradlew
 
@@ -46,20 +43,10 @@ jobs:
       - name: Service account key
         run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
 
-      - name: Build app bundle release
-        uses: maierj/fastlane-action@v3.0.0
-        env:
-          KEYSTORE_PATH: "/home/runner/work/dayder/dayder/android/app/keystore.jks"
-          ANDROID_STORE_PASSWORD: ${{secrets.ANDROID_STORE_PASSWORD}}
-          ANDROID_KEY_ALIAS: ${{secrets.ANDROID_KEY_ALIAS}}
-        with:
-          lane: 'develop'
-          subdirectory: "android"
-
       - name: Deploy to app distrib
         uses: maierj/fastlane-action@v3.0.0
         env:
           FIREBASE_APP_ID_ANDROID: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
         with:
-          lane: 'appDistrib'
+          lane: 'deployToAppDistrib'
           subdirectory: "android"
