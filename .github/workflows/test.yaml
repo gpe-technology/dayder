@@ -43,3 +43,6 @@ jobs:
         with:
           host: ${{ vars.SONARQUBE_HOST }}
           login: ${{ secrets.SONARQUBE_TOKEN }}
+          projectBaseDir: "lib/"
+          projectName: "dayder"
+          projectKey: "dayder"
