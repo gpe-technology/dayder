@@ -26,6 +26,7 @@ jobs:
         with:
           flutter-version: '3.13.2'
           channel: "stable"
+
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
@@ -36,7 +37,8 @@ jobs:
       - name: Flutter test coverage
         run: |
           flutter test --machine --coverage > tests.output
-      - name: SonarQube  Scan
+
+      - name: SonarQube  scan
         uses: kitabisa/sonarqube-action@v1.2.0
         with:
           host: ${{ vars.SONARQUBE_HOST }}

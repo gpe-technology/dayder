@@ -2,5 +2,5 @@ projectKey=dayder
 serverUrl=https://sonar.alphasow.dev
 serverVersion=10.3.0.82913
 dashboardUrl=https://sonar.alphasow.dev/dashboard?id=dayder
-ceTaskId=AYxsrcBn-zTbhhz63u-6
-ceTaskUrl=https://sonar.alphasow.dev/api/ce/task?id=AYxsrcBn-zTbhhz63u-6
+ceTaskId=AYx5BN3r-zTbhhz63u-8
+ceTaskUrl=https://sonar.alphasow.dev/api/ce/task?id=AYx5BN3r-zTbhhz63u-8
