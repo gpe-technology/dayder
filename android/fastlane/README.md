@@ -29,23 +29,23 @@ Upload to appDistrib
 [bundle exec] fastlane android androidDebug
 ```
 
-Build app bundle release
+Build app debug
 
-### android main
-
-```sh
-[bundle exec] fastlane android main
-```
-
-Build app bundle release
-
-### android playstore
+### android uploadToPlayStore
 
 ```sh
-[bundle exec] fastlane android playstore
+[bundle exec] fastlane android uploadToPlayStore
 ```
 
 Upload to playstore
+
+### android androidRelease
+
+```sh
+[bundle exec] fastlane android androidRelease
+```
+
+Build app bundle release
 
 ----
 
