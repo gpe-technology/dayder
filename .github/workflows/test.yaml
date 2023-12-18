@@ -7,6 +7,10 @@ on:
       - 'chore/*'
 
 name: Test coverage
+env:
+  flutter_version: 3.13.2
+  sonar_scanner_version: 5.0.1.3006
+  SONARQUBE_HOST: ${{vars.SONARQUBE_HOST}}
 jobs:
   test-coverage:
     name: Test coverage
@@ -21,10 +25,16 @@ jobs:
           java-version: "17.0.1"
           distribution: "oracle"
 
+      - name: Install sonar-scanner
+        run: |
+          wget --output-document=sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$sonar_scanner_version-linux.zip
+          unzip sonar-scanner.zip
+          echo "sonar-scanner-$sonar_scanner_version-linux/bin" >> $GITHUB_PATH
+
       - name: Install flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.2'
+          flutter-version: flutter_version
           channel: "stable"
 
       - name: Setup Android SDK
@@ -36,8 +46,5 @@ jobs:
 
       - name: Flutter test coverage
         run: |
-          wget --output-document=sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
-          unzip sonar-scanner.zip
-          export PATH=$PATH:$PWD/sonar-scanner-5.0.1.3006-linux/bin
           flutter test --machine --coverage > tests.output
-          sonar-scanner -Dsonar.host.url=${{vars.SONARQUBE_HOST}} -Dsonar.login=${{secrets.SONARQUBE_TOKEN }} -Dsonar.projectKey=${{ secrets.PROJECT_KEY }}
+          sonar-scanner -Dsonar.host.url=$SONARQUBE_HOST -Dsonar.login=${{secrets.SONARQUBE_TOKEN }} -Dsonar.projectKey=${{ secrets.PROJECT_KEY }}
