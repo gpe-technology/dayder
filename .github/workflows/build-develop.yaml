@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - develop
-name: Build android
+name: Build android debug
 jobs:
   build-apk:
     name: Build and deploy to test
