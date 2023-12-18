@@ -8,8 +8,8 @@ on:
 
 name: Test coverage
 env:
-  flutter_version: 3.13.2
-  sonar_scanner_version: 5.0.1.3006
+  FLUTTER_VERSION: 3.13.2
+  SC_VERSION: 5.0.1.3006
   SONARQUBE_HOST: ${{vars.SONARQUBE_HOST}}
 jobs:
   test-coverage:
@@ -27,14 +27,14 @@ jobs:
 
       - name: Install sonar-scanner
         run: |
-          wget --output-document=sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$sonar_scanner_version-linux.zip
+          wget --output-document=sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SC_VERSION-linux.zip
           unzip sonar-scanner.zip
-          echo "sonar-scanner-$sonar_scanner_version-linux/bin" >> $GITHUB_PATH
+          echo "sonar-scanner-$SC_VERSION-linux/bin" >> $GITHUB_PATH
 
       - name: Install flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: flutter_version
+          flutter-version: $FLUTTER_VERSION
           channel: "stable"
 
       - name: Setup Android SDK
