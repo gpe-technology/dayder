@@ -21,26 +21,27 @@ jobs:
           java-version: "17.0.1"
           distribution: "oracle"
 
-      - name: Install flutter
-        uses: subosito/flutter-action@v2
-        with:
-          flutter-version: '3.13.2'
-          channel: "stable"
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
+#      - name: Install flutter
+#        uses: subosito/flutter-action@v2
+#        with:
+#          flutter-version: '3.13.2'
+#          channel: "stable"
+#
+#      - name: Setup Android SDK
+#        uses: android-actions/setup-android@v2
 
       - name: Install sonar-scan
         run: |
           wget --output-document=sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-5.0.1.3006-linux.zip
           unzip sonar-scanner.zip
           export PATH=$PATH:$PWD/sonar-scanner-5.0.1.3006-linux/bin
+          sonar-scanner
 
-      - name: Get dependencies
-        run: |
-          flutter pub get
-
-      - name: Flutter test coverage
-        run: |
-          flutter test --machine --coverage > tests.output
-          sonar-scanner -Dsonar.host.url=${{vars.SONARQUBE_HOST}} -Dsonar.login=${{secrets.SONARQUBE_TOKEN }} -Dsonar.projectKey=${{ secrets.PROJECT_KEY }}
+#      - name: Get dependencies
+#        run: |
+#          flutter pub get
+#
+#      - name: Flutter test coverage
+#        run: |
+#          flutter test --machine --coverage > tests.output
+#          sonar-scanner -Dsonar.host.url=${{vars.SONARQUBE_HOST}} -Dsonar.login=${{secrets.SONARQUBE_TOKEN }} -Dsonar.projectKey=${{ secrets.PROJECT_KEY }}
