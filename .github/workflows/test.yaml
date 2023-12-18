@@ -1,0 +1,41 @@
+on:
+  push:
+    branches:
+      - 'feat/*'
+      - 'fix/*'
+      - 'release/*'
+      - 'chore/*'
+
+name: Test coverage
+env:
+  SC_VERSION: 5.0.1.3006
+  SONARQUBE_HOST: ${{vars.SONARQUBE_HOST}}
+  SONARQUBE_TOKEN: ${{secrets.SONARQUBE_TOKEN }}
+  PROJECT_KEY: ${{ secrets.PROJECT_KEY }}
+jobs:
+  test-coverage:
+    name: Test coverage
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Install sonar-scanner
+        run: |
+          wget --output-document=sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SC_VERSION-linux.zip
+          unzip sonar-scanner.zip
+          echo "sonar-scanner-$SC_VERSION-linux/bin" >> $GITHUB_PATH
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
+      - name: Get dependencies
+        run: |
+          flutter pub get
+
+      - name: Flutter test coverage
+        run: |
+          flutter test --machine --coverage > tests.output
+          sonar-scanner -Dsonar.host.url=$SONARQUBE_HOST -Dsonar.login=$SONARQUBE_TOKEN -Dsonar.projectKey=$PROJECT_KEY

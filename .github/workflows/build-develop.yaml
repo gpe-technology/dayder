@@ -20,17 +20,10 @@ jobs:
       - name: Install flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.13.2'
           channel: "stable"
 
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
-
-      - name: Copy play store upload key to app
-        run: echo "${{vars.PLAY_STORE_UPLOAD_KEY}}" | base64 -d > android/fastlane/play-store-credentials.json
-
-      - name: Make gradlew executable
-        run: chmod +x android/gradlew
 
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
@@ -39,27 +32,19 @@ jobs:
           working-directory: 'android'
           bundler-cache: true
 
-      - name: Get dependencies
-        run: |
-          flutter pub get
-
       - name: Service account key
-        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
+        run: |
+          echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
+          echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
 
-      - name: Build app bundle release
-        uses: maierj/fastlane-action@v3.0.0
-        env:
-          KEYSTORE_PATH: "/home/runner/work/dayder/dayder/android/app/keystore.jks"
-          ANDROID_STORE_PASSWORD: ${{secrets.ANDROID_STORE_PASSWORD}}
-          ANDROID_KEY_ALIAS: ${{secrets.ANDROID_KEY_ALIAS}}
-        with:
-          lane: 'develop'
-          subdirectory: "android"
+      - name: Build apk
+        run: |
+          flutter build apk --debug
 
       - name: Deploy to app distrib
         uses: maierj/fastlane-action@v3.0.0
         env:
           FIREBASE_APP_ID_ANDROID: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
         with:
-          lane: 'appDistrib'
+          lane: 'uploadToAppDistrib'
           subdirectory: "android"

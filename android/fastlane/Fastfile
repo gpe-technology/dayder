@@ -16,53 +16,25 @@
 default_platform(:android)
 
 platform :android do
-  desc "Build app bundle release"
-  lane :develop do
-    gradle(task: 'clean')
-    build_android_app(
-        task: 'assemble',
-        build_type: 'Release',
-        properties: {
-            "android.injected.signing.store.file" => ENV["KEYSTORE_PATH"],
-            "android.injected.signing.store.password" => ENV["ANDROID_STORE_PASSWORD"],
-            "android.injected.signing.key.alias" => ENV["ANDROID_KEY_ALIAS"],
-            "android.injected.signing.key.password" => ENV["ANDROID_STORE_PASSWORD"],
-        }
-    )
-  end
-
-  desc "Build app bundle release"
-  lane :main do
-    gradle(task: 'clean')
-    build_android_app(
-        task: 'bundle',
-        build_type: 'Release',
-        properties: {
-            "android.injected.signing.store.file" => ENV["KEYSTORE_PATH"],
-            "android.injected.signing.store.password" => ENV["ANDROID_STORE_PASSWORD"],
-            "android.injected.signing.key.alias" => ENV["ANDROID_KEY_ALIAS"],
-            "android.injected.signing.key.password" => ENV["ANDROID_STORE_PASSWORD"],
-        }
-    )
-  end
-
-  desc "Upload to appDistrib"
-  lane :appDistrib do
-    release = firebase_app_distribution(
-                      app: ENV["FIREBASE_APP_ID_ANDROID"],
-                      service_credentials_file: "fastlane/service-account-key.json",
-                      groups: "testers",
-                      release_notes: "Lots of amazing new features to test out!",
-                      android_artifact_path:"../build/app/outputs/apk/release/app-release.apk",
-                      android_artifact_type:"AAB",
-                    )
-  end
+    desc "Upload to appDistrib"
+    lane :uploadToAppDistrib do
+        firebase_app_distribution(
+            app: ENV["FIREBASE_APP_ID_ANDROID"],
+            service_credentials_file: "fastlane/service-account-key.json",
+            groups: "testers",
+            release_notes: "Lots of amazing new features to test out!",
+            android_artifact_path:"../build/app/outputs/apk/debug/app-debug.apk",
+            android_artifact_type:"APK",
+        )
+    end
 
   desc "Upload to playstore"
-  lane :playstore do
-    upload_to_play_store(
-        json_key: "fastlane/play-store-credentials.json",
-        aab: "../build/app/outputs/bundle/release/app-release.aab"
-    )
-  end
+    lane :uploadToPlayStore do
+        androidRelease
+        upload_to_play_store(
+            json_key: "fastlane/play-store-credentials.json",
+            aab: "../build/app/outputs/bundle/release/app-release.aab",
+            release_status:"draft"
+        )
+    end
 end
