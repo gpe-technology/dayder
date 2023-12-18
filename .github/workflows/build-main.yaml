@@ -39,19 +39,17 @@ jobs:
           working-directory: 'android'
           bundler-cache: true
 
-      - name: Get dependencies
-        run: |
-          flutter pub get
-
       - name: Service account key
-        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
+        run: |
+          echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
+          echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      - name: Build aab
+        run: |
+          flutter build appbundle --release
 
       - name: Deploy to playstore
         uses: maierj/fastlane-action@v3.0.0
-        env:
-          KEYSTORE_PATH: "/home/runner/work/dayder/dayder/android/app/keystore.jks"
-          ANDROID_STORE_PASSWORD: ${{secrets.ANDROID_STORE_PASSWORD}}
-          ANDROID_KEY_ALIAS: ${{secrets.ANDROID_KEY_ALIAS}}
         with:
           lane: 'uploadToPlayStore'
           subdirectory: "android"

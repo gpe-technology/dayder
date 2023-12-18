@@ -18,22 +18,13 @@ default_platform(:android)
 platform :android do
     desc "Upload to appDistrib"
     lane :uploadToAppDistrib do
-        androidDebug
         firebase_app_distribution(
             app: ENV["FIREBASE_APP_ID_ANDROID"],
             service_credentials_file: "fastlane/service-account-key.json",
             groups: "testers",
             release_notes: "Lots of amazing new features to test out!",
             android_artifact_path:"../build/app/outputs/apk/debug/app-debug.apk",
-            android_artifact_type:"AAB",
-        )
-    end
-
-    desc "Build app debug"
-    lane :androidDebug do
-        gradle(task: 'clean')
-        build_android_app(
-            task: 'assembleDebug',
+            android_artifact_type:"APK",
         )
     end
 
@@ -44,21 +35,6 @@ platform :android do
             json_key: "fastlane/play-store-credentials.json",
             aab: "../build/app/outputs/bundle/release/app-release.aab",
             release_status:"draft"
-        )
-    end
-
-    desc "Build app bundle release"
-    lane :androidRelease do
-        gradle(task: 'clean')
-        build_android_app(
-            task: 'bundle',
-            build_type: 'Release',
-            properties: {
-                "android.injected.signing.store.file" => ENV["KEYSTORE_PATH"],
-                "android.injected.signing.store.password" => ENV["ANDROID_STORE_PASSWORD"],
-                "android.injected.signing.key.alias" => ENV["ANDROID_KEY_ALIAS"],
-                "android.injected.signing.key.password" => ENV["ANDROID_STORE_PASSWORD"],
-            }
         )
     end
 end

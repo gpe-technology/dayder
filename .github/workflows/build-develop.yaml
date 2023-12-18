@@ -36,9 +36,9 @@ jobs:
           working-directory: 'android'
           bundler-cache: true
 
-      - name: Get dependencies
+      - name: Build apk
         run: |
-          flutter pub get
+          flutter build apk
 
       - name: Service account key
         run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
