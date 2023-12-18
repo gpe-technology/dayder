@@ -10,6 +10,8 @@ name: Test coverage
 env:
   SC_VERSION: 5.0.1.3006
   SONARQUBE_HOST: ${{vars.SONARQUBE_HOST}}
+  SONARQUBE_TOKEN: ${{secrets.SONARQUBE_TOKEN }}
+  PROJECT_KEY: ${{ secrets.PROJECT_KEY }}
 jobs:
   test-coverage:
     name: Test coverage
@@ -45,4 +47,4 @@ jobs:
       - name: Flutter test coverage
         run: |
           flutter test --machine --coverage > tests.output
-          sonar-scanner -Dsonar.host.url=$SONARQUBE_HOST -Dsonar.login=${{secrets.SONARQUBE_TOKEN }} -Dsonar.projectKey=${{ secrets.PROJECT_KEY }}
+          sonar-scanner -Dsonar.host.url=$SONARQUBE_HOST -Dsonar.login=$SONARQUBE_TOKEN -Dsonar.projectKey=$PROJECT_KEY
