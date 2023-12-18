@@ -1,6 +1,0 @@
-projectKey=dayder
-serverUrl=https://sonar.alphasow.dev
-serverVersion=10.3.0.82913
-dashboardUrl=https://sonar.alphasow.dev/dashboard?id=dayder
-ceTaskId=AYx5BN3r-zTbhhz63u-8
-ceTaskUrl=https://sonar.alphasow.dev/api/ce/task?id=AYx5BN3r-zTbhhz63u-8

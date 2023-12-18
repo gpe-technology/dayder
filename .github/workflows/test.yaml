@@ -43,5 +43,5 @@ jobs:
         with:
           host: ${{ vars.SONARQUBE_HOST }}
           login: ${{ secrets.SONARQUBE_TOKEN }}
-          projectName: "dayder"
-          projectKey: "dayder"
+          projectName: ${{ secrets.PROJECT_KEY }}
+          projectKey: ${{ secrets.PROJECT_NAME }}
