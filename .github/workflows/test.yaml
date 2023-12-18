@@ -8,7 +8,6 @@ on:
 
 name: Test coverage
 env:
-  FLUTTER_VERSION: 3.13.2
   SC_VERSION: 5.0.1.3006
   SONARQUBE_HOST: ${{vars.SONARQUBE_HOST}}
 jobs:
@@ -34,7 +33,6 @@ jobs:
       - name: Install flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: $FLUTTER_VERSION
           channel: "stable"
 
       - name: Setup Android SDK
