@@ -20,12 +20,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Install java
-        uses: actions/setup-java@v3
-        with:
-          java-version: "17.0.1"
-          distribution: "oracle"
-
       - name: Install sonar-scanner
         run: |
           wget --output-document=sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SC_VERSION-linux.zip
@@ -36,9 +30,6 @@ jobs:
         uses: subosito/flutter-action@v2
         with:
           channel: "stable"
-
-      - name: Setup Android SDK
-        uses: android-actions/setup-android@v2
 
       - name: Get dependencies
         run: |
