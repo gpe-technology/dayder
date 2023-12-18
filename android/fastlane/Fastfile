@@ -28,7 +28,7 @@ platform :android do
         )
     end
 
-    desc "Upload to playstore"
+  desc "Upload to playstore"
     lane :uploadToPlayStore do
         androidRelease
         upload_to_play_store(
