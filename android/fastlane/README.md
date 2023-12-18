@@ -15,21 +15,37 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## Android
 
-### android beta
+### android uploadToAppDistrib
 
 ```sh
-[bundle exec] fastlane android beta
+[bundle exec] fastlane android uploadToAppDistrib
 ```
 
-Build app bundle release
+Upload to appDistrib
 
-### android deploy
+### android androidDebug
 
 ```sh
-[bundle exec] fastlane android deploy
+[bundle exec] fastlane android androidDebug
+```
+
+Build app debug
+
+### android uploadToPlayStore
+
+```sh
+[bundle exec] fastlane android uploadToPlayStore
 ```
 
 Upload to playstore
+
+### android androidRelease
+
+```sh
+[bundle exec] fastlane android androidRelease
+```
+
+Build app bundle release
 
 ----
 
