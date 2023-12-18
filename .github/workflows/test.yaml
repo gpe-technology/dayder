@@ -38,10 +38,8 @@ jobs:
         run: |
           flutter test --machine --coverage > tests.output
 
-      - name: SonarQube  scan
-        uses: kitabisa/sonarqube-action@v1.2.0
-        with:
-          host: ${{ vars.SONARQUBE_HOST }}
-          token: ${{ secrets.SONARQUBE_TOKEN }}
-          projectName: ${{ secrets.PROJECT_KEY }}
-          projectKey: ${{ secrets.PROJECT_NAME }}
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
