@@ -20,6 +20,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Sonar file
+        run: |
+          echo "${{ secrets.SONAR_PROJECT_FILE }}" > sonar-project.properties
+
       - name: Install sonar-scanner
         run: |
           wget --output-document=sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-$SC_VERSION-linux.zip
