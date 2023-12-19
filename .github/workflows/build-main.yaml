@@ -2,7 +2,7 @@ on:
   push:
     branches:
       - main
-name: Build android
+name: Build android prod
 jobs:
   build-aab:
     name: Build and deploy to prod
