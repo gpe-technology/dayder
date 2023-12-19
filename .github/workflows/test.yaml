@@ -42,4 +42,4 @@ jobs:
       - name: Flutter test coverage
         run: |
           flutter test --machine --coverage > tests.output
-          sonar-scanner -Dsonar.host.url=$SONARQUBE_HOST -Dsonar.login=$SONARQUBE_TOKEN -Dsonar.projectKey=$PROJECT_KEY
+          sonar-scanner
