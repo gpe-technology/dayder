@@ -57,6 +57,13 @@ jobs:
       - name: Service account key
         run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
 
+      - name: Download artifact
+        id: download-artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: apk-build
+          path: build/app/outputs/apk/debug
+
       - name: Deploy to app distrib
         uses: maierj/fastlane-action@v3.0.0
         env:
