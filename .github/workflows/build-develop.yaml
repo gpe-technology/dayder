@@ -7,8 +7,6 @@ jobs:
   build-apk:
     name: Build
     runs-on: ubuntu-latest
-    outputs:
-      apk: ${{ steps.apk-build.outputs.upload-apk }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
