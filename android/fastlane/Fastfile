@@ -23,7 +23,7 @@ platform :android do
             service_credentials_file: "fastlane/service-account-key.json",
             groups: "testers",
             release_notes: "Lots of amazing new features to test out!",
-            android_artifact_path:"../build/app/outputs/apk/debug/app-debug.apk",
+            android_artifact_path:ENV["ANDROID_ARTIFACT_PATH"],
             android_artifact_type:"APK",
         )
     end
