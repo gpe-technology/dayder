@@ -5,7 +5,7 @@ on:
 name: Build android debug
 jobs:
   build-apk:
-    name: Build and deploy to test
+    name: Build
     runs-on: ubuntu-latest
     outputs:
       apk: ${{ steps.apk-build.outputs.upload-apk }}
@@ -37,10 +37,11 @@ jobs:
       - uses: actions/upload-artifact@v4
         id: upload-apk
         with:
-          name: apk-build
+          name: app-debug.apk
           path: build/app/outputs/apk/debug/app-debug.apk
 
   upload-to-app-distrib:
+    name: Deploy
     runs-on: ubuntu-latest
     needs: build-apk
     steps:
@@ -61,7 +62,7 @@ jobs:
         id: download-artifact
         uses: actions/download-artifact@v2
         with:
-          name: apk-build
+          name: app-debug.apk
           path: build/app/outputs/apk/debug
 
       - name: Deploy to app distrib
