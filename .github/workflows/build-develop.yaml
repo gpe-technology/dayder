@@ -61,7 +61,6 @@ jobs:
         uses: maierj/fastlane-action@v3.0.0
         env:
           FIREBASE_APP_ID_ANDROID: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
-          ANDROID_ARTIFACT_PATH: ${{needs.build-apk.outputs.apk}}
         with:
           lane: 'uploadToAppDistrib'
           subdirectory: "android"
