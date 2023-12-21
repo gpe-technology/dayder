@@ -14,15 +14,13 @@ env:
   PROJECT_KEY: ${{ secrets.PROJECT_KEY }}
 jobs:
   test-coverage:
-    name: Test coverage
+    name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
 
       - name: Sonar file
-        run: |
-          echo "${{ secrets.SONAR_PROJECT_FILE }}" > sonar-project.properties
+        run: echo "${{ secrets.SONAR_PROJECT_FILE }}" > sonar-project.properties
 
       - name: Install sonar-scanner
         run: |
@@ -36,10 +34,9 @@ jobs:
           channel: "stable"
 
       - name: Get dependencies
-        run: |
-          flutter pub get
+        run: flutter pub get
 
-      - name: Flutter test coverage
-        run: |
-          flutter test --machine --coverage > tests.output
-          sonar-scanner
+      - name: Flutter test
+        run: flutter test --machine --coverage > tests.output
+
+      - run: sonar-scanner
