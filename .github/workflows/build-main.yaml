@@ -36,7 +36,7 @@ jobs:
         id: upload-aab
         with:
           name: app-release.aab
-          path: build/app/outputs/bundle/release/app-release.apk
+          path: build/app/outputs/bundle/release/app-release.aab
 
   upload-to-appstore:
     name: Deploy
