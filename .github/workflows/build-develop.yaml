@@ -27,17 +27,8 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Setup ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.0'
-          working-directory: 'android'
-          bundler-cache: true
-
       - name: Service account key
-        run: |
-          echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
-          echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+        run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
 
       - name: Build apk
         run: |
@@ -53,6 +44,19 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-apk
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.0'
+          working-directory: 'android'
+          bundler-cache: true
+
+      - name: Service account key
+        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
+
       - name: Deploy to app distrib
         uses: maierj/fastlane-action@v3.0.0
         env:
