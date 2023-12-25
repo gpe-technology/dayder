@@ -1,8 +1,8 @@
-import 'package:dayder/features/authentication/authentication.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
 import 'package:logger/logger.dart';
 
+import '../../../../features/authentication/src/domain/authentication.dart';
 import 'auth_state.dart';
 import 'phone_number_provider.dart';
 import 'user_provider.dart';
@@ -21,7 +21,7 @@ class AuthNotifier extends Notifier<AuthState> {
 
   String _verificationId = '';
 
-  final _auth = GetIt.instance<FirebaseAuthentication>();
+  final _auth = GetIt.instance<Authentication>();
 
   Future<void> verifyPhone(String number) async {
     ref.read(phoneNumberProvider.notifier).update((state) => number);

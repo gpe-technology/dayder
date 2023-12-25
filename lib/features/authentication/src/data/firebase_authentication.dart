@@ -1,9 +1,11 @@
 import 'package:dayder/features/authentication/src/domain/authentication.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
 
 import 'user_model/user_model.dart';
 
+@Injectable(as: Authentication, env: [Environment.prod])
 class FirebaseAuthentication implements Authentication {
   FirebaseAuth auth = FirebaseAuth.instance;
 
