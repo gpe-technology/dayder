@@ -1,4 +1,5 @@
 import 'package:dayder/features/authentication/src/domain/authentication.dart';
+import 'package:dayder/features/authentication/src/domain/user.dart' as entity;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
@@ -41,9 +42,9 @@ class FirebaseAuthentication implements Authentication {
   }
 
   @override
-  UserModel? currentUser() {
+  entity.User? currentUser() {
     if (auth.currentUser != null) {
-      return UserModel.fromJson({
+      final result = UserModel.fromJson({
         "uid": auth.currentUser?.uid,
         "phoneNumber": auth.currentUser?.phoneNumber,
         "displayName": auth.currentUser?.displayName,
@@ -54,6 +55,12 @@ class FirebaseAuthentication implements Authentication {
         "tenantId": auth.currentUser?.tenantId,
         "photoURL": auth.currentUser?.photoURL,
       });
+      return entity.User(
+        result.uid,
+        result.displayName ?? '',
+        result.email ?? '',
+        result.phoneNumber,
+      );
     }
     return null;
   }

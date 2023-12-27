@@ -1,4 +1,4 @@
-import 'package:dayder/src/presentation/pages/login/login_page.dart';
+import 'package:dayder/features/authentication/src/presentation/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';

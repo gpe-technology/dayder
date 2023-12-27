@@ -9,6 +9,10 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i12;
+import 'package:dayder/features/authentication/src/presentation/code_verification_page.dart'
+    as _i4;
+import 'package:dayder/features/authentication/src/presentation/login_page.dart'
+    as _i6;
 import 'package:dayder/src/data/models/announcement_model/announcement_model.dart'
     as _i14;
 import 'package:dayder/src/presentation/pages/account/my_account_page.dart'
@@ -20,9 +24,6 @@ import 'package:dayder/src/presentation/pages/announcement_detail.dart' as _i1;
 import 'package:dayder/src/presentation/pages/auth_wrapper.dart' as _i2;
 import 'package:dayder/src/presentation/pages/chat_page.dart' as _i3;
 import 'package:dayder/src/presentation/pages/dashboard_page.dart' as _i5;
-import 'package:dayder/src/presentation/pages/login/code_verification_page.dart'
-    as _i4;
-import 'package:dayder/src/presentation/pages/login/login_page.dart' as _i6;
 import 'package:dayder/src/presentation/pages/publish_page.dart' as _i9;
 import 'package:dayder/src/presentation/pages/search_page.dart' as _i10;
 import 'package:flutter/material.dart' as _i13;

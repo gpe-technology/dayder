@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../logics/auth/auth_provider.dart';
-import '../../logics/auth/phone_number_provider.dart';
-import '../../widgets/input_text_field.dart';
+import '../../../../src/presentation/logics/auth/auth_provider.dart';
+import '../../../../src/presentation/logics/auth/phone_number_provider.dart';
+import '../../../../src/presentation/widgets/input_text_field.dart';
 
 @RoutePage(name: 'Login')
 class LoginPage extends StatelessWidget {

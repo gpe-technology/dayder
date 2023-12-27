@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_hooks/flutter_hooks.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../widgets/input_text_field.dart';
+import '../../../../src/presentation/widgets/input_text_field.dart';
 
 @RoutePage<String>(name: 'Code')
 class CodeVerificationPage extends HookConsumerWidget {
@@ -36,8 +36,9 @@ class CodeVerificationPage extends HookConsumerWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                final future =
-                    ref.read(authNotifierProvider.notifier).login(controller.text);
+                final future = ref
+                    .read(authNotifierProvider.notifier)
+                    .login(controller.text);
                 pendingVerification.value = future;
               },
               child: snapshot.connectionState != ConnectionState.waiting

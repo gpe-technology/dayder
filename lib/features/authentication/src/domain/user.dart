@@ -1,5 +1,10 @@
-abstract class User {
- Future<void> setName(String value);
+import 'package:dayder/features/authentication/src/data/firebase_user.dart';
 
- Future<void> setEmail(String value);
+class User with FirebaseUser {
+  final String id;
+  final String name;
+  final String email;
+  final String phone;
+
+  User(this.id, this.name, this.email, this.phone);
 }

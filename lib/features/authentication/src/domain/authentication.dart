@@ -1,7 +1,7 @@
-import '../data/user_model/user_model.dart';
+import 'package:dayder/features/authentication/src/domain/user.dart';
 
 abstract class Authentication {
-  UserModel? currentUser();
+  User? currentUser();
 
   Future<void> verifyPhone(String number, Function(String, int?) codeSent);
 
