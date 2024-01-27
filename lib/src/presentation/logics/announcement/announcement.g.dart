@@ -6,7 +6,7 @@ part of 'announcement.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$getAllHash() => r'34bf474b663a1cea7d6cbeda8198ca63e1fb50ec';
+String _$getAllHash() => r'1feda8d3a04a74bd8f2305befa4a86bcae8e52b1';
 
 /// See also [getAll].
 @ProviderFor(getAll)
@@ -21,7 +21,7 @@ final getAllProvider =
 );
 
 typedef GetAllRef = AutoDisposeFutureProviderRef<List<AnnouncementModel>>;
-String _$postHash() => r'2f963ab260471c3df7eda5bced829f6c0582bb45';
+String _$postHash() => r'55398c41c2cd6c0204e4a1d01788a3289897a862';
 
 /// Copied from Dart SDK
 class _SystemHash {
