@@ -6,6 +6,12 @@
 	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo Library Usage Description</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera Usage Description</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Microphone Usage Description</string>
 	<key>CFBundleDisplayName</key>
 	<string>Dayder</string>
 	<key>CFBundleExecutable</key>
