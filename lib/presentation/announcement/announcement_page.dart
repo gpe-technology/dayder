@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/navigation/router/app_router.gr.dart';
 import 'package:dayder/presentation/announcement/logic/announcement.dart';
 import 'package:dayder/presentation/widgets/announcement_card.dart';
 import 'package:flutter/material.dart';
@@ -27,11 +26,7 @@ class AnnouncementPage extends ConsumerWidget {
                   .map(
                     (e) => AnnouncementCard(
                       announcement: e,
-                      onTap: () {
-                        context.pushRoute(
-                          Detail(announcement: e),
-                        );
-                      },
+                      onTap: () {},
                     ),
                   )
                   .toList(),
@@ -42,9 +37,7 @@ class AnnouncementPage extends ConsumerWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          context.pushRoute(const Publish());
-        },
+        onPressed: () {},
         tooltip: 'Publish',
         mini: true,
         child: const Icon(Icons.add_rounded),

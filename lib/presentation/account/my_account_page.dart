@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/features/authentication/presentation/logic/auth_provider.dart';
-import 'package:dayder/navigation/router/app_router.gr.dart';
 import 'package:dayder/presentation/widgets/app_list_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -19,9 +18,7 @@ class MyAccountPage extends ConsumerWidget {
             AppListTile(
               title: 'Profile',
               icon: Icons.person_rounded,
-              onTap: () {
-                context.pushRoute(const Profile());
-              },
+              onTap: () {},
             ),
             const AppListTile(
               title: 'Help',

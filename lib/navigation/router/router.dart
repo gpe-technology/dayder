@@ -1,9 +1,18 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
+import 'package:injectable/injectable.dart';
 
-import 'app_router.gr.dart';
+import 'router.gr.dart';
 
+@lazySingleton
 @AutoRouterConfig()
-class AppRouter extends $AppRouter {
+class DayderRouter extends $DayderRouter {
+  DayderRouter(GlobalKey<NavigatorState> navigatorKey)
+      : super(navigatorKey: navigatorKey);
+
+  @override
+  RouteType get defaultRouteType => const RouteType.material();
+
   @override
   List<AutoRoute> get routes => [
         AutoRoute(

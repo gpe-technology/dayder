@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/navigation/router/app_router.gr.dart';
+import 'package:dayder/di/di_container.dart';
+import 'package:dayder/features/authentication/domain/authentication.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,8 +15,7 @@ class ProfilePage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final user = ref.watch(userProvider);
-    final name = user?.name ?? '';
+    final user = ref.watch(userStateProvider(diContainer<Authentication>()));
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -32,15 +32,14 @@ class ProfilePage extends ConsumerWidget {
           tiles: [
             AppListTile(
               icon: Icons.person_rounded,
-              title: name,
+              title: user.name,
               onTap: () {
                 ref.read(selectedValueProvider.notifier).update(
                       (state) => SelectedValue(
                         title: 'Name',
-                        value: name,
+                        value: user.name,
                       ),
                     );
-                context.pushRoute(const SetName());
               },
             ),
           ],

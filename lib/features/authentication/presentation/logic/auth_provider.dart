@@ -1,3 +1,4 @@
+import 'package:dayder/di/di_container.dart';
 import 'package:dayder/features/authentication/domain/authentication.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:get_it/get_it.dart';
@@ -34,7 +35,9 @@ class AuthNotifier extends Notifier<AuthState> {
 
   Future<void> login(String smsCode) async {
     await _auth.signInWithPhoneBy(_verificationId, smsCode);
-    ref.read(userStateProvider.notifier).update((state) => _auth.currentUser());
+    ref
+        .read(userStateProvider(diContainer<Authentication>()).notifier)
+        .update((state) => _auth.currentUser()!);
     state = const AuthState.login();
   }
 

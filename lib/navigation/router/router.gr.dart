@@ -26,8 +26,8 @@ import 'package:dayder/presentation/publish/publish_page.dart' as _i10;
 import 'package:dayder/presentation/widgets/dashboard_widget.dart' as _i6;
 import 'package:flutter/material.dart' as _i13;
 
-abstract class $AppRouter extends _i12.RootStackRouter {
-  $AppRouter({super.navigatorKey});
+abstract class $DayderRouter extends _i12.RootStackRouter {
+  $DayderRouter({super.navigatorKey});
 
   @override
   final Map<String, _i12.PageFactory> pagesMap = {
