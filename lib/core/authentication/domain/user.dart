@@ -1,4 +1,4 @@
-import 'package:dayder/features/authentication/data/firebase_user.dart';
+import 'package:dayder/core/authentication/data/firebase_user.dart';
 
 class User with FirebaseUser {
   final String id;

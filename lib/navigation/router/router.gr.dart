@@ -9,11 +9,10 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i12;
-import 'package:dayder/data/models/announcement_model.dart' as _i14;
-import 'package:dayder/features/authentication/presentation/code_verification_page.dart'
+import 'package:dayder/core/authentication/presentation/code_verification_page.dart'
     as _i5;
-import 'package:dayder/features/authentication/presentation/login_page.dart'
-    as _i7;
+import 'package:dayder/core/authentication/presentation/login_page.dart' as _i7;
+import 'package:dayder/data/models/announcement_model.dart' as _i14;
 import 'package:dayder/presentation/account/my_account_page.dart' as _i8;
 import 'package:dayder/presentation/account/profile_page.dart' as _i9;
 import 'package:dayder/presentation/account/set_name_page.dart' as _i11;

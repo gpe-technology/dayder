@@ -8,17 +8,16 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:dayder/data/announcement_client.dart' as _i3;
+import 'package:dayder/core/authentication/data/firebase_authentication.dart'
+    as _i9;
+import 'package:dayder/core/authentication/domain/authentication.dart' as _i8;
+import 'package:dayder/core/remote_config/fetch_config.dart' as _i6;
+import 'package:dayder/core/remote_config/remote_config.dart' as _i3;
+import 'package:dayder/data/announcement_client.dart' as _i4;
 import 'package:dayder/di/di_app_module.dart' as _i11;
-import 'package:dayder/features/authentication/data/firebase_authentication.dart'
-    as _i5;
-import 'package:dayder/features/authentication/domain/authentication.dart'
-    as _i4;
-import 'package:dayder/features/remote_config/fetch_config.dart' as _i9;
-import 'package:dayder/features/remote_config/remote_config.dart' as _i7;
 import 'package:dayder/navigation/navigator.dart' as _i10;
-import 'package:dayder/navigation/router/router.dart' as _i8;
-import 'package:flutter/material.dart' as _i6;
+import 'package:dayder/navigation/router/router.dart' as _i7;
+import 'package:flutter/material.dart' as _i5;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
@@ -36,17 +35,17 @@ extension GetItInjectableX on _i1.GetIt {
       environmentFilter,
     );
     final dIAppModule = _$DIAppModule();
-    gh.factory<_i3.AnnouncementClient>(() => _i3.AnnouncementClient());
-    gh.factory<_i4.Authentication>(
-      () => _i5.FirebaseAuthentication(),
+    gh.factory<_i3.RemoteConfig>(() => _i3.RemoteConfig());
+    gh.factory<_i4.AnnouncementClient>(() => _i4.AnnouncementClient());
+    gh.lazySingleton<_i5.GlobalKey<_i5.NavigatorState>>(() => dIAppModule.key);
+    gh.factory<_i6.FetchConfig>(() => _i6.FetchConfig(gh<_i3.RemoteConfig>()));
+    gh.lazySingleton<_i7.DayderRouter>(
+        () => _i7.DayderRouter(gh<_i5.GlobalKey<_i5.NavigatorState>>()));
+    gh.factory<_i8.Authentication>(
+      () => _i9.FirebaseAuthentication(),
       registerFor: {_prod},
     );
-    gh.lazySingleton<_i6.GlobalKey<_i6.NavigatorState>>(() => dIAppModule.key);
-    gh.factory<_i7.RemoteConfig>(() => _i7.RemoteConfig());
-    gh.lazySingleton<_i8.DayderRouter>(
-        () => _i8.DayderRouter(gh<_i6.GlobalKey<_i6.NavigatorState>>()));
-    gh.factory<_i9.FetchConfig>(() => _i9.FetchConfig(gh<_i7.RemoteConfig>()));
-    gh.factory<_i10.Navigator>(() => _i10.Navigator(gh<_i8.DayderRouter>()));
+    gh.factory<_i10.Navigator>(() => _i10.Navigator(gh<_i7.DayderRouter>()));
     return this;
   }
 }

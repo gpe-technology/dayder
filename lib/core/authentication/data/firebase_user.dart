@@ -1,4 +1,4 @@
-import 'package:dayder/features/authentication/domain/user_i.dart';
+import 'package:dayder/core/authentication/domain/user_i.dart';
 import 'package:firebase_auth/firebase_auth.dart' as fb;
 
 fb.FirebaseAuth auth = fb.FirebaseAuth.instance;

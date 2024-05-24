@@ -1,4 +1,4 @@
-import 'package:dayder/features/authentication/domain/user.dart';
+import 'package:dayder/core/authentication/domain/user.dart';
 
 abstract class Authentication {
   User? currentUser();

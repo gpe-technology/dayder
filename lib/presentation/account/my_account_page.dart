@@ -1,15 +1,13 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/features/authentication/presentation/logic/auth_provider.dart';
 import 'package:dayder/presentation/widgets/app_list_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 @RoutePage(name: 'Account')
-class MyAccountPage extends ConsumerWidget {
+class MyAccountPage extends StatelessWidget {
   const MyAccountPage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Scaffold(
       body: ListView(
         children: ListTile.divideTiles(
@@ -25,9 +23,7 @@ class MyAccountPage extends ConsumerWidget {
               icon: Icons.help_rounded,
             ),
             TextButton(
-              onPressed: () async {
-                await ref.read(authNotifierProvider.notifier).logout();
-              },
+              onPressed: () async {},
               child: const Text('Logout'),
             ),
           ],

@@ -1,5 +1,5 @@
-import 'package:dayder/features/authentication/domain/authentication.dart';
-import 'package:dayder/features/authentication/domain/user.dart' as entity;
+import 'package:dayder/core/authentication/domain/authentication.dart';
+import 'package:dayder/core/authentication/domain/user.dart' as entity;
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:injectable/injectable.dart';
 import 'package:logger/logger.dart';
