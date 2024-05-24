@@ -1,10 +1,10 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/core/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:dayder/navigation/router/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../core/authentication/data/firebase_authentication.dart';
+import 'login/bloc/authentication_bloc.dart';
 
 @RoutePage()
 class AuthWrapper extends StatelessWidget {
