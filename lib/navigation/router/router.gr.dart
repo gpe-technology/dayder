@@ -9,9 +9,6 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i12;
-import 'package:dayder/presentation/login/code_verification_page.dart'
-    as _i5;
-import 'package:dayder/presentation/login/login_page.dart' as _i7;
 import 'package:dayder/data/models/announcement_model.dart' as _i14;
 import 'package:dayder/presentation/account/my_account_page.dart' as _i8;
 import 'package:dayder/presentation/account/profile_page.dart' as _i9;
@@ -21,8 +18,10 @@ import 'package:dayder/presentation/announcement_detail/announcement_detail.dart
     as _i1;
 import 'package:dayder/presentation/auth_wrapper.dart' as _i3;
 import 'package:dayder/presentation/chat/chat_page.dart' as _i4;
+import 'package:dayder/presentation/dashboard_page.dart' as _i6;
+import 'package:dayder/presentation/login/code_verification_page.dart' as _i5;
+import 'package:dayder/presentation/login/login_page.dart' as _i7;
 import 'package:dayder/presentation/publish/publish_page.dart' as _i10;
-import 'package:dayder/presentation/widgets/dashboard_widget.dart' as _i6;
 import 'package:flutter/material.dart' as _i13;
 
 abstract class $DayderRouter extends _i12.RootStackRouter {
@@ -67,7 +66,7 @@ abstract class $DayderRouter extends _i12.RootStackRouter {
     Dashboard.name: (routeData) {
       return _i12.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.DashboardWidget(),
+        child: const _i6.DashboardPage(),
       );
     },
     Login.name: (routeData) {
@@ -197,7 +196,7 @@ class Code extends _i12.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.DashboardWidget]
+/// [_i6.DashboardPage]
 class Dashboard extends _i12.PageRouteInfo<void> {
   const Dashboard({List<_i12.PageRouteInfo>? children})
       : super(

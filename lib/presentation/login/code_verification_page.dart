@@ -32,7 +32,7 @@ class CodeVerificationPage extends StatelessWidget {
               onPressed: () {
                 context
                     .read<AuthenticationBloc>()
-                    .add(AuthenticationLoginRequested("123456"));
+                    .add(AuthenticationLoginRequested(controller.text));
               },
               child: const Text('Send'),
             ),

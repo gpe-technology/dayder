@@ -29,7 +29,7 @@ class LoginPage extends StatelessWidget {
                 onPressed: () async {
                   context
                       .read<AuthenticationBloc>()
-                      .add(AuthenticationPhoneVerification("+33753312319"));
+                      .add(AuthenticationPhoneVerification(controller.text));
                 },
                 child: const Text('SingIn'),
               )

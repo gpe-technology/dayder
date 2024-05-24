@@ -3,8 +3,8 @@ import 'package:dayder/navigation/router/router.gr.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage(name: 'Dashboard')
-class DashboardWidget extends StatelessWidget {
-  const DashboardWidget({super.key});
+class DashboardPage extends StatelessWidget {
+  const DashboardPage({super.key});
 
   @override
   Widget build(BuildContext context) {
