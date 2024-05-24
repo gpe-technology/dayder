@@ -8,18 +8,18 @@ import 'model/user_model.dart';
 
 @Injectable(as: Authentication, env: [Environment.prod])
 class FirebaseAuthentication implements Authentication {
-  FirebaseAuth auth = FirebaseAuth.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   @override
   Future<void> verifyPhone(
     String number,
     Function(String, int?) codeSent,
   ) async {
-    await auth.verifyPhoneNumber(
+    await _auth.verifyPhoneNumber(
       phoneNumber: number,
       timeout: const Duration(seconds: 60),
       verificationCompleted: (PhoneAuthCredential credential) async {
-        await auth.signInWithCredential(credential);
+        await _auth.signInWithCredential(credential);
       },
       verificationFailed: (FirebaseAuthException exception) {
         Logger().e(exception.toString());
@@ -33,27 +33,27 @@ class FirebaseAuthentication implements Authentication {
   Future<void> signInWithPhoneBy(String verificationId, String smsCode) async {
     PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: verificationId, smsCode: smsCode);
-    await auth.signInWithCredential(credential);
+    await _auth.signInWithCredential(credential);
   }
 
   @override
   Future<void> logout() async {
-    await auth.signOut();
+    await _auth.signOut();
   }
 
   @override
   entity.User? currentUser() {
-    if (auth.currentUser != null) {
+    if (_auth.currentUser != null) {
       final result = UserModel.fromJson({
-        "uid": auth.currentUser?.uid,
-        "phoneNumber": auth.currentUser?.phoneNumber,
-        "displayName": auth.currentUser?.displayName,
-        "email": auth.currentUser?.email,
-        "emailVerified": auth.currentUser?.emailVerified,
-        "isAnonymous": auth.currentUser?.isAnonymous,
-        "refreshToken": auth.currentUser?.refreshToken,
-        "tenantId": auth.currentUser?.tenantId,
-        "photoURL": auth.currentUser?.photoURL,
+        "uid": _auth.currentUser?.uid,
+        "phoneNumber": _auth.currentUser?.phoneNumber,
+        "displayName": _auth.currentUser?.displayName,
+        "email": _auth.currentUser?.email,
+        "emailVerified": _auth.currentUser?.emailVerified,
+        "isAnonymous": _auth.currentUser?.isAnonymous,
+        "refreshToken": _auth.currentUser?.refreshToken,
+        "tenantId": _auth.currentUser?.tenantId,
+        "photoURL": _auth.currentUser?.photoURL,
       });
       return entity.User(
         result.uid,

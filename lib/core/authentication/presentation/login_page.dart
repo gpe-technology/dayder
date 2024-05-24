@@ -1,6 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dayder/core/authentication/presentation/bloc/authentication_bloc.dart';
 import 'package:dayder/presentation/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage(name: 'Login')
 class LoginPage extends StatelessWidget {
@@ -23,7 +25,11 @@ class LoginPage extends StatelessWidget {
                 controller: controller,
               ),
               ElevatedButton(
-                onPressed: () async {},
+                onPressed: () async {
+                  context
+                      .read<AuthenticationBloc>()
+                      .add(AuthenticationPhoneVerification("+33753312319"));
+                },
                 child: const Text('SingIn'),
               )
             ],
