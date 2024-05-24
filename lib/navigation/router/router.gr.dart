@@ -18,10 +18,10 @@ import 'package:dayder/presentation/announcement_detail/announcement_detail.dart
     as _i1;
 import 'package:dayder/presentation/auth_wrapper.dart' as _i3;
 import 'package:dayder/presentation/chat/chat_page.dart' as _i4;
-import 'package:dayder/presentation/dashboard_page.dart' as _i6;
 import 'package:dayder/presentation/login/code_verification_page.dart' as _i5;
 import 'package:dayder/presentation/login/login_page.dart' as _i7;
 import 'package:dayder/presentation/publish/publish_page.dart' as _i10;
+import 'package:dayder/presentation/dashboard_page.dart' as _i6;
 import 'package:flutter/material.dart' as _i13;
 
 abstract class $DayderRouter extends _i12.RootStackRouter {
