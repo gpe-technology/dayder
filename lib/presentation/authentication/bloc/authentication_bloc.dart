@@ -2,9 +2,12 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
-import 'package:dayder/core/authentication/domain/authentication.dart';
+import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
+import 'package:dayder/core/authentication/domain/authentication.dart';
 import 'package:dayder/core/authentication/domain/user.dart';
+
+import '../../../core/authentication/domain/authentication_status.dart';
 
 part 'authentication_event.dart';
 
@@ -14,7 +17,7 @@ class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   AuthenticationBloc({required Authentication authenticationRepository})
       : _authentication = authenticationRepository,
-        super(Unknown()) {
+        super(const AuthenticationState.unknown()) {
     on<AppStated>(_checkIfAuthenticated);
     on<AuthenticationPhoneVerification>(_phoneVerification);
     on<AuthenticationLoginRequested>(_login);
@@ -30,9 +33,9 @@ class AuthenticationBloc
   ) {
     final user = _authentication.currentUser();
     if (user != null) {
-      emit(Authenticated(user));
+      emit(AuthenticationState.authenticated(user: user));
     } else {
-      emit(UnAuthenticated());
+      emit(const AuthenticationState.unAuthenticated());
     }
   }
 
@@ -48,7 +51,7 @@ class AuthenticationBloc
           log("CODE: $code");
         },
       );
-      emit(CodeVerification());
+      emit(const AuthenticationState.codeVerification());
     } catch (e) {
       log(e.toString());
     }
@@ -63,7 +66,8 @@ class AuthenticationBloc
         code,
         event.smsCode,
       );
-      emit(Authenticated(_authentication.currentUser()));
+      emit(AuthenticationState.authenticated(
+          user: _authentication.currentUser()));
     } catch (e) {
       log(e.toString());
     }
@@ -74,6 +78,6 @@ class AuthenticationBloc
     Emitter<AuthenticationState> emit,
   ) async {
     await _authentication.logout();
-    emit(UnAuthenticated());
+    emit(const AuthenticationState.unAuthenticated());
   }
 }

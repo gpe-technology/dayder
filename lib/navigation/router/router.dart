@@ -48,6 +48,10 @@ class DayderRouter extends $DayderRouter {
               path: 'code-verification',
               page: Code.page,
             ),
+            AutoRoute(
+              path: 'splash',
+              page: Splash.page,
+            ),
           ],
         ),
         AutoRoute(

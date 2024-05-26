@@ -6,12 +6,18 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/authentication_bloc.dart';
 
 @RoutePage<String>(name: 'Code')
-class CodeVerificationPage extends StatelessWidget {
+class CodeVerificationPage extends StatefulWidget {
   const CodeVerificationPage({super.key});
 
   @override
+  State<CodeVerificationPage> createState() => _CodeVerificationPageState();
+}
+
+class _CodeVerificationPageState extends State<CodeVerificationPage> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -26,13 +32,14 @@ class CodeVerificationPage extends StatelessWidget {
           children: [
             InputTextField(
               hintText: '123456',
-              controller: controller,
+              controller: _controller,
+              keyboardType: TextInputType.number,
             ),
             ElevatedButton(
               onPressed: () {
                 context
                     .read<AuthenticationBloc>()
-                    .add(AuthenticationLoginRequested(controller.text));
+                    .add(AuthenticationLoginRequested(_controller.text));
               },
               child: const Text('Send'),
             ),
@@ -40,5 +47,11 @@ class CodeVerificationPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }

@@ -6,8 +6,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'bloc/authentication_bloc.dart';
 
 @RoutePage(name: 'Login')
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -17,19 +24,18 @@ class LoginPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Builder(builder: (context) {
-          TextEditingController controller = TextEditingController();
           return Column(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               InputTextField(
                 hintText: '+33 7 00 00 00 00 ',
-                controller: controller,
+                controller: _controller,
               ),
               ElevatedButton(
                 onPressed: () async {
                   context
                       .read<AuthenticationBloc>()
-                      .add(AuthenticationPhoneVerification(controller.text));
+                      .add(AuthenticationPhoneVerification(_controller.text));
                 },
                 child: const Text('SingIn'),
               )
@@ -38,5 +44,11 @@ class LoginPage extends StatelessWidget {
         }),
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 }
