@@ -16,7 +16,7 @@ import 'package:dayder/presentation/account/set_name_page.dart' as _i11;
 import 'package:dayder/presentation/announcement/announcement_page.dart' as _i2;
 import 'package:dayder/presentation/announcement_detail/announcement_detail.dart'
     as _i1;
-import 'package:dayder/presentation/auth_wrapper.dart' as _i3;
+import 'package:dayder/presentation/authentication/auth_wrapper.dart' as _i3;
 import 'package:dayder/presentation/authentication/code_verification_page.dart'
     as _i5;
 import 'package:dayder/presentation/authentication/login_page.dart' as _i7;
@@ -26,8 +26,8 @@ import 'package:dayder/presentation/publish/publish_page.dart' as _i10;
 import 'package:dayder/presentation/splash_page.dart' as _i12;
 import 'package:flutter/material.dart' as _i14;
 
-abstract class $DayderRouter extends _i13.RootStackRouter {
-  $DayderRouter({super.navigatorKey});
+abstract class $AppRouter extends _i13.RootStackRouter {
+  $AppRouter({super.navigatorKey});
 
   @override
   final Map<String, _i13.PageFactory> pagesMap = {

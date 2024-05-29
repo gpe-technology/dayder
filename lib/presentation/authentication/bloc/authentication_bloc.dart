@@ -3,6 +3,7 @@ import 'dart:developer';
 
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
+import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:dayder/core/authentication/domain/authentication.dart';
 import 'package:dayder/core/authentication/domain/user.dart';
@@ -13,6 +14,7 @@ part 'authentication_event.dart';
 
 part 'authentication_state.dart';
 
+@Injectable()
 class AuthenticationBloc
     extends Bloc<AuthenticationEvent, AuthenticationState> {
   AuthenticationBloc({required Authentication authenticationRepository})
@@ -26,6 +28,8 @@ class AuthenticationBloc
 
   final Authentication _authentication;
   String code = "";
+
+  User? get user => _authentication.currentUser();
 
   _checkIfAuthenticated(
     AppStated event,

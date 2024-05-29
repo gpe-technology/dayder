@@ -1,9 +1,8 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dayder/presentation/authentication/bloc/authentication_bloc.dart';
 import 'package:dayder/presentation/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'bloc/authentication_bloc.dart';
 
 @RoutePage<String>(name: 'Code')
 class CodeVerificationPage extends StatefulWidget {
@@ -20,11 +19,11 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: Icon(Icons.adaptive.arrow_back),
-        ),
         title: const Text('Code vérification'),
+        leading: IconButton(
+          icon: Icon(Icons.adaptive.arrow_back),
+          onPressed: () {},
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -36,7 +35,7 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
               keyboardType: TextInputType.number,
             ),
             ElevatedButton(
-              onPressed: () {
+              onPressed: () async {
                 context
                     .read<AuthenticationBloc>()
                     .add(AuthenticationLoginRequested(_controller.text));
