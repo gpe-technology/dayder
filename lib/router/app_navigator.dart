@@ -9,6 +9,10 @@ class AppNavigator {
 
   final AppRouter _router;
 
+  Future<void> goToDashboard() async {
+    await _router.push(const Dashboard());
+  }
+
   Future<void> goToCodeVerification() async {
     await _router.push(const Code());
   }

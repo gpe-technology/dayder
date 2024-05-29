@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/di/di_container.dart';
 import 'package:dayder/presentation/authentication/bloc/authentication_bloc.dart';
 import 'package:dayder/presentation/widgets/input_text_field.dart';
-import 'package:dayder/router/app_navigator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -37,7 +35,6 @@ class _LoginPageState extends State<LoginPage> {
                   context
                       .read<AuthenticationBloc>()
                       .add(AuthenticationPhoneVerification(_controller.text));
-                  diContainer<AppNavigator>().goToCodeVerification();
                 },
                 child: const Text('SingIn'),
               )

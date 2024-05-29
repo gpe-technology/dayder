@@ -14,10 +14,11 @@ import 'package:dayder/core/authentication/domain/authentication.dart' as _i7;
 import 'package:dayder/core/remote_config/fetch_config.dart' as _i6;
 import 'package:dayder/core/remote_config/remote_config.dart' as _i3;
 import 'package:dayder/data/announcement_client.dart' as _i4;
-import 'package:dayder/di/di_app_module.dart' as _i12;
+import 'package:dayder/di/di_app_module.dart' as _i13;
 import 'package:dayder/presentation/authentication/bloc/authentication_bloc.dart'
-    as _i9;
+    as _i12;
 import 'package:dayder/router/app_navigator.dart' as _i11;
+import 'package:dayder/router/auth_guard.dart' as _i9;
 import 'package:dayder/router/router.dart' as _i10;
 import 'package:flutter/material.dart' as _i5;
 import 'package:get_it/get_it.dart' as _i1;
@@ -45,16 +46,18 @@ extension GetItInjectableX on _i1.GetIt {
       () => _i8.FirebaseAuthentication(),
       registerFor: {_prod},
     );
-    gh.factory<_i9.AuthenticationBloc>(() => _i9.AuthenticationBloc(
-        authenticationRepository: gh<_i7.Authentication>()));
+    gh.lazySingleton<_i9.AuthGuard>(
+        () => _i9.AuthGuard(gh<_i7.Authentication>()));
     gh.lazySingleton<_i10.AppRouter>(() => _i10.AppRouter(
           gh<_i5.GlobalKey<_i5.NavigatorState>>(),
-          gh<_i9.AuthenticationBloc>(),
+          gh<_i9.AuthGuard>(),
         ));
     gh.factory<_i11.AppNavigator>(
         () => _i11.AppNavigator(gh<_i10.AppRouter>()));
+    gh.factory<_i12.AuthenticationBloc>(() => _i12.AuthenticationBloc(
+        authenticationRepository: gh<_i7.Authentication>()));
     return this;
   }
 }
 
-class _$DIAppModule extends _i12.DIAppModule {}
+class _$DIAppModule extends _i13.DIAppModule {}

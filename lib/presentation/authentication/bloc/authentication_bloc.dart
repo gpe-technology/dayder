@@ -1,13 +1,14 @@
 import 'dart:async';
 import 'dart:developer';
 import 'package:bloc/bloc.dart';
+import 'package:dayder/core/authentication/domain/authentication_status.dart';
+import 'package:dayder/di/di_container.dart';
+import 'package:dayder/router/app_navigator.dart';
 import 'package:equatable/equatable.dart';
 import 'package:injectable/injectable.dart';
 import 'package:meta/meta.dart';
 import 'package:dayder/core/authentication/domain/authentication.dart';
 import 'package:dayder/core/authentication/domain/user.dart';
-
-import '../../../core/authentication/domain/authentication_status.dart';
 
 part 'authentication_event.dart';
 
@@ -27,8 +28,6 @@ class AuthenticationBloc
   final Authentication _authentication;
   String code = "";
 
-  User? get user => _authentication.currentUser();
-
   Future<void> _phoneVerification(
     AuthenticationPhoneVerification event,
     Emitter<AuthenticationState> emit,
@@ -37,10 +36,10 @@ class AuthenticationBloc
       event.phone,
       (code, value) {
         this.code = code;
-        log("CODE: $code");
       },
     );
     emit(const AuthenticationState.codeVerification());
+    diContainer<AppNavigator>().goToCodeVerification();
   }
 
   Future<void> _login(
@@ -51,16 +50,21 @@ class AuthenticationBloc
       code,
       event.smsCode,
     );
-    emit(AuthenticationState.authenticated(
-      user: _authentication.currentUser(),
-    ));
+    try {
+      emit(AuthenticationState.authenticated(
+        user: _authentication.currentUser(),
+      ));
+      diContainer<AppNavigator>().goToDashboard();
+    } catch (e) {
+      log(e.toString());
+    }
   }
 
   Future<void> _logout(
     AuthenticationLogoutRequested event,
     Emitter<AuthenticationState> emit,
   ) async {
-   await _authentication.logout();
+    await _authentication.logout();
     emit(const AuthenticationState.unAuthenticated());
   }
 }

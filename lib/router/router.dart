@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/presentation/authentication/bloc/authentication_bloc.dart';
+import 'package:dayder/router/auth_guard.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -7,27 +7,15 @@ import 'router.gr.dart';
 
 @LazySingleton()
 @AutoRouterConfig()
-class AppRouter extends $AppRouter implements AutoRouteGuard {
-  AppRouter(GlobalKey<NavigatorState> navigatorKey,
-      AuthenticationBloc authenticationBloc)
-      : _auth = authenticationBloc,
+class AppRouter extends $AppRouter {
+  AppRouter(GlobalKey<NavigatorState> navigatorKey, AuthGuard authGuard)
+      : _authGuard = authGuard,
         super(navigatorKey: navigatorKey);
 
-  final AuthenticationBloc _auth;
-
-  final _allowedRoute = [Login.name, Code.name];
+  final AuthGuard _authGuard;
 
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
-
-  @override
-  void onNavigation(NavigationResolver resolver, StackRouter router) {
-    if (_auth.user != null || _allowedRoute.contains(resolver.route.name)) {
-      resolver.next();
-    } else {
-      resolver.redirect(const Login());
-    }
-  }
 
   @override
   List<AutoRoute> get routes => [
@@ -52,6 +40,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
               title: (_, routeData) => 'My account',
             ),
           ],
+          guards: [_authGuard],
         ),
         AutoRoute(
           path: '/login',
