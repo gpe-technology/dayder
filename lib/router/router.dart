@@ -24,7 +24,6 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
-    log("On navigate");
     if (_auth.user != null || _allowedRoute.contains(resolver.route.name)) {
       resolver.next();
     } else {
