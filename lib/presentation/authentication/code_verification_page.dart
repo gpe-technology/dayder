@@ -20,10 +20,6 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Code vérification'),
-        leading: IconButton(
-          icon: Icon(Icons.adaptive.arrow_back),
-          onPressed: () {},
-        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20.0),

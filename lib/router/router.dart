@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/presentation/authentication/bloc/authentication_bloc.dart';
 import 'package:flutter/material.dart';
@@ -15,15 +17,18 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   final AuthenticationBloc _auth;
 
+  final _allowedRoute = [Login.name, Code.name];
+
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
-    if (_auth.user != null || resolver.route.name == AuthWrapper.name) {
+    log("On navigate");
+    if (_auth.user != null || _allowedRoute.contains(resolver.route.name)) {
       resolver.next();
     } else {
-      resolver.redirect(const AuthWrapper());
+      resolver.redirect(const Login());
     }
   }
 
@@ -53,21 +58,15 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         ),
         AutoRoute(
           path: '/login',
-          page: AuthWrapper.page,
-          children: [
-            AutoRoute(
-              path: "sign-in",
-              page: Login.page,
-            ),
-            AutoRoute(
-              path: 'code-verification',
-              page: Code.page,
-            ),
-            AutoRoute(
-              path: 'splash',
-              page: Splash.page,
-            ),
-          ],
+          page: Login.page,
+        ),
+        AutoRoute(
+          path: '/code-verification',
+          page: Code.page,
+        ),
+        AutoRoute(
+          path: '/splash',
+          page: Splash.page,
         ),
         AutoRoute(
           path: '/publish',
