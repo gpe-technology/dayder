@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/router/auth_guard.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
@@ -8,11 +7,8 @@ import 'router.gr.dart';
 @LazySingleton()
 @AutoRouterConfig()
 class AppRouter extends $AppRouter {
-  AppRouter(GlobalKey<NavigatorState> navigatorKey, AuthGuard authGuard)
-      : _authGuard = authGuard,
-        super(navigatorKey: navigatorKey);
-
-  final AuthGuard _authGuard;
+  AppRouter(GlobalKey<NavigatorState> navigatorKey)
+      : super(navigatorKey: navigatorKey);
 
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
@@ -40,7 +36,6 @@ class AppRouter extends $AppRouter {
               title: (_, routeData) => 'My account',
             ),
           ],
-          guards: [_authGuard],
         ),
         AutoRoute(
           path: '/login',
