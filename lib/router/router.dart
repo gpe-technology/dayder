@@ -44,11 +44,17 @@ class AppRouter extends $AppRouter {
         ),
         AutoRoute(
           path: '/login',
-          page: Login.page,
-        ),
-        AutoRoute(
-          path: '/code-verification',
-          page: Code.page,
+          page: LoginWrapper.page,
+          children: [
+            AutoRoute(
+              path: 'code-verification',
+              page: Login.page,
+            ),
+            AutoRoute(
+              path: 'code-verification',
+              page: Code.page,
+            ),
+          ],
         ),
         AutoRoute(
           path: '/splash',

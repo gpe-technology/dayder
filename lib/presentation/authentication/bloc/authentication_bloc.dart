@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:developer';
 import 'package:bloc/bloc.dart';
 import 'package:dayder/core/authentication/domain/authentication_status.dart';
 import 'package:dayder/di/di_container.dart';
@@ -50,14 +49,10 @@ class AuthenticationBloc
       code,
       event.smsCode,
     );
-    try {
-      emit(AuthenticationState.authenticated(
-        user: _authentication.currentUser(),
-      ));
-      diContainer<AppNavigator>().goToDashboard();
-    } catch (e) {
-      log(e.toString());
-    }
+    emit(AuthenticationState.authenticated(
+      user: _authentication.currentUser(),
+    ));
+    diContainer<AppNavigator>().goToDashboard();
   }
 
   Future<void> _logout(

@@ -18,9 +18,7 @@ class FirebaseAuthentication implements Authentication {
     await _auth.verifyPhoneNumber(
       phoneNumber: number,
       timeout: const Duration(seconds: 60),
-      verificationCompleted: (PhoneAuthCredential credential) async {
-        await _auth.signInWithCredential(credential);
-      },
+      verificationCompleted: _auth.signInWithCredential,
       verificationFailed: (FirebaseAuthException exception) {
         Logger().e(exception.toString());
       },
@@ -65,5 +63,3 @@ class FirebaseAuthentication implements Authentication {
     return null;
   }
 }
-
-//auth.currentUser

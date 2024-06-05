@@ -3,4 +3,5 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 
 @InjectableInit()
-GetIt initDI(GetIt getIt) => getIt.init(environment: Environment.prod);
+GetIt initDI(GetIt getIt) =>
+    getIt.init(environment: const String.fromEnvironment("ENV"));
