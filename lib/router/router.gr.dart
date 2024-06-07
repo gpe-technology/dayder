@@ -17,11 +17,11 @@ import 'package:dayder/presentation/announcement/announcement_page.dart' as _i2;
 import 'package:dayder/presentation/announcement_detail/announcement_detail.dart'
     as _i1;
 import 'package:dayder/presentation/authentication/code_verification_page.dart'
-    as _i4;
-import 'package:dayder/presentation/authentication/login_page.dart' as _i6;
-import 'package:dayder/presentation/authentication/login_wrapper.dart' as _i7;
-import 'package:dayder/presentation/chat/chat_page.dart' as _i3;
-import 'package:dayder/presentation/dashboard_page.dart' as _i5;
+    as _i5;
+import 'package:dayder/presentation/authentication/login_page.dart' as _i7;
+import 'package:dayder/presentation/authentication/login_wrapper.dart' as _i3;
+import 'package:dayder/presentation/chat/chat_page.dart' as _i4;
+import 'package:dayder/presentation/dashboard_page.dart' as _i6;
 import 'package:dayder/presentation/publish/publish_page.dart' as _i10;
 import 'package:dayder/presentation/splash_page.dart' as _i12;
 import 'package:flutter/material.dart' as _i14;
@@ -47,34 +47,34 @@ abstract class $AppRouter extends _i13.RootStackRouter {
         child: const _i2.AnnouncementPage(),
       );
     },
+    AppWrapper.name: (routeData) {
+      return _i13.AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const _i3.AppWrapper(),
+      );
+    },
     Chat.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i3.ChatPage(),
+        child: const _i4.ChatPage(),
       );
     },
     Code.name: (routeData) {
       return _i13.AutoRoutePage<String>(
         routeData: routeData,
-        child: const _i4.CodeVerificationPage(),
+        child: const _i5.CodeVerificationPage(),
       );
     },
     Dashboard.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.DashboardPage(),
+        child: const _i6.DashboardPage(),
       );
     },
     Login.name: (routeData) {
       return _i13.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i6.LoginPage(),
-      );
-    },
-    LoginWrapper.name: (routeData) {
-      return _i13.AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const _i7.LoginWrapper(),
+        child: const _i7.LoginPage(),
       );
     },
     Account.name: (routeData) {
@@ -162,7 +162,21 @@ class Announcement extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i3.ChatPage]
+/// [_i3.AppWrapper]
+class AppWrapper extends _i13.PageRouteInfo<void> {
+  const AppWrapper({List<_i13.PageRouteInfo>? children})
+      : super(
+          AppWrapper.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'AppWrapper';
+
+  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i4.ChatPage]
 class Chat extends _i13.PageRouteInfo<void> {
   const Chat({List<_i13.PageRouteInfo>? children})
       : super(
@@ -176,7 +190,7 @@ class Chat extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i4.CodeVerificationPage]
+/// [_i5.CodeVerificationPage]
 class Code extends _i13.PageRouteInfo<void> {
   const Code({List<_i13.PageRouteInfo>? children})
       : super(
@@ -190,7 +204,7 @@ class Code extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i5.DashboardPage]
+/// [_i6.DashboardPage]
 class Dashboard extends _i13.PageRouteInfo<void> {
   const Dashboard({List<_i13.PageRouteInfo>? children})
       : super(
@@ -204,7 +218,7 @@ class Dashboard extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i6.LoginPage]
+/// [_i7.LoginPage]
 class Login extends _i13.PageRouteInfo<void> {
   const Login({List<_i13.PageRouteInfo>? children})
       : super(
@@ -213,20 +227,6 @@ class Login extends _i13.PageRouteInfo<void> {
         );
 
   static const String name = 'Login';
-
-  static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
-}
-
-/// generated route for
-/// [_i7.LoginWrapper]
-class LoginWrapper extends _i13.PageRouteInfo<void> {
-  const LoginWrapper({List<_i13.PageRouteInfo>? children})
-      : super(
-          LoginWrapper.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'LoginWrapper';
 
   static const _i13.PageInfo<void> page = _i13.PageInfo<void>(name);
 }

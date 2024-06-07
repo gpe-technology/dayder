@@ -38,8 +38,8 @@ class AppRouter extends $AppRouter {
           ],
         ),
         AutoRoute(
-          path: '/login',
-          page: LoginWrapper.page,
+          path: '/',
+          page: AppWrapper.page,
           children: [
             AutoRoute(
               path: 'code-verification',
@@ -71,6 +71,5 @@ class AppRouter extends $AppRouter {
           path: '/detail',
           page: Detail.page,
         ),
-        RedirectRoute(path: '/', redirectTo: '/dashboard')
       ];
 }
