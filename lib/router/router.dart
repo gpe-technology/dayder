@@ -1,14 +1,20 @@
+import 'package:authentication_repository/authentication_repository.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import 'router.gr.dart';
 
-@LazySingleton()
+@Injectable()
 @AutoRouterConfig()
-class AppRouter extends $AppRouter {
-  AppRouter(GlobalKey<NavigatorState> navigatorKey)
-      : super(navigatorKey: navigatorKey);
+class AppRouter extends $AppRouter implements AutoRouteGuard {
+  AppRouter(GlobalKey<NavigatorState> navigatorKey,
+      {@factoryParam
+      required AuthenticationRepository authenticationRepository})
+      : _authenticationRepository = authenticationRepository,
+        super(navigatorKey: navigatorKey);
+
+  final AuthenticationRepository _authenticationRepository;
 
   @override
   RouteType get defaultRouteType => const RouteType.adaptive();
@@ -16,7 +22,7 @@ class AppRouter extends $AppRouter {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          path: '/dashboard',
+          path: '/',
           initial: true,
           page: Dashboard.page,
           children: [
@@ -38,18 +44,8 @@ class AppRouter extends $AppRouter {
           ],
         ),
         AutoRoute(
-          path: '/',
-          page: AppWrapper.page,
-          children: [
-            AutoRoute(
-              path: 'code-verification',
-              page: Login.page,
-            ),
-            AutoRoute(
-              path: 'code-verification',
-              page: Code.page,
-            ),
-          ],
+          path: '/login',
+          page: Login.page,
         ),
         AutoRoute(
           path: '/splash',
@@ -72,4 +68,15 @@ class AppRouter extends $AppRouter {
           page: Detail.page,
         ),
       ];
+
+  @override
+  void onNavigation(NavigationResolver resolver, StackRouter router) {
+    if (_authenticationRepository.currentUser.isNotEmpty ||
+        resolver.route.name == Login.name) {
+      resolver.next();
+    } else {
+      resolver
+          .redirect(Login(authenticationRepository: _authenticationRepository));
+    }
+  }
 }

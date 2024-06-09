@@ -1,10 +1,8 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:dayder/presentation/authentication/bloc/authentication_bloc.dart';
+import 'package:dayder/login/cubit/login_cubit.dart';
 import 'package:dayder/presentation/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-@RoutePage<String>(name: 'Code')
 class CodeVerificationPage extends StatefulWidget {
   const CodeVerificationPage({super.key});
 
@@ -32,9 +30,9 @@ class _CodeVerificationPageState extends State<CodeVerificationPage> {
             ),
             ElevatedButton(
               onPressed: () async {
-                context
-                    .read<AuthenticationBloc>()
-                    .add(AuthenticationLoginRequested(_controller.text));
+                await context
+                    .read<LoginCubit>()
+                    .signInWithPhone(_controller.text);
               },
               child: const Text('Send'),
             ),

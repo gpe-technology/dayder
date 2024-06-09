@@ -1,18 +1,16 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:dayder/presentation/authentication/bloc/authentication_bloc.dart';
+import 'package:dayder/login/cubit/login_cubit.dart';
 import 'package:dayder/presentation/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-@RoutePage(name: 'Login')
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class LoginForm extends StatefulWidget {
+  const LoginForm({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginForm> createState() => _LoginFormState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginFormState extends State<LoginForm> {
   final TextEditingController _controller = TextEditingController();
 
   @override
@@ -32,9 +30,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  context
-                      .read<AuthenticationBloc>()
-                      .add(AuthenticationPhoneVerification(_controller.text));
+                  await context.read<LoginCubit>().signInWithEmailAndPassword();
                 },
                 child: const Text('SingIn'),
               )
