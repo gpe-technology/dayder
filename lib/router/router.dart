@@ -75,8 +75,14 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         resolver.route.name == Login.name) {
       resolver.next();
     } else {
-      resolver
-          .redirect(Login(authenticationRepository: _authenticationRepository));
+      resolver.redirect(
+        Login(
+          authenticationRepository: _authenticationRepository,
+          onResult: (success) {
+            resolver.resolveNext(success, reevaluateNext: false);
+          },
+        ),
+      );
     }
   }
 }

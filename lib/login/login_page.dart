@@ -8,18 +8,32 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage(name: 'Login')
 class LoginPage extends StatelessWidget {
-  const LoginPage(this._authenticationRepository, {super.key});
+  const LoginPage(
+      {required AuthenticationRepository authenticationRepository,
+      required Function(bool success) onResult,
+      super.key})
+      : _authenticationRepository = authenticationRepository,
+        _onResult = onResult;
 
   final AuthenticationRepository _authenticationRepository;
+  final Function(bool success) _onResult;
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(_authenticationRepository),
-      child: BlocBuilder<LoginCubit, LoginState>(
+      child: BlocConsumer<LoginCubit, LoginState>(
+        listener: (BuildContext context, LoginState state) {
+          if (state.status == LoginStatus.authenticated) {
+            _onResult(true);
+          }
+        },
         builder: (context, state) {
-          if (state is LoginCode) return const CodeVerificationPage();
-          return const LoginForm();
+          return switch (state.status) {
+            LoginStatus.numberVerification => const LoginForm(),
+            LoginStatus.codeVerification => const CodeVerificationPage(),
+            LoginStatus.authenticated => const Scaffold(),
+          };
         },
       ),
     );

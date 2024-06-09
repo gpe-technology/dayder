@@ -1,11 +1,12 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
-import 'package:meta/meta.dart';
+import 'package:equatable/equatable.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._authenticationRepository) : super(LoginPhoneVerification());
+  LoginCubit(this._authenticationRepository)
+      : super(const LoginState.numberVerification());
 
   final AuthenticationRepository _authenticationRepository;
 
@@ -14,6 +15,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> signInWithEmailAndPassword() async {
     await _authenticationRepository.signInWithEmailAndPassword(
         email: "alphaseul@yahoo.fr", password: "alphasow");
+    emit(const LoginState.authenticated());
   }
 
   Future<void> verifyPhoneNumber(String number) async {
@@ -22,7 +24,7 @@ class LoginCubit extends Cubit<LoginState> {
         codeSent: (code, value) {
           _code = code;
         });
-    emit(LoginCode());
+    emit(const LoginState.codeVerification());
   }
 
   Future<void> signInWithPhone(String verificationId) async {

@@ -63,7 +63,8 @@ abstract class $AppRouter extends _i11.RootStackRouter {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i5.LoginPage(
-          args.authenticationRepository,
+          authenticationRepository: args.authenticationRepository,
+          onResult: args.onResult,
           key: args.key,
         ),
       );
@@ -185,12 +186,14 @@ class Dashboard extends _i11.PageRouteInfo<void> {
 class Login extends _i11.PageRouteInfo<LoginArgs> {
   Login({
     required _i14.AuthenticationRepository authenticationRepository,
+    required dynamic Function(bool) onResult,
     _i12.Key? key,
     List<_i11.PageRouteInfo>? children,
   }) : super(
           Login.name,
           args: LoginArgs(
             authenticationRepository: authenticationRepository,
+            onResult: onResult,
             key: key,
           ),
           initialChildren: children,
@@ -204,16 +207,19 @@ class Login extends _i11.PageRouteInfo<LoginArgs> {
 class LoginArgs {
   const LoginArgs({
     required this.authenticationRepository,
+    required this.onResult,
     this.key,
   });
 
   final _i14.AuthenticationRepository authenticationRepository;
 
+  final dynamic Function(bool) onResult;
+
   final _i12.Key? key;
 
   @override
   String toString() {
-    return 'LoginArgs{authenticationRepository: $authenticationRepository, key: $key}';
+    return 'LoginArgs{authenticationRepository: $authenticationRepository, onResult: $onResult, key: $key}';
   }
 }
 

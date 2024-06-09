@@ -1,8 +1,20 @@
 part of 'login_cubit.dart';
 
-@immutable
-sealed class LoginState {}
+enum LoginStatus { numberVerification, codeVerification, authenticated }
 
-final class LoginPhoneVerification extends LoginState {}
+class LoginState extends Equatable {
+  const LoginState._({required this.status});
 
-final class LoginCode extends LoginState {}
+  const LoginState.numberVerification()
+      : this._(status: LoginStatus.numberVerification);
+
+  const LoginState.codeVerification()
+      : this._(status: LoginStatus.codeVerification);
+
+  const LoginState.authenticated() : this._(status: LoginStatus.authenticated);
+
+  final LoginStatus status;
+
+  @override
+  List<Object?> get props => [status];
+}
