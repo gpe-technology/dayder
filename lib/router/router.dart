@@ -1,18 +1,12 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:flutter/material.dart';
-import 'package:injectable/injectable.dart';
 
 import 'router.gr.dart';
 
-@Injectable()
 @AutoRouterConfig()
 class AppRouter extends $AppRouter implements AutoRouteGuard {
-  AppRouter(GlobalKey<NavigatorState> navigatorKey,
-      {@factoryParam
-      required AuthenticationRepository authenticationRepository})
-      : _authenticationRepository = authenticationRepository,
-        super(navigatorKey: navigatorKey);
+  AppRouter({required AuthenticationRepository authenticationRepository})
+      : _authenticationRepository = authenticationRepository;
 
   final AuthenticationRepository _authenticationRepository;
 

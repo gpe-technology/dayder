@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/presentation/widgets/input_text_field.dart';
+import 'package:dayder/app/view/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
-
 
 @RoutePage(name: 'Publish')
 class PublishPage extends StatelessWidget {

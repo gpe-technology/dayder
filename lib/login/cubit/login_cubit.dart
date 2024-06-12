@@ -12,9 +12,12 @@ class LoginCubit extends Cubit<LoginState> {
 
   String _code = "";
 
-  Future<void> signInWithEmailAndPassword() async {
+  Future<void> signInWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
     await _authenticationRepository.signInWithEmailAndPassword(
-        email: "alphaseul@yahoo.fr", password: "alphasow");
+        email: email, password: password);
     emit(const LoginState.authenticated());
   }
 

@@ -11,18 +11,17 @@
 import 'package:authentication_repository/authentication_repository.dart'
     as _i14;
 import 'package:auto_route/auto_route.dart' as _i11;
+import 'package:dayder/account/my_account_page.dart' as _i6;
+import 'package:dayder/account/profile_page.dart' as _i7;
+import 'package:dayder/account/set_name_page.dart' as _i9;
+import 'package:dayder/announcement/view/announcement_detail.dart' as _i1;
 import 'package:dayder/announcement/view/announcement_page.dart' as _i2;
+import 'package:dayder/app/view/dashboard_page.dart' as _i4;
+import 'package:dayder/app/view/splash_page.dart' as _i10;
+import 'package:dayder/chat/chat_page.dart' as _i3;
 import 'package:dayder/data/models/announcement_model.dart' as _i13;
 import 'package:dayder/login/login_page.dart' as _i5;
-import 'package:dayder/presentation/account/my_account_page.dart' as _i6;
-import 'package:dayder/presentation/account/profile_page.dart' as _i7;
-import 'package:dayder/presentation/account/set_name_page.dart' as _i9;
-import 'package:dayder/presentation/announcement_detail/announcement_detail.dart'
-    as _i1;
-import 'package:dayder/presentation/chat/chat_page.dart' as _i3;
-import 'package:dayder/presentation/dashboard_page.dart' as _i4;
-import 'package:dayder/presentation/publish/publish_page.dart' as _i8;
-import 'package:dayder/presentation/splash_page.dart' as _i10;
+import 'package:dayder/publish/publish_page.dart' as _i8;
 import 'package:flutter/material.dart' as _i12;
 
 abstract class $AppRouter extends _i11.RootStackRouter {

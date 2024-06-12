@@ -1,5 +1,5 @@
 import 'package:dayder/login/cubit/login_cubit.dart';
-import 'package:dayder/presentation/widgets/input_text_field.dart';
+import 'package:dayder/app/view/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -11,7 +11,8 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final TextEditingController _controller = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,12 +26,20 @@ class _LoginFormState extends State<LoginForm> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               InputTextField(
-                hintText: '+33 7 00 00 00 00 ',
-                controller: _controller,
+                hintText: 'Email',
+                controller: _emailController,
+              ),
+              InputTextField(
+                hintText: 'Password',
+                controller: _passwordController,
+                obscureText: true,
               ),
               ElevatedButton(
                 onPressed: () async {
-                  await context.read<LoginCubit>().signInWithEmailAndPassword();
+                  await context.read<LoginCubit>().signInWithEmailAndPassword(
+                        email: _emailController.text,
+                        password: _passwordController.text,
+                      );
                 },
                 child: const Text('SingIn'),
               )
@@ -43,7 +52,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   void dispose() {
-    _controller.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
     super.dispose();
   }
 }

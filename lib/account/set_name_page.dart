@@ -1,7 +1,7 @@
 import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/input_text_field.dart';
+import '../app/view/widgets/input_text_field.dart';
 
 @RoutePage(name: 'SetName')
 class SetNamePage extends StatelessWidget {

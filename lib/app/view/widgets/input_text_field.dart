@@ -1,19 +1,22 @@
 import 'package:flutter/material.dart';
 
 class InputTextField extends StatelessWidget {
-  const InputTextField(
-      {super.key,
-      this.controller,
-      this.hintText,
-      this.keyboardType,
-      this.maxLines = 1,
-      this.errorText});
+  const InputTextField({
+    super.key,
+    this.controller,
+    this.hintText,
+    this.keyboardType,
+    this.maxLines = 1,
+    this.errorText,
+    this.obscureText = false,
+  });
 
   final String? hintText;
   final TextEditingController? controller;
   final TextInputType? keyboardType;
   final int? maxLines;
   final String? errorText;
+  final bool obscureText;
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +33,7 @@ class InputTextField extends StatelessWidget {
               const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
         ),
         maxLines: maxLines,
+        obscureText: obscureText,
       ),
     );
   }
