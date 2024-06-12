@@ -22,7 +22,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
   @override
   List<AutoRoute> get routes => [
         AutoRoute(
-          path: '/',
+          path: '/dashboard',
           initial: true,
           page: Dashboard.page,
           children: [
@@ -67,6 +67,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
           path: '/detail',
           page: Detail.page,
         ),
+        RedirectRoute(path: '/', redirectTo: '/dashboard')
       ];
 
   @override
