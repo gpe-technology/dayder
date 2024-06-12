@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:dayder/data/models/announcement_model.dart';
+import 'package:dayder/announcement/models/announcement_model.dart';
 import 'package:equatable/equatable.dart';
 
 part 'announcement_state.dart';
