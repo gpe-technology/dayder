@@ -11,9 +11,9 @@
 import 'package:authentication_repository/authentication_repository.dart'
     as _i14;
 import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:dayder/account/my_account_page.dart' as _i6;
-import 'package:dayder/account/profile_page.dart' as _i7;
-import 'package:dayder/account/set_name_page.dart' as _i9;
+import 'package:dayder/account/view/my_account_page.dart' as _i6;
+import 'package:dayder/account/view/profile_page.dart' as _i7;
+import 'package:dayder/account/view/set_name_page.dart' as _i9;
 import 'package:dayder/announcement/view/announcement_detail.dart' as _i1;
 import 'package:dayder/announcement/view/announcement_page.dart' as _i2;
 import 'package:dayder/app/view/dashboard_page.dart' as _i4;

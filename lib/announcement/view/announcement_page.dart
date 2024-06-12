@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dayder/announcement/cubit/announcement_cubit.dart';
 import 'package:dayder/app/view/splash_page.dart';
 import 'package:dayder/app/view/widgets/announcement_card.dart';
-import 'package:dayder/router/router.gr.dart';
+import 'package:dayder/app/router/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
