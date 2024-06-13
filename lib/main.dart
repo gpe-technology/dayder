@@ -16,7 +16,7 @@ void main() async {
   final authenticationRepository = AuthenticationRepository();
   await authenticationRepository.user.first;
   final remoteConfigRepository = RemoteConfigRepository();
-  await remoteConfigRepository.baseConfig();
+  await remoteConfigRepository.setup();
   runApp(App(
     authenticationRepository: authenticationRepository,
     remoteConfigRepository: remoteConfigRepository,
