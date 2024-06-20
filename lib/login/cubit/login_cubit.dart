@@ -38,4 +38,9 @@ class LoginCubit extends Cubit<LoginState> {
       smsCode: _code,
     );
   }
+
+  Future<void> logout() async {
+    await _authenticationRepository.logout();
+    emit(const LoginState.unAuthenticated());
+  }
 }

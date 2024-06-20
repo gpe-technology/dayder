@@ -63,6 +63,7 @@ final class AuthenticationRepository {
 
   Future<void> logout() async {
     await _firebaseAuth.signOut();
+    _cache.clear();
   }
 }
 

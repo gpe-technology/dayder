@@ -12,4 +12,8 @@ class CacheClient {
     if (value is T) return value;
     return null;
   }
+
+  clear() {
+    _cache.clear();
+  }
 }

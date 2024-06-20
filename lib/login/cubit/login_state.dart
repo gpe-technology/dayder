@@ -1,6 +1,11 @@
 part of 'login_cubit.dart';
 
-enum LoginStatus { numberVerification, codeVerification, authenticated }
+enum LoginStatus {
+  numberVerification,
+  codeVerification,
+  authenticated,
+  unAuthenticated
+}
 
 class LoginState extends Equatable {
   const LoginState._({required this.status});
@@ -12,6 +17,8 @@ class LoginState extends Equatable {
       : this._(status: LoginStatus.codeVerification);
 
   const LoginState.authenticated() : this._(status: LoginStatus.authenticated);
+  const LoginState.unAuthenticated()
+      : this._(status: LoginStatus.unAuthenticated);
 
   final LoginStatus status;
 
