@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:cache/cache.dart';
-import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
 
 import 'models/models.dart';
@@ -37,7 +36,7 @@ final class AuthenticationRepository {
       timeout: const Duration(seconds: 60),
       verificationCompleted: _firebaseAuth.signInWithCredential,
       verificationFailed: (firebase_auth.FirebaseAuthException exception) {
-        Logger().e(exception.message);
+        //Logger().e(exception.message);
       },
       codeSent: codeSent,
       codeAutoRetrievalTimeout: (String verificationId) {},

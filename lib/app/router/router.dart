@@ -1,12 +1,18 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/widgets.dart';
+import 'package:injectable/injectable.dart';
 
 import 'router.gr.dart';
 
+@Injectable()
 @AutoRouterConfig()
 class AppRouter extends $AppRouter implements AutoRouteGuard {
-  AppRouter({required AuthenticationRepository authenticationRepository})
-      : _authenticationRepository = authenticationRepository;
+  AppRouter(
+      {required AuthenticationRepository authenticationRepository,
+      required GlobalKey<NavigatorState> key})
+      : _authenticationRepository = authenticationRepository,
+        super(navigatorKey: key);
 
   final AuthenticationRepository _authenticationRepository;
 
@@ -72,7 +78,6 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
     } else {
       resolver.redirect(
         Login(
-          authenticationRepository: _authenticationRepository,
           onResult: (success) {
             resolver.resolveNext(success, reevaluateNext: false);
           },

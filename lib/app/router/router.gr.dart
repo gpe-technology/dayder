@@ -8,8 +8,6 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:authentication_repository/authentication_repository.dart'
-    as _i14;
 import 'package:auto_route/auto_route.dart' as _i11;
 import 'package:dayder/account/view/my_account_page.dart' as _i6;
 import 'package:dayder/account/view/profile_page.dart' as _i7;
@@ -62,7 +60,6 @@ abstract class $AppRouter extends _i11.RootStackRouter {
       return _i11.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i5.LoginPage(
-          authenticationRepository: args.authenticationRepository,
           onResult: args.onResult,
           key: args.key,
         ),
@@ -184,14 +181,12 @@ class Dashboard extends _i11.PageRouteInfo<void> {
 /// [_i5.LoginPage]
 class Login extends _i11.PageRouteInfo<LoginArgs> {
   Login({
-    required _i14.AuthenticationRepository authenticationRepository,
     required dynamic Function(bool) onResult,
     _i12.Key? key,
     List<_i11.PageRouteInfo>? children,
   }) : super(
           Login.name,
           args: LoginArgs(
-            authenticationRepository: authenticationRepository,
             onResult: onResult,
             key: key,
           ),
@@ -205,12 +200,9 @@ class Login extends _i11.PageRouteInfo<LoginArgs> {
 
 class LoginArgs {
   const LoginArgs({
-    required this.authenticationRepository,
     required this.onResult,
     this.key,
   });
-
-  final _i14.AuthenticationRepository authenticationRepository;
 
   final dynamic Function(bool) onResult;
 
@@ -218,7 +210,7 @@ class LoginArgs {
 
   @override
   String toString() {
-    return 'LoginArgs{authenticationRepository: $authenticationRepository, onResult: $onResult, key: $key}';
+    return 'LoginArgs{onResult: $onResult, key: $key}';
   }
 }
 
