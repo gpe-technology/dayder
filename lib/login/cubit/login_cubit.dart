@@ -20,7 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
   }) async {
     await _authenticationRepository.signInWithEmailAndPassword(
         email: email, password: password);
-    emit(const LoginState.authenticated());
+    emit(LoginState.authenticated(_authenticationRepository.currentUser));
   }
 
   Future<void> verifyPhoneNumber(String number) async {

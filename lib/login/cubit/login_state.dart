@@ -8,19 +8,21 @@ enum LoginStatus {
 }
 
 class LoginState extends Equatable {
-  const LoginState._({required this.status});
+  const LoginState._({required this.status, required this.user});
 
   const LoginState.numberVerification()
-      : this._(status: LoginStatus.numberVerification);
+      : this._(status: LoginStatus.numberVerification, user: User.empty);
 
   const LoginState.codeVerification()
-      : this._(status: LoginStatus.codeVerification);
+      : this._(status: LoginStatus.codeVerification, user: User.empty);
 
-  const LoginState.authenticated() : this._(status: LoginStatus.authenticated);
+  const LoginState.authenticated(User user)
+      : this._(status: LoginStatus.authenticated, user: user);
   const LoginState.unAuthenticated()
-      : this._(status: LoginStatus.unAuthenticated);
+      : this._(status: LoginStatus.unAuthenticated, user: User.empty);
 
   final LoginStatus status;
+  final User user;
 
   @override
   List<Object?> get props => [status];
