@@ -1,4 +1,3 @@
-import 'package:authentication_repository/authentication_repository.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/di/di_container.dart';
 import 'package:dayder/login/code_verification_page.dart';
