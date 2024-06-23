@@ -5,18 +5,13 @@ enum LoginStatus {
   codeVerification,
 }
 
-class LoginState extends Equatable {
-  const LoginState._({required this.status, required this.user});
+@freezed
+class LoginState with _$LoginState {
+  const factory LoginState.inital() = Inital;
 
-  const LoginState.numberVerification()
-      : this._(status: LoginStatus.numberVerification, user: User.empty);
+  const factory LoginState.email() = Email;
 
-  const LoginState.codeVerification()
-      : this._(status: LoginStatus.codeVerification, user: User.empty);
+  const factory LoginState.phone() = Phone;
 
-  final LoginStatus status;
-  final User user;
-
-  @override
-  List<Object?> get props => [status];
+  const factory LoginState.codeVerification() = CodeVerification;
 }

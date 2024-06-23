@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/app/app.dart';
-import 'package:dayder/login/login_form.dart';
+import 'package:dayder/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
           _onResult(true);
         }
       },
-      child: const LoginForm(),
+      child: const Login(),
     );
   }
 }

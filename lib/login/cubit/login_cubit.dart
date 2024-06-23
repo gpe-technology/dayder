@@ -1,18 +1,18 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:bloc/bloc.dart';
-import 'package:equatable/equatable.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'login_state.dart';
+part 'login_cubit.freezed.dart';
 
-@lazySingleton
+@Injectable()
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._authenticationRepository)
-      : super(const LoginState.numberVerification());
+  LoginCubit(this._authenticationRepository) : super(const LoginState.inital());
 
   final AuthenticationRepository _authenticationRepository;
 
-  String _code = "";
+  String _verificationId = "";
 
   Future<void> signInWithEmailAndPassword({
     required String email,
@@ -24,19 +24,19 @@ class LoginCubit extends Cubit<LoginState> {
     );
   }
 
-  Future<void> verifyPhoneNumber(String number) async {
+  Future<void> verifyPhoneNumber({required String number}) async {
     await _authenticationRepository.verifyPhoneNumber(
         number: number,
         codeSent: (code, value) {
-          _code = code;
+          _verificationId = code;
         });
     emit(const LoginState.codeVerification());
   }
 
-  Future<void> signInWithPhone(String verificationId) async {
+  Future<void> signInWithPhone({required String smsCode}) async {
     await _authenticationRepository.signInWithPhone(
-      verificationId: verificationId,
-      smsCode: _code,
+      verificationId: _verificationId,
+      smsCode: smsCode,
     );
   }
 }

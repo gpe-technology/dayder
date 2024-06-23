@@ -1,16 +1,18 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:dayder/login/cubit/login_cubit.dart';
 import 'package:dayder/app/view/widgets/input_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class LoginForm extends StatefulWidget {
-  const LoginForm({super.key});
+@RoutePage()
+class LoginEmail extends StatefulWidget {
+  const LoginEmail({super.key});
 
   @override
-  State<LoginForm> createState() => _LoginFormState();
+  State<LoginEmail> createState() => _LoginEmailState();
 }
 
-class _LoginFormState extends State<LoginForm> {
+class _LoginEmailState extends State<LoginEmail> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 

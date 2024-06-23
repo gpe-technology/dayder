@@ -33,7 +33,7 @@ extension GetItInjectableX on _i1.GetIt {
     final dIAppModule = _$DIAppModule();
     gh.lazySingleton<_i3.GlobalKey<_i3.NavigatorState>>(() => dIAppModule.key);
     gh.lazySingleton<_i4.AuthenticationRepository>(() => dIAppModule.auth);
-    gh.lazySingleton<_i5.LoginCubit>(
+    gh.factory<_i5.LoginCubit>(
         () => _i5.LoginCubit(gh<_i4.AuthenticationRepository>()));
     gh.factory<_i6.AppBloc>(
         () => _i6.AppBloc(authentication: gh<_i4.AuthenticationRepository>()));

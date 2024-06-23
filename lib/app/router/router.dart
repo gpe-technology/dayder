@@ -43,10 +43,14 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
             ),
           ],
         ),
-        AutoRoute(
-          path: '/login',
-          page: Login.page,
-        ),
+        AutoRoute(path: '/login', page: Login.page, children: [
+          AutoRoute(path: 'login-email', page: LoginEmail.page),
+          AutoRoute(path: 'login-phone', page: LoginPhone.page),
+          AutoRoute(
+            path: 'login-phone-verification',
+            page: LoginPhoneVerification.page,
+          ),
+        ]),
         AutoRoute(
           path: '/splash',
           page: Splash.page,

@@ -1,0 +1,52 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:dayder/login/cubit/login_cubit.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+@RoutePage()
+class LoginPhone extends StatefulWidget {
+  const LoginPhone({super.key});
+
+  @override
+  State<LoginPhone> createState() => _LoginPhoneState();
+}
+
+class _LoginPhoneState extends State<LoginPhone> {
+  final TextEditingController _phoneController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Login'),
+      ),
+      body: SafeArea(
+        child: Builder(builder: (context) {
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: TextField(
+                  keyboardType: TextInputType.phone,
+                  decoration: const InputDecoration(
+                    hintText: 'Phone',
+                  ),
+                  controller: _phoneController,
+                ),
+              ),
+              ElevatedButton(
+                onPressed: () async {
+                  await context
+                      .read<LoginCubit>()
+                      .verifyPhoneNumber(number: _phoneController.text);
+                },
+                child: const Text('Next'),
+              )
+            ],
+          );
+        }),
+      ),
+    );
+  }
+}
