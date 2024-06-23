@@ -37,8 +37,8 @@ class _LoginFormState extends State<LoginForm> {
               ElevatedButton(
                 onPressed: () async {
                   await context.read<LoginCubit>().signInWithEmailAndPassword(
-                        email: _emailController.text,
-                        password: _passwordController.text,
+                        email: 'alphaseul@yahoo.fr',
+                        password: 'alphasow',
                       );
                 },
                 child: const Text('SingIn'),
