@@ -4,9 +4,9 @@ import 'package:dayder/login/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-@RoutePage(name: 'Login')
-class LoginPage extends StatelessWidget {
-  const LoginPage({
+@RoutePage()
+class AppLoginPage extends StatelessWidget {
+  const AppLoginPage({
     required Function(bool success) onResult,
     super.key,
   }) : _onResult = onResult;
@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
           _onResult(true);
         }
       },
-      child: const Login(),
+      child: const LoginPage(),
     );
   }
 }
