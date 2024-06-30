@@ -43,15 +43,12 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
             ),
           ],
         ),
-        AutoRoute(path: '/login', page: AppLoginRoute.page, children: [
-          AutoRoute(path: '', page: LoginRoot.page),
-          AutoRoute(path: 'login-email', page: LoginEmail.page),
-          AutoRoute(path: 'login-phone', page: LoginPhone.page),
-          AutoRoute(
-            path: 'login-phone-verification',
-            page: LoginPhoneVerification.page,
-          ),
-        ]),
+        AutoRoute(path: '/login-email', page: LoginEmail.page),
+        AutoRoute(path: '/login-phone', page: LoginPhone.page),
+        AutoRoute(
+            path: '/login-phone-verification',
+            page: LoginPhoneVerification.page),
+        AutoRoute(path: '/login', page: AppLoginRoute.page),
         AutoRoute(
           path: '/splash',
           page: Splash.page,
@@ -78,7 +75,8 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
     if (_authenticationRepository.currentUser.isNotEmpty ||
-        resolver.route.name == AppLoginRoute.name) {
+        resolver.route.name == AppLoginRoute.name ||
+        resolver.route.name == LoginEmail.name) {
       resolver.next();
     } else {
       resolver.redirect(

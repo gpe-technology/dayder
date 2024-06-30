@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dayder/announcement/models/announcement_model.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,13 @@ class AnnouncementCard extends StatelessWidget {
             child: Card(
               margin: EdgeInsets.zero,
               elevation: 0.0,
-              child: Image.network(announcement.url, fit: BoxFit.cover),
+              child: CachedNetworkImage(
+                imageUrl: announcement.url,
+                placeholder: (context, url) =>
+                    const Center(child: CircularProgressIndicator()),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
+                fit: BoxFit.cover,
+              ),
             ),
           ),
           Padding(

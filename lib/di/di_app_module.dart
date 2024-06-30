@@ -1,6 +1,7 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
+import 'package:remote_config_repository/remote_config_repository.dart';
 
 @module
 abstract class DIAppModule {
@@ -9,4 +10,7 @@ abstract class DIAppModule {
 
   @lazySingleton
   AuthenticationRepository get auth => AuthenticationRepository();
+
+  @preResolve
+  Future<RemoteConfigRepository> remote() => RemoteConfigRepository().setup();
 }

@@ -11,7 +11,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  initDI(diContainer);
+  await initDI(diContainer);
   await diContainer<AuthenticationRepository>().user.first;
   runApp(const App());
 }
