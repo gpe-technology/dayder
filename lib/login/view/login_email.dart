@@ -20,7 +20,7 @@ class _LoginEmailState extends State<LoginEmail> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Login with email'),
       ),
       body: SafeArea(
         child: Builder(builder: (context) {

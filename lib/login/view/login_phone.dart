@@ -19,37 +19,35 @@ class _LoginPhoneState extends State<LoginPhone> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Login with phone'),
       ),
       body: SafeArea(
-        child: Builder(builder: (context) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextField(
-                  keyboardType: TextInputType.phone,
-                  decoration: const InputDecoration(
-                    hintText: 'Phone',
-                  ),
-                  controller: _phoneController,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: TextField(
+                keyboardType: TextInputType.phone,
+                decoration: const InputDecoration(
+                  hintText: 'Phone',
                 ),
+                controller: _phoneController,
               ),
-              ElevatedButton(
-                onPressed: () async {
-                  await context
-                      .read<LoginCubit>()
-                      .verifyPhoneNumber(number: _phoneController.text)
-                      .then((_) {
-                    context.router.navigate(const LoginPhoneVerification());
-                  });
-                },
-                child: const Text('Next'),
-              )
-            ],
-          );
-        }),
+            ),
+            ElevatedButton(
+              onPressed:() async {
+                      await context
+                          .read<LoginCubit>()
+                          .verifyPhoneNumber(number: _phoneController.text)
+                          .then((_) {
+                        context.router.navigate(const LoginPhoneVerification());
+                      });
+                    },
+              child: const Text('Next'),
+            )
+          ],
+        ),
       ),
     );
   }
