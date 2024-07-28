@@ -21,7 +21,7 @@ class AppLoginPage extends StatelessWidget {
           _onResult(true);
         }
       },
-      child: const LoginPage(),
+      child: const LoginEmail(),
     );
   }
 }

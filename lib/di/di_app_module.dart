@@ -1,4 +1,5 @@
 import 'package:authentication_repository/authentication_repository.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import 'package:remote_config_repository/remote_config_repository.dart';
@@ -13,4 +14,7 @@ abstract class DIAppModule {
 
   @preResolve
   Future<RemoteConfigRepository> remote() => RemoteConfigRepository().setup();
+
+  @lazySingleton
+  FirebaseAnalytics get firebaseAnalytics => FirebaseAnalytics.instance;
 }

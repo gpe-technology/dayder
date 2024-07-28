@@ -8,7 +8,7 @@ part 'login_cubit.freezed.dart';
 
 @Injectable()
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._authenticationRepository) : super(const LoginState.inital());
+  LoginCubit(this._authenticationRepository) : super(const LoginState.initial());
 
   final AuthenticationRepository _authenticationRepository;
 

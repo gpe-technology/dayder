@@ -7,7 +7,7 @@ enum LoginStatus {
 
 @freezed
 class LoginState with _$LoginState {
-  const factory LoginState.inital() = Inital;
+  const factory LoginState.initial() = Inital;
 
   const factory LoginState.email() = Email;
 

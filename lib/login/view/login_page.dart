@@ -18,7 +18,7 @@ class LoginPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  context.router.push(const LoginEmail());
+                  context.router.replace(const LoginEmail());
                 },
                 child: const Text('Email'),
               ),
@@ -27,7 +27,7 @@ class LoginPage extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () {
-                  context.router.push(const LoginPhone());
+                  context.router.replace(const LoginPhone());
                 },
                 child: const Text('Phone'),
               ),
