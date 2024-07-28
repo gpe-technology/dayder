@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/app/app.dart';
 import 'package:dayder/app/router/router.gr.dart';
+import 'package:dayder/login/login.dart' as login;
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -30,6 +31,7 @@ class AppLoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
+                const login.GoogleSignInButton(),
                 ElevatedButton(
                   onPressed: () async {
                     context.router.navigate(const LoginEmail());

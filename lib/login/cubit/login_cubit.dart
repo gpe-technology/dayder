@@ -43,4 +43,9 @@ class LoginCubit extends Cubit<LoginState> {
       smsCode: smsCode,
     );
   }
+
+  Future<void> signInWithGoogle() async {
+    emit(const LoginState.loading());
+    await _authenticationRepository.signInWithGoogle();
+  }
 }

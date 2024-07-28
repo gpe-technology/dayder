@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:cache/cache.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
 
@@ -60,6 +61,20 @@ final class AuthenticationRepository {
   }) async {
     await _firebaseAuth.signInWithEmailAndPassword(
         email: email, password: password);
+  }
+
+  Future<void> signInWithGoogle() async {
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+
+    final GoogleSignInAuthentication? googleAuth =
+        await googleUser?.authentication;
+
+    final credential = firebase_auth.GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+
+    await _firebaseAuth.signInWithCredential(credential);
   }
 
   Future<void> logout() async {
