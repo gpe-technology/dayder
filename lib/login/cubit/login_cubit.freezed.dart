@@ -18,51 +18,45 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$LoginState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() inital,
-    required TResult Function() email,
-    required TResult Function() phone,
-    required TResult Function() codeVerification,
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? inital,
-    TResult? Function()? email,
-    TResult? Function()? phone,
-    TResult? Function()? codeVerification,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? inital,
-    TResult Function()? email,
-    TResult Function()? phone,
-    TResult Function()? codeVerification,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Inital value) inital,
-    required TResult Function(Email value) email,
-    required TResult Function(Phone value) phone,
-    required TResult Function(CodeVerification value) codeVerification,
+    required TResult Function(Inital value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Inital value)? inital,
-    TResult? Function(Email value)? email,
-    TResult? Function(Phone value)? phone,
-    TResult? Function(CodeVerification value)? codeVerification,
+    TResult? Function(Inital value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Inital value)? inital,
-    TResult Function(Email value)? email,
-    TResult Function(Phone value)? phone,
-    TResult Function(CodeVerification value)? codeVerification,
+    TResult Function(Inital value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,7 +103,7 @@ class _$InitalImpl implements Inital {
 
   @override
   String toString() {
-    return 'LoginState.inital()';
+    return 'LoginState.initial()';
   }
 
   @override
@@ -124,36 +118,33 @@ class _$InitalImpl implements Inital {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() inital,
-    required TResult Function() email,
-    required TResult Function() phone,
-    required TResult Function() codeVerification,
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    return inital();
+    return initial();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? inital,
-    TResult? Function()? email,
-    TResult? Function()? phone,
-    TResult? Function()? codeVerification,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
-    return inital?.call();
+    return initial?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? inital,
-    TResult Function()? email,
-    TResult Function()? phone,
-    TResult Function()? codeVerification,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
-    if (inital != null) {
-      return inital();
+    if (initial != null) {
+      return initial();
     }
     return orElse();
   }
@@ -161,36 +152,33 @@ class _$InitalImpl implements Inital {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Inital value) inital,
-    required TResult Function(Email value) email,
-    required TResult Function(Phone value) phone,
-    required TResult Function(CodeVerification value) codeVerification,
+    required TResult Function(Inital value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
   }) {
-    return inital(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Inital value)? inital,
-    TResult? Function(Email value)? email,
-    TResult? Function(Phone value)? phone,
-    TResult? Function(CodeVerification value)? codeVerification,
+    TResult? Function(Inital value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
   }) {
-    return inital?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Inital value)? inital,
-    TResult Function(Email value)? email,
-    TResult Function(Phone value)? phone,
-    TResult Function(CodeVerification value)? codeVerification,
+    TResult Function(Inital value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (inital != null) {
-      return inital(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
@@ -201,35 +189,35 @@ abstract class Inital implements LoginState {
 }
 
 /// @nodoc
-abstract class _$$EmailImplCopyWith<$Res> {
-  factory _$$EmailImplCopyWith(
-          _$EmailImpl value, $Res Function(_$EmailImpl) then) =
-      __$$EmailImplCopyWithImpl<$Res>;
+abstract class _$$LoadingImplCopyWith<$Res> {
+  factory _$$LoadingImplCopyWith(
+          _$LoadingImpl value, $Res Function(_$LoadingImpl) then) =
+      __$$LoadingImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$EmailImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$EmailImpl>
-    implements _$$EmailImplCopyWith<$Res> {
-  __$$EmailImplCopyWithImpl(
-      _$EmailImpl _value, $Res Function(_$EmailImpl) _then)
+class __$$LoadingImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$LoadingImpl>
+    implements _$$LoadingImplCopyWith<$Res> {
+  __$$LoadingImplCopyWithImpl(
+      _$LoadingImpl _value, $Res Function(_$LoadingImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$EmailImpl implements Email {
-  const _$EmailImpl();
+class _$LoadingImpl implements Loading {
+  const _$LoadingImpl();
 
   @override
   String toString() {
-    return 'LoginState.email()';
+    return 'LoginState.loading()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$EmailImpl);
+        (other.runtimeType == runtimeType && other is _$LoadingImpl);
   }
 
   @override
@@ -238,36 +226,33 @@ class _$EmailImpl implements Email {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() inital,
-    required TResult Function() email,
-    required TResult Function() phone,
-    required TResult Function() codeVerification,
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    return email();
+    return loading();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? inital,
-    TResult? Function()? email,
-    TResult? Function()? phone,
-    TResult? Function()? codeVerification,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
-    return email?.call();
+    return loading?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? inital,
-    TResult Function()? email,
-    TResult Function()? phone,
-    TResult Function()? codeVerification,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
-    if (email != null) {
-      return email();
+    if (loading != null) {
+      return loading();
     }
     return orElse();
   }
@@ -275,75 +260,72 @@ class _$EmailImpl implements Email {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Inital value) inital,
-    required TResult Function(Email value) email,
-    required TResult Function(Phone value) phone,
-    required TResult Function(CodeVerification value) codeVerification,
+    required TResult Function(Inital value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
   }) {
-    return email(this);
+    return loading(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Inital value)? inital,
-    TResult? Function(Email value)? email,
-    TResult? Function(Phone value)? phone,
-    TResult? Function(CodeVerification value)? codeVerification,
+    TResult? Function(Inital value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
   }) {
-    return email?.call(this);
+    return loading?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Inital value)? inital,
-    TResult Function(Email value)? email,
-    TResult Function(Phone value)? phone,
-    TResult Function(CodeVerification value)? codeVerification,
+    TResult Function(Inital value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (email != null) {
-      return email(this);
+    if (loading != null) {
+      return loading(this);
     }
     return orElse();
   }
 }
 
-abstract class Email implements LoginState {
-  const factory Email() = _$EmailImpl;
+abstract class Loading implements LoginState {
+  const factory Loading() = _$LoadingImpl;
 }
 
 /// @nodoc
-abstract class _$$PhoneImplCopyWith<$Res> {
-  factory _$$PhoneImplCopyWith(
-          _$PhoneImpl value, $Res Function(_$PhoneImpl) then) =
-      __$$PhoneImplCopyWithImpl<$Res>;
+abstract class _$$ErrorImplCopyWith<$Res> {
+  factory _$$ErrorImplCopyWith(
+          _$ErrorImpl value, $Res Function(_$ErrorImpl) then) =
+      __$$ErrorImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$PhoneImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$PhoneImpl>
-    implements _$$PhoneImplCopyWith<$Res> {
-  __$$PhoneImplCopyWithImpl(
-      _$PhoneImpl _value, $Res Function(_$PhoneImpl) _then)
+class __$$ErrorImplCopyWithImpl<$Res>
+    extends _$LoginStateCopyWithImpl<$Res, _$ErrorImpl>
+    implements _$$ErrorImplCopyWith<$Res> {
+  __$$ErrorImplCopyWithImpl(
+      _$ErrorImpl _value, $Res Function(_$ErrorImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$PhoneImpl implements Phone {
-  const _$PhoneImpl();
+class _$ErrorImpl implements Error {
+  const _$ErrorImpl();
 
   @override
   String toString() {
-    return 'LoginState.phone()';
+    return 'LoginState.error()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$PhoneImpl);
+        (other.runtimeType == runtimeType && other is _$ErrorImpl);
   }
 
   @override
@@ -352,36 +334,33 @@ class _$PhoneImpl implements Phone {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() inital,
-    required TResult Function() email,
-    required TResult Function() phone,
-    required TResult Function() codeVerification,
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function() error,
   }) {
-    return phone();
+    return error();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? inital,
-    TResult? Function()? email,
-    TResult? Function()? phone,
-    TResult? Function()? codeVerification,
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function()? error,
   }) {
-    return phone?.call();
+    return error?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? inital,
-    TResult Function()? email,
-    TResult Function()? phone,
-    TResult Function()? codeVerification,
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function()? error,
     required TResult orElse(),
   }) {
-    if (phone != null) {
-      return phone();
+    if (error != null) {
+      return error();
     }
     return orElse();
   }
@@ -389,155 +368,38 @@ class _$PhoneImpl implements Phone {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(Inital value) inital,
-    required TResult Function(Email value) email,
-    required TResult Function(Phone value) phone,
-    required TResult Function(CodeVerification value) codeVerification,
+    required TResult Function(Inital value) initial,
+    required TResult Function(Loading value) loading,
+    required TResult Function(Error value) error,
   }) {
-    return phone(this);
+    return error(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Inital value)? inital,
-    TResult? Function(Email value)? email,
-    TResult? Function(Phone value)? phone,
-    TResult? Function(CodeVerification value)? codeVerification,
+    TResult? Function(Inital value)? initial,
+    TResult? Function(Loading value)? loading,
+    TResult? Function(Error value)? error,
   }) {
-    return phone?.call(this);
+    return error?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(Inital value)? inital,
-    TResult Function(Email value)? email,
-    TResult Function(Phone value)? phone,
-    TResult Function(CodeVerification value)? codeVerification,
+    TResult Function(Inital value)? initial,
+    TResult Function(Loading value)? loading,
+    TResult Function(Error value)? error,
     required TResult orElse(),
   }) {
-    if (phone != null) {
-      return phone(this);
+    if (error != null) {
+      return error(this);
     }
     return orElse();
   }
 }
 
-abstract class Phone implements LoginState {
-  const factory Phone() = _$PhoneImpl;
-}
-
-/// @nodoc
-abstract class _$$CodeVerificationImplCopyWith<$Res> {
-  factory _$$CodeVerificationImplCopyWith(_$CodeVerificationImpl value,
-          $Res Function(_$CodeVerificationImpl) then) =
-      __$$CodeVerificationImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$CodeVerificationImplCopyWithImpl<$Res>
-    extends _$LoginStateCopyWithImpl<$Res, _$CodeVerificationImpl>
-    implements _$$CodeVerificationImplCopyWith<$Res> {
-  __$$CodeVerificationImplCopyWithImpl(_$CodeVerificationImpl _value,
-      $Res Function(_$CodeVerificationImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$CodeVerificationImpl implements CodeVerification {
-  const _$CodeVerificationImpl();
-
-  @override
-  String toString() {
-    return 'LoginState.codeVerification()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CodeVerificationImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() inital,
-    required TResult Function() email,
-    required TResult Function() phone,
-    required TResult Function() codeVerification,
-  }) {
-    return codeVerification();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? inital,
-    TResult? Function()? email,
-    TResult? Function()? phone,
-    TResult? Function()? codeVerification,
-  }) {
-    return codeVerification?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? inital,
-    TResult Function()? email,
-    TResult Function()? phone,
-    TResult Function()? codeVerification,
-    required TResult orElse(),
-  }) {
-    if (codeVerification != null) {
-      return codeVerification();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Inital value) inital,
-    required TResult Function(Email value) email,
-    required TResult Function(Phone value) phone,
-    required TResult Function(CodeVerification value) codeVerification,
-  }) {
-    return codeVerification(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Inital value)? inital,
-    TResult? Function(Email value)? email,
-    TResult? Function(Phone value)? phone,
-    TResult? Function(CodeVerification value)? codeVerification,
-  }) {
-    return codeVerification?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Inital value)? inital,
-    TResult Function(Email value)? email,
-    TResult Function(Phone value)? phone,
-    TResult Function(CodeVerification value)? codeVerification,
-    required TResult orElse(),
-  }) {
-    if (codeVerification != null) {
-      return codeVerification(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class CodeVerification implements LoginState {
-  const factory CodeVerification() = _$CodeVerificationImpl;
+abstract class Error implements LoginState {
+  const factory Error() = _$ErrorImpl;
 }

@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/app/app.dart';
-import 'package:dayder/login/login.dart';
+import 'package:dayder/app/router/router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +21,32 @@ class AppLoginPage extends StatelessWidget {
           _onResult(true);
         }
       },
-      child: const LoginEmail(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Login'),
+        ),
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                ElevatedButton(
+                  onPressed: () async {
+                    context.router.navigate(const LoginEmail());
+                  },
+                  child: const Text('Email'),
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    context.router.navigate(const LoginPhone());
+                  },
+                  child: const Text('Phone'),
+                )
+              ],
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

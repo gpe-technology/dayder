@@ -9,9 +9,7 @@ enum LoginStatus {
 class LoginState with _$LoginState {
   const factory LoginState.initial() = Inital;
 
-  const factory LoginState.email() = Email;
+  const factory LoginState.loading() = Loading;
 
-  const factory LoginState.phone() = Phone;
-
-  const factory LoginState.codeVerification() = CodeVerification;
+  const factory LoginState.error() = Error;
 }

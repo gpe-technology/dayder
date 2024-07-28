@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dayder/app/router/router.gr.dart';
 import 'package:dayder/login/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -39,7 +40,10 @@ class _LoginPhoneState extends State<LoginPhone> {
                 onPressed: () async {
                   await context
                       .read<LoginCubit>()
-                      .verifyPhoneNumber(number: _phoneController.text);
+                      .verifyPhoneNumber(number: _phoneController.text)
+                      .then((_) {
+                    context.router.navigate(const LoginPhoneVerification());
+                  });
                 },
                 child: const Text('Next'),
               )

@@ -72,4 +72,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'dayder-d7398.appspot.com',
     iosBundleId: 'com.dayder.application.dayder',
   );
+
 }

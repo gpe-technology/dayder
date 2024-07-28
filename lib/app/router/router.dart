@@ -74,9 +74,14 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {
+    final routeAuthorized = [
+      AppLoginRoute.name,
+      LoginEmail.name,
+      LoginPhone.name,
+      LoginPhoneVerification.name,
+    ];
     if (_authenticationRepository.currentUser.isNotEmpty ||
-        resolver.route.name == AppLoginRoute.name ||
-        resolver.route.name == LoginEmail.name) {
+        routeAuthorized.contains(resolver.route.name)) {
       resolver.next();
     } else {
       resolver.redirect(

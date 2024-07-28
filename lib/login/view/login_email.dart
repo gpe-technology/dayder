@@ -38,10 +38,15 @@ class _LoginEmailState extends State<LoginEmail> {
               ),
               ElevatedButton(
                 onPressed: () async {
-                  await context.read<LoginCubit>().signInWithEmailAndPassword(
+                  await context
+                      .read<LoginCubit>()
+                      .signInWithEmailAndPassword(
                         email: 'alphaseul@yahoo.fr',
                         password: 'alphasow',
-                      );
+                      )
+                      .then((_) {
+                    context.router.popUntilRoot();
+                  });
                 },
                 child: const Text('SingIn'),
               )

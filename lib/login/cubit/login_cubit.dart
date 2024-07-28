@@ -4,11 +4,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 part 'login_state.dart';
+
 part 'login_cubit.freezed.dart';
 
 @Injectable()
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit(this._authenticationRepository) : super(const LoginState.initial());
+  LoginCubit(this._authenticationRepository)
+      : super(const LoginState.initial());
 
   final AuthenticationRepository _authenticationRepository;
 
@@ -18,6 +20,7 @@ class LoginCubit extends Cubit<LoginState> {
     required String email,
     required String password,
   }) async {
+    emit(const LoginState.loading());
     await _authenticationRepository.signInWithEmailAndPassword(
       email: email,
       password: password,
@@ -25,15 +28,16 @@ class LoginCubit extends Cubit<LoginState> {
   }
 
   Future<void> verifyPhoneNumber({required String number}) async {
+    emit(const LoginState.loading());
     await _authenticationRepository.verifyPhoneNumber(
         number: number,
         codeSent: (code, value) {
           _verificationId = code;
         });
-    emit(const LoginState.codeVerification());
   }
 
   Future<void> signInWithPhone({required String smsCode}) async {
+    emit(const LoginState.loading());
     await _authenticationRepository.signInWithPhone(
       verificationId: _verificationId,
       smsCode: smsCode,
