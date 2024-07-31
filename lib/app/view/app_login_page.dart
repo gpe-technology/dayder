@@ -27,24 +27,27 @@ class AppLoginPage extends StatelessWidget {
           title: const Text('Login'),
         ),
         body: SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                const login.GoogleSignInButton(),
-                ElevatedButton(
-                  onPressed: () async {
-                    context.router.navigate(const LoginEmail());
-                  },
-                  child: const Text('Email'),
-                ),
-                ElevatedButton(
-                  onPressed: () async {
-                    context.router.navigate(const LoginPhone());
-                  },
-                  child: const Text('Phone'),
-                )
-              ],
+          child: SizedBox(
+            height: MediaQuery.of(context).size.height,
+            child: Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  const login.GoogleSignInButton(),
+                  ElevatedButton(
+                    onPressed: () async {
+                      context.router.navigate(const LoginEmail());
+                    },
+                    child: const Text('Email'),
+                  ),
+                  ElevatedButton(
+                    onPressed: () async {
+                      context.router.navigate(const LoginPhone());
+                    },
+                    child: const Text('Phone'),
+                  )
+                ],
+              ),
             ),
           ),
         ),
