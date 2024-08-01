@@ -27,7 +27,7 @@ class AnnouncementCard extends StatelessWidget {
                 imageUrl: announcement.url,
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                errorWidget: (context, url, error) => Text('$error'),
                 fit: BoxFit.cover,
               ),
             ),

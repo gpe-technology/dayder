@@ -27,6 +27,7 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
           page: Dashboard.page,
           children: [
             AutoRoute(
+              initial: true,
               path: 'Announcement',
               page: Announcement.page,
               title: (_, routeData) => 'Announcement',
