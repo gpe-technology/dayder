@@ -11,12 +11,12 @@ class DashboardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double width = MediaQuery.of(context).size.width;
-    return width > ScreenSize.sm ? const WebNested() : const MobilNested();
+    return width > ScreenSize.sm ? const SideNested() : const BottomNested();
   }
 }
 
-class MobilNested extends StatelessWidget {
-  const MobilNested({super.key});
+class BottomNested extends StatelessWidget {
+  const BottomNested({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +53,8 @@ class MobilNested extends StatelessWidget {
   }
 }
 
-class WebNested extends StatelessWidget {
-  const WebNested({super.key});
+class SideNested extends StatelessWidget {
+  const SideNested({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -65,31 +65,48 @@ class WebNested extends StatelessWidget {
           SizedBox(
             width: 54,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                IconButton(
+                NavLink(
                   onPressed: () {
                     context.router.push(const Announcement());
                   },
-                  icon: const Icon(Icons.search_rounded),
+                  iconData: Icons.search_rounded,
                 ),
-                IconButton(
+                NavLink(
                   onPressed: () {
                     context.router.push(const Chat());
                   },
-                  icon: const Icon(Icons.chat_rounded),
+                  iconData: Icons.chat_rounded,
                 ),
-                IconButton(
+                NavLink(
                   onPressed: () {
                     context.router.push(const Account());
                   },
-                  icon: const Icon(Icons.person_rounded),
+                  iconData: Icons.person_rounded,
                 ),
               ],
             ),
           ),
           const Expanded(child: AutoRouter()),
         ],
+      ),
+    );
+  }
+}
+
+class NavLink extends StatelessWidget {
+  const NavLink({super.key, required this.iconData, this.onPressed});
+
+  final Function()? onPressed;
+  final IconData iconData;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      child: IconButton(
+        onPressed: onPressed,
+        icon: Icon(iconData),
       ),
     );
   }
