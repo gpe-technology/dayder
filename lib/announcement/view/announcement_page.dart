@@ -21,6 +21,8 @@ class AnnouncementPage extends StatelessWidget {
           return switch (state.status) {
             AnnouncementStatus.loading => const SplashPage(),
             AnnouncementStatus.loaded => Scaffold(
+                appBar:
+                    AppBar(title: Text(context.router.current.title(context))),
                 body: GridView.count(
                   padding: const EdgeInsets.all(8.0),
                   childAspectRatio: 3 / 4.5,

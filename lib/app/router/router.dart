@@ -41,6 +41,16 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
               path: 'my-account',
               page: Account.page,
               title: (_, routeData) => 'My account',
+              children: [
+                AutoRoute(
+                  path: '',
+                  page: AccountMenu.page,
+                ),
+                AutoRoute(
+                  path: 'profile',
+                  page: Profile.page,
+                ),
+              ],
             ),
           ],
         ),
@@ -57,10 +67,6 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
         AutoRoute(
           path: '/publish',
           page: Publish.page,
-        ),
-        AutoRoute(
-          path: '/profile',
-          page: Profile.page,
         ),
         AutoRoute(
           path: '/set-name',
