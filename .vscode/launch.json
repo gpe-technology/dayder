@@ -10,10 +10,10 @@
       "type": "dart"
     },
     {
-      "name": "dayder uat",
+      "name": "dayder dev",
       "request": "launch",
       "type": "dart",
-      "args": ["--dart-define=ENV=uat"]
+      "args": ["--dart-define=ENV=dev"]
     },
     {
       "name": "dayder (profile mode)",
