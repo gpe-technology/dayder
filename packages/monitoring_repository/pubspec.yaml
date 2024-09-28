@@ -1,0 +1,26 @@
+name: monitoring_repository
+description: Monitoring your flutter application.
+version: 1.0.0
+publish_to: none
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.5.3
+  flutter: ">=1.17.0"
+
+# Add regular dependencies here.
+dependencies:
+  flutter:
+    sdk: flutter
+  authentication_repository:
+    path: ../authentication_repository
+  datadog_flutter_plugin: ^2.7.0
+  datadog_tracking_http_client: ^2.2.0
+  freezed_annotation: ^2.4.4
+  # path: ^1.8.0
+
+dev_dependencies:
+  build_runner: ^2.4.12
+  freezed: ^2.5.7
+  lints: ^4.0.0
+  test: ^1.24.0
