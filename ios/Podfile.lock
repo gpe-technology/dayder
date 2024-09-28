@@ -962,6 +962,25 @@ PODS:
     - Firebase/Firestore (= 10.27.0)
     - firebase_core
     - Flutter
+  - datadog_flutter_plugin (0.0.1):
+    - DatadogCore (= 2.15.0)
+    - DatadogCrashReporting (= 2.15.0)
+    - DatadogInternal (= 2.15.0)
+    - DatadogLogs (= 2.15.0)
+    - DatadogRUM (= 2.15.0)
+    - DictionaryCoder (= 1.0.8)
+    - Flutter
+  - DatadogCore (2.15.0):
+    - DatadogInternal (= 2.15.0)
+  - DatadogCrashReporting (2.15.0):
+    - DatadogInternal (= 2.15.0)
+    - PLCrashReporter (~> 1.11.2)
+  - DatadogInternal (2.15.0)
+  - DatadogLogs (2.15.0):
+    - DatadogInternal (= 2.15.0)
+  - DatadogRUM (2.15.0):
+    - DatadogInternal (= 2.15.0)
+  - DictionaryCoder (1.0.8)
   - Firebase/Analytics (10.27.0):
     - Firebase/Core
   - Firebase/Auth (10.27.0):
@@ -1264,6 +1283,7 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
+  - PLCrashReporter (1.11.2)
   - PromisesObjC (2.4.0)
   - PromisesSwift (2.4.0):
     - PromisesObjC (= 2.4.0)
@@ -1277,6 +1297,7 @@ PODS:
 
 DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
+  - datadog_flutter_plugin (from `.symlinks/plugins/datadog_flutter_plugin/ios`)
   - firebase_analytics (from `.symlinks/plugins/firebase_analytics/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
@@ -1295,6 +1316,12 @@ SPEC REPOS:
     - abseil
     - AppAuth
     - BoringSSL-GRPC
+    - DatadogCore
+    - DatadogCrashReporting
+    - DatadogInternal
+    - DatadogLogs
+    - DatadogRUM
+    - DictionaryCoder
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
@@ -1323,6 +1350,7 @@ SPEC REPOS:
     - GTMSessionFetcher
     - leveldb-library
     - nanopb
+    - PLCrashReporter
     - PromisesObjC
     - PromisesSwift
     - RecaptchaInterop
@@ -1330,6 +1358,8 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   cloud_firestore:
     :path: ".symlinks/plugins/cloud_firestore/ios"
+  datadog_flutter_plugin:
+    :path: ".symlinks/plugins/datadog_flutter_plugin/ios"
   firebase_analytics:
     :path: ".symlinks/plugins/firebase_analytics/ios"
   firebase_auth:
@@ -1360,6 +1390,13 @@ SPEC CHECKSUMS:
   AppAuth: 501c04eda8a8d11f179dbe8637b7a91bb7e5d2fa
   BoringSSL-GRPC: 1e2348957acdbcad360b80a264a90799984b2ba6
   cloud_firestore: 8cbdffc6eec66f2c2e67f19e4c6f9a872c222d19
+  datadog_flutter_plugin: f1c320edd1a4419ab28e0fdbb141005e1a7272e1
+  DatadogCore: f865c94e837d2c30210b29a1ed3a65cd6f676df3
+  DatadogCrashReporting: 5a53d4fd725f2992765de44f0b3046c239affce4
+  DatadogInternal: 925d7f03f6d6b3ed025b458df7654381377da468
+  DatadogLogs: 54bdce940d25735e37321633072befe1b95ba8bc
+  DatadogRUM: 05308932e8fcc89bff6afeeed3527b707a496461
+  DictionaryCoder: 5f84fff69f54cb806071538430bdafe04a89d658
   Firebase: 26b040b20866a55f55eb3611b9fcf3ae64816b86
   firebase_analytics: cc6e3ca8f159facf99fb1ceb2d81bda9cc811556
   firebase_auth: 17ce83d25a062b2a594e5dfce91a4ad36e3739d5
@@ -1398,6 +1435,7 @@ SPEC CHECKSUMS:
   leveldb-library: e8eadf9008a61f9e1dde3978c086d2b6d9b9dc28
   nanopb: 438bc412db1928dac798aa6fd75726007be04262
   path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  PLCrashReporter: 499c53b0104f95c302d94fd723ebb03c56d9bac8
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   PromisesSwift: 9d77319bbe72ebf6d872900551f7eeba9bce2851
   RecaptchaInterop: 7d1a4a01a6b2cb1610a47ef3f85f0c411434cb21

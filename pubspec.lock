@@ -319,6 +319,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.3.6"
+  datadog_flutter_plugin:
+    dependency: transitive
+    description:
+      name: datadog_flutter_plugin
+      sha256: "05dd26c517f123c34a374b9aaa105578d18805e44adce5566ebcfabd0232883d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.7.0"
+  datadog_tracking_http_client:
+    dependency: transitive
+    description:
+      name: datadog_tracking_http_client
+      sha256: "4fd525bd1da68601d4afbd7ef02f5b30cae0196485338b67b48372ce9ef72835"
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.2.0"
   equatable:
     dependency: "direct main"
     description:
@@ -610,10 +626,10 @@ packages:
     dependency: "direct main"
     description:
       name: freezed_annotation
-      sha256: c3fd9336eb55a38cc1bbd79ab17573113a8deccd0ecbbf926cca3c62803b5c2d
+      sha256: c2e2d632dd9b8a2b7751117abcfc2b4888ecfe181bd9fca7170d9ef02e595fe2
       url: "https://pub.dev"
     source: hosted
-    version: "2.4.1"
+    version: "2.4.4"
   frontend_server_client:
     dependency: transitive
     description:
@@ -934,6 +950,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
+  monitoring_repository:
+    dependency: "direct main"
+    description:
+      path: "packages/monitoring_repository"
+      relative: true
+    source: path
+    version: "1.0.0"
   mustache_template:
     dependency: transitive
     description:
@@ -1443,5 +1466,5 @@ packages:
     source: hosted
     version: "2.2.1"
 sdks:
-  dart: ">=3.4.1 <4.0.0"
+  dart: ">=3.5.3 <4.0.0"
   flutter: ">=3.22.0"

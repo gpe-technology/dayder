@@ -5,6 +5,7 @@ import 'package:dayder/di/di_initializer.dart';
 import 'package:dayder/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:monitoring_repository/monitoring_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,5 +14,6 @@ void main() async {
   );
   await initDI(diContainer);
   await diContainer<AuthenticationRepository>().user.first;
-  runApp(const App());
+  final monitoring = diContainer<Monitoring>();
+  await monitoring.runApp(() async => runApp(const App()));
 }

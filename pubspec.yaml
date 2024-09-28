@@ -11,6 +11,8 @@ environment:
 dependencies:
   authentication_repository:
     path: packages/authentication_repository
+  monitoring_repository:
+    path: packages/monitoring_repository
   auto_route: ^8.1.4
   bloc: ^8.1.4
   cached_network_image: ^3.3.1
