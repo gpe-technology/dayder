@@ -1,80 +1,61 @@
 name: dayder
 description: daily announcement.
 
-publish_to: 'none'
+publish_to: "none"
 
 version: 1.0.0+8
 
 environment:
-  sdk: '>=3.1.0 <4.0.0'
+  sdk: ">=3.1.0 <4.0.0"
 
 dependencies:
+  authentication_repository:
+    path: packages/authentication_repository
+  monitoring_repository:
+    path: packages/monitoring_repository
+  auto_route: ^8.1.4
+  bloc: ^8.1.4
+  cached_network_image: ^3.3.1
+  cloud_firestore: ^5.0.0
+  cupertino_icons: ^1.0.2
+  equatable: ^2.0.5
+  faker: ^2.1.0
+  firebase_analytics: ^11.1.0
+  firebase_core: ^3.0.0
+  firebase_crashlytics: ^4.0.0
+  firebase_storage: ^12.0.0
+  flex_color_scheme: ^7.3.1
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  #https://pub.dev/packages/riverpod
-  riverpod: ^2.4.6
-  #https://pub.dev/packages/flutter_riverpod
-  flutter_riverpod: ^2.4.6
-  #https://pub.dev/packages/json_annotation
-  json_annotation: ^4.8.1
-  #https://pub.dev/packages/get_it
-  get_it: ^7.6.4
-  #https://pub.dev/packages/google_fonts
-  google_fonts: ^6.1.0
-  #https://pub.dev/packages/auto_route
-  auto_route: ^7.8.4
-  #https://pub.dev/packages/logger
-  logger: ^2.0.2+1
-  #https://pub.dev/packages/flex_color_scheme
-  flex_color_scheme: ^7.3.1
-  #https://pub.dev/packages/firebase_core
-  firebase_core: ^2.22.0
-  #https://pub.dev/packages/firebase_crashlytics
-  firebase_crashlytics: ^3.4.4
-  #https://pub.dev/packages/firebase_auth
-  firebase_auth: ^4.14.0
-  #https://pub.dev/packages/freezed_annotation
+  flutter_bloc: ^8.1.3
   freezed_annotation: ^2.4.1
-  #https://pub.dev/packages/faker
-  faker: ^2.1.0
-  #https://pub.dev/packages/riverpod_annotation
-  riverpod_annotation: ^2.3.1
-  #https://pub.dev/packages/cloud_firestore
-  cloud_firestore: ^4.13.1
-  #https://pub.dev/packages/firebase_storage
-  firebase_storage: ^11.5.1
-  #https://pub.dev/packages/flutter_hooks
-  flutter_hooks: ^0.20.3
-  #https://pub.dev/packages/hooks_riverpod
-  hooks_riverpod: ^2.4.8
-  #https://pub.dev/packages/uuid
-  uuid: ^4.2.1
-  #https://pub.dev/packages/injectable
-  injectable: ^2.3.2
-  #https://pub.dev/packages/firebase_remote_config
-  firebase_remote_config: ^4.3.8
-  #https://pub.dev/packages/firebase_analytics
-  firebase_analytics: ^10.8.0
-  #https://pub.dev/packages/image_picker
+  get_it: ^7.6.4
+  google_fonts: ^6.1.0
   image_picker: ^1.0.7
+  injectable: ^2.3.2
+  json_annotation: ^4.8.1
+  logger: ^2.3.0
+  melos: ^6.1.0
+  meta: ^1.12.0
+  remote_config_repository:
+    path: packages/remote_config_repository
+  shared_preferences: ^2.2.3
+  uuid: ^4.2.1
 
 dev_dependencies:
-  flutter_test:
-    sdk: flutter
-  flutter_lints: ^2.0.0
+  #https://pub.dev/packages/auto_route_generator
+  auto_route_generator: ^8.0.0
   #https://pub.dev/packages/build_runner
   build_runner: ^2.4.6
+  flutter_lints: ^4.0.0
+  flutter_test:
+    sdk: flutter
   #https://pub.dev/packages/freezed
   freezed: ^2.4.5
-  #https://pub.dev/packages/json_serializable
-  json_serializable: ^6.7.1
-  #https://pub.dev/packages/auto_route_generator
-  auto_route_generator: ^7.3.2
-  #https://pub.dev/packages/riverpod_generator
-  riverpod_generator: ^2.3.6
   #https://pub.dev/packages/injectable_generator
   injectable_generator: ^2.4.1
+  #https://pub.dev/packages/json_serializable
+  json_serializable: ^6.7.1
 
 flutter:
   uses-material-design: true

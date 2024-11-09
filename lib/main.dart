@@ -1,32 +1,19 @@
-import 'package:dayder/src/presentation/logics/auth/auth_state.dart';
+import 'package:authentication_repository/authentication_repository.dart';
+import 'package:dayder/app/app.dart';
+import 'package:dayder/di/di_container.dart';
+import 'package:dayder/di/di_initializer.dart';
+import 'package:dayder/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:get_it/get_it.dart';
-
-import 'features/authentication/src/domain/authentication.dart';
-import 'features/remote_config/fetch_config.dart';
-import 'firebase_options.dart';
-import 'injectable/injectable.dart';
-import 'src/app.dart';
-import 'src/presentation/logics/auth/auth_provider.dart';
+import 'package:monitoring_repository/monitoring_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  configureDependencies();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await getIt<FetchConfig>().baseConfig();
-  runApp(
-    ProviderScope(
-      overrides: [
-        authProvider.overrideWithValue(
-            GetIt.instance<Authentication>().currentUser() != null
-                ? const AuthState.login()
-                : const AuthState.logout()),
-      ],
-      child: App(title: 'Dayder'),
-    ),
-  );
+  await initDI(diContainer);
+  await diContainer<AuthenticationRepository>().user.first;
+  final monitoring = diContainer<Monitoring>();
+  await monitoring.runApp(() async => runApp(const App()));
 }
