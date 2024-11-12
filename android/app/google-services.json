@@ -12,7 +12,20 @@
           "package_name": "com.dayder.application.dayder"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "779293068741-ksc836qkufe7pajlf979mk1k2ibi1h1o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dayder.application.dayder",
+            "certificate_hash": "b3b24401ab1cc429fdd811dd081d12fb020900cc"
+          }
+        },
+        {
+          "client_id": "779293068741-08e41r8lj0jes8ib886nce5u04f5mj9e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBRFh7k8dZSkX3VVOZDmoJoMhfJeiAnxwk"
@@ -20,7 +33,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "779293068741-08e41r8lj0jes8ib886nce5u04f5mj9e.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "779293068741-05ou5p1rcka6mveo560jhmp94t5s1avb.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dayder.application.dayder"
+              }
+            }
+          ]
         }
       }
     }

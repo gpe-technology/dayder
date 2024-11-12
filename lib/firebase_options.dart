@@ -70,6 +70,9 @@ class DefaultFirebaseOptions {
     messagingSenderId: '779293068741',
     projectId: 'dayder-d7398',
     storageBucket: 'dayder-d7398.appspot.com',
+    androidClientId: '779293068741-ksc836qkufe7pajlf979mk1k2ibi1h1o.apps.googleusercontent.com',
+    iosClientId: '779293068741-05ou5p1rcka6mveo560jhmp94t5s1avb.apps.googleusercontent.com',
     iosBundleId: 'com.dayder.application.dayder',
   );
+
 }
