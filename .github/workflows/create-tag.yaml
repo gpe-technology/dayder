@@ -24,7 +24,7 @@ jobs:
       - name: App version
         run: echo "VERSION=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | cut -d"+" -f1 | xargs`" >> "$GITHUB_ENV"
 
-      - name: Create Tag
+      - name: New Tag
         run: |
           git tag -a $VERSION -m "Release version $VERSION"
           git push --tags
