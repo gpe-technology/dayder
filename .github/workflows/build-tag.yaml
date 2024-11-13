@@ -12,6 +12,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
+      - name: Set up Git
+        run: |
+          git config user.name "Robot"
+          git config user.email "robot@alphasow.dev"
+
       - name: App version
         run: echo "VERSION=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | xargs`" >> "$GITHUB_ENV"
 
