@@ -55,7 +55,7 @@ jobs:
     needs: build-apk
     steps:
       - uses: actions/checkout@v3
-      - run: echo "VERSION=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | xargs`" >> "$GITHUB_ENV"
+
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
         with:
