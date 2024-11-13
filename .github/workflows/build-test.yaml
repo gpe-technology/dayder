@@ -4,6 +4,13 @@ on:
       version:
         required: true
         type: string
+    secrets:
+      KEY_PROPERTIES:
+        required: true
+      SA_FIREBASE:
+        required: true
+      FIREBASE_APP_ID_ANDROID:
+        required: true
 
 name: Build android debug
 jobs:

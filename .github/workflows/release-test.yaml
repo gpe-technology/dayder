@@ -35,11 +35,15 @@ jobs:
           fi
 
   build_android_test:
-    name: Build and deploy to test
+    name: Android
     needs: [details]
     uses: ./.github/workflows/build-test.yaml
     with:
       version: ${{needs.details.outputs.tag_name}}
+    secrets:
+      KEY_PROPERTIES: ${{secrets.KEY_PROPERTIES}}
+      SA_FIREBASE: ${{secrets.SA_FIREBASE}}
+      FIREBASE_APP_ID_ANDROID: ${{secrets.FIREBASE_APP_ID_ANDROID}}
 
   github_release:
     name: Create GitHub Release
