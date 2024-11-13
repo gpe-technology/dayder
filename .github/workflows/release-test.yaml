@@ -37,7 +37,7 @@ jobs:
   build_android_test:
     name: Build and deploy to test
     needs: [details]
-    uses: ./.github/actions/build-test
+    uses: ./.github/workflows/build-test.yaml
     with:
       version: ${{needs.details.outputs.tag_name}}
 
