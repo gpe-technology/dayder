@@ -1,10 +1,10 @@
 on:
   push:
     branches:
-      - 'feat/*'
-      - 'fix/*'
-      - 'release/*'
-      - 'chore/*'
+      - "feature/*"
+      - "fix/*"
+      - "release/*"
+      - "chore/*"
 
 name: Test coverage
 env:

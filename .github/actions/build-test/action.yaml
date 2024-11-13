@@ -1,7 +1,10 @@
 on:
-  push:
-    branches:
-      - develop
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+
 name: Build android debug
 jobs:
   build-apk:
@@ -34,7 +37,7 @@ jobs:
         id: upload-apk
         with:
           name: app-debug.apk
-          path: build/app/outputs/apk/debug/app-debug.apk
+          path: build/app/outputs/apk/debug/app-${{inputs.version}}.apk
 
   upload-to-app-distrib:
     name: Deploy
@@ -48,8 +51,8 @@ jobs:
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
-          working-directory: 'android'
+          ruby-version: "3.0"
+          working-directory: "android"
           bundler-cache: true
 
       - name: Service account key
@@ -59,17 +62,14 @@ jobs:
         id: download-artifact
         uses: actions/download-artifact@v4
         with:
-          name: app-debug.apk
+          name: app-${{inputs.version}}.apk
           path: build/app/outputs/apk/debug
-
-      - name: Rename apk
-        run: mv build/app/outputs/apk/debug/app-debug.apk build/app/outputs/apk/debug/app-${{env.VERSION}}.apk
 
       - name: Deploy to app distrib
         uses: maierj/fastlane-action@v3.0.0
         env:
           FIREBASE_APP_ID_ANDROID: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
-          ANDROID_ARTIFACT_PATH: "../build/app/outputs/apk/debug/app-${{env.VERSION}}.apk"
+          ANDROID_ARTIFACT_PATH: "../build/app/outputs/apk/debug/app-${{inputs.version}}.apk"
         with:
-          lane: 'uploadToAppDistrib'
+          lane: "uploadToAppDistrib"
           subdirectory: "android"
