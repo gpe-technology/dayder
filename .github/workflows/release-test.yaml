@@ -14,7 +14,7 @@ jobs:
       suffix: ${{ steps.release.outputs.suffix }}
       tag_name: ${{ steps.release.outputs.tag_name }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Extract tag and Details
         id: release
@@ -35,7 +35,7 @@ jobs:
           fi
 
   build_android_test:
-    name: Android
+    name: Android-test
     needs: [details]
     uses: ./.github/workflows/build-test.yaml
     with:
@@ -45,9 +45,18 @@ jobs:
       SA_FIREBASE: ${{secrets.SA_FIREBASE}}
       FIREBASE_APP_ID_ANDROID: ${{secrets.FIREBASE_APP_ID_ANDROID}}
 
+  build_android_prod:
+    name: Android-prod
+    needs: [details]
+    uses: ./.github/workflows/build-prod.yaml
+    with:
+      version: ${{needs.details.outputs.tag_name}}
+    secrets:
+      KEY_PROPERTIES: ${{secrets.KEY_PROPERTIES}}
+
   github_release:
     name: Create GitHub Release
-    needs: [details, build_android_test]
+    needs: [details, build_android_test, build_android_prod]
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -57,16 +66,23 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Download artifact
-        id: download-artifact
+      - name: Download artifact test
+        id: download-artifact-test
         uses: actions/download-artifact@v4
         with:
           name: app-${{needs.details.outputs.tag_name}}.apk
           path: build/app/outputs/apk/debug
+
+      - name: Download artifact prod
+        id: download-artifact-prod
+        uses: actions/download-artifact@v4
+        with:
+          name: app-${{needs.details.outputs.tag_name}}.aab
+          path: build/app/outputs/bundle/release
 
       - name: Create GitHub Release
         id: create_release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release create ${{ needs.details.outputs.tag_name }} build/app/outputs/apk/debug/* --title ${{ needs.details.outputs.tag_name }} --generate-notes
+          gh release create ${{ needs.details.outputs.tag_name }} build/app/outputs/* --title ${{ needs.details.outputs.tag_name }} --generate-notes
