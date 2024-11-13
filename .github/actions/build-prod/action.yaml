@@ -1,7 +1,10 @@
 on:
-  push:
-    branches:
-      - main
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+
 name: Build android prod
 jobs:
   build-aab:
@@ -34,7 +37,7 @@ jobs:
         id: upload-aab
         with:
           name: app-release.aab
-          path: build/app/outputs/bundle/release/app-release.aab
+          path: build/app/outputs/bundle/release/app-${{inputs.version}}.aab
 
   upload-to-appstore:
     name: Deploy
@@ -46,8 +49,8 @@ jobs:
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
-          working-directory: 'android'
+          ruby-version: "3.0"
+          working-directory: "android"
           bundler-cache: true
 
       - name: Play store credentials
@@ -57,11 +60,11 @@ jobs:
         id: download-artifact
         uses: actions/download-artifact@v4
         with:
-          name: app-release.aab
+          name: app-${{inputs.version}}.aab
           path: build/app/outputs/bundle/release
 
       - name: Deploy to playstore
         uses: maierj/fastlane-action@v3.0.0
         with:
-          lane: 'uploadToPlayStore'
+          lane: "uploadToPlayStore"
           subdirectory: "android"
