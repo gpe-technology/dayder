@@ -21,7 +21,7 @@ jobs:
           git config user.email "robot@alphasow.dev"
 
       - name: App version
-        run: echo "VERSION=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | xargs`" >> "$GITHUB_ENV"
+        run: echo "VERSION=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | cut -d"+" -f1 | xargs`" >> "$GITHUB_ENV"
 
       - name: Create Tag
         run: |
