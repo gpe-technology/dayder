@@ -39,7 +39,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         id: upload-apk
         with:
-          name: app-${{inputs.version}}
+          name: app-${{inputs.version}}.apk
           path: build/app/outputs/apk/debug/
 
   upload-to-app-distrib:
