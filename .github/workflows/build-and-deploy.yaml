@@ -7,6 +7,7 @@ on:
 
 jobs:
   details:
+    name: Details
     runs-on: ubuntu-latest
     outputs:
       new_version: ${{steps.app_version.outputs.new_version}}
@@ -57,7 +58,6 @@ jobs:
       - name: Create Tag
         run: |
           git tag -a ${{needs.details.outputs.new_version}} -m "Release version ${{needs.details.outputs.new_version}}"
-          git push --tags
           env:
             GITHUB_TOKEN: ${{ github.token }}
 
