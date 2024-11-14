@@ -58,8 +58,9 @@ jobs:
       - name: Create Tag
         run: |
           git tag -a ${{needs.details.outputs.new_version}} -m "Release version ${{needs.details.outputs.new_version}}"
-          env:
-            GITHUB_TOKEN: ${{ github.token }}
+          git push --tags
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
 
       - name: Download artifact prod
         uses: actions/download-artifact@v4
