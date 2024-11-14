@@ -9,9 +9,6 @@ on:
 name: Test coverage
 env:
   SC_VERSION: 5.0.1.3006
-  SONARQUBE_HOST: ${{vars.SONARQUBE_HOST}}
-  SONARQUBE_TOKEN: ${{secrets.SONARQUBE_TOKEN }}
-  PROJECT_KEY: ${{ secrets.PROJECT_KEY }}
 jobs:
   test-coverage:
     name: Test
