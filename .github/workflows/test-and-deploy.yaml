@@ -43,6 +43,7 @@ jobs:
 
   details:
     name: Details
+    needs: [test-coverage]
     runs-on: ubuntu-latest
     outputs:
       new_version: ${{steps.app_version.outputs.new_version}}
