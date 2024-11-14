@@ -5,19 +5,16 @@ on:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
   details:
     runs-on: ubuntu-latest
     outputs:
-      new_version: ${{steps.version.outputs.new_version}}
+      new_version: ${{steps.app_version.outputs.new_version}}
     steps:
       - uses: actions/checkout@v3
 
       - name: get version
-        id: version
+        id: app_version
         run: echo "new_version=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | cut -d"+" -f1 | xargs`" >> "$GITHUB_OUTPUT"
 
   build_android_test:
@@ -52,15 +49,25 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set up Git
+        run: |
+          git config user.name "Robot"
+          git config user.email "robot@alphasow.dev"
+
+      - name: Create Tag
+        run: |
+          git tag -a ${{needs.details.outputs.new_version}} -m "Release version ${{needs.details.outputs.new_version}}"
+          git push --tags
+          env:
+            GITHUB_TOKEN: ${{ github.token }}
+
       - name: Download artifact prod
-        id: download-artifact-prod
         uses: actions/download-artifact@v4
         with:
           name: app-${{needs.details.outputs.new_version}}.aab
           path: build/app/outputs/bundle/release
 
       - name: Create GitHub Release
-        id: create_release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
