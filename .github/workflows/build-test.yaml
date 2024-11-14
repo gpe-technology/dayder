@@ -1,0 +1,83 @@
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+    secrets:
+      KEY_PROPERTIES:
+        required: true
+      SA_FIREBASE:
+        required: true
+      FIREBASE_APP_ID_ANDROID:
+        required: true
+
+name: Build android debug
+jobs:
+  build-apk:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17.0.1"
+          distribution: "oracle"
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Service account key
+        run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      - name: Build apk
+        run: flutter build apk --debug
+
+      - name: Rename apk
+        run: mv build/app/outputs/apk/debug/app-debug.apk build/app/outputs/apk/debug/app-${{inputs.version}}.apk
+
+      - uses: actions/upload-artifact@v4
+        id: upload-apk
+        with:
+          name: app-${{inputs.version}}.apk
+          path: build/app/outputs/apk/debug/
+
+  upload-to-app-distrib:
+    name: Deploy
+    runs-on: ubuntu-latest
+    needs: build-apk
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.0"
+          working-directory: "android"
+          bundler-cache: true
+
+      - name: Service account key
+        run: echo "${{ secrets.SA_FIREBASE }}" | base64 -d > android/fastlane/service-account-key.json
+
+      - name: Download artifact
+        id: download-artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: app-${{inputs.version}}.apk
+          path: build/app/outputs/apk/debug
+
+      - name: Deploy to app distrib
+        uses: maierj/fastlane-action@v3.0.0
+        env:
+          FIREBASE_APP_ID_ANDROID: ${{ secrets.FIREBASE_APP_ID_ANDROID }}
+          ANDROID_ARTIFACT_PATH: "../build/app/outputs/apk/debug/app-${{inputs.version}}.apk"
+        with:
+          lane: "uploadToAppDistrib"
+          subdirectory: "android"
