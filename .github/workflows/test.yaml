@@ -9,9 +9,6 @@ on:
 name: Test coverage
 env:
   SC_VERSION: 5.0.1.3006
-  SONARQUBE_HOST: ${{vars.SONARQUBE_HOST}}
-  SONARQUBE_TOKEN: ${{secrets.SONARQUBE_TOKEN }}
-  PROJECT_KEY: ${{ secrets.PROJECT_KEY }}
 jobs:
   test-coverage:
     name: Test
@@ -41,11 +38,25 @@ jobs:
 
       - run: sonar-scanner
 
+  details:
+    name: Details
+    needs: [test-coverage]
+    runs-on: ubuntu-latest
+    outputs:
+      new_version: ${{steps.app_version.outputs.new_version}}
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: get version
+        id: app_version
+        run: echo "new_version=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | cut -d"+" -f1 | xargs`" >> "$GITHUB_OUTPUT"
+
   build_android_test:
     name: Android-test
+    needs: [details]
     uses: ./.github/workflows/build-test.yaml
     with:
-      version: "branch name"
+      version: "${{needs.details.outputs.new_version}}-branch-name"
     secrets:
       KEY_PROPERTIES: ${{secrets.KEY_PROPERTIES}}
       SA_FIREBASE: ${{secrets.SA_FIREBASE}}
