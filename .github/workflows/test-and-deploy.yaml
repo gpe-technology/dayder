@@ -40,3 +40,13 @@ jobs:
         run: flutter test --machine --coverage > tests.output
 
       - run: sonar-scanner
+
+  build_android_test:
+    name: Android-test
+    uses: ./.github/workflows/build-test.yaml
+    with:
+      version: "branch name"
+    secrets:
+      KEY_PROPERTIES: ${{secrets.KEY_PROPERTIES}}
+      SA_FIREBASE: ${{secrets.SA_FIREBASE}}
+      FIREBASE_APP_ID_ANDROID: ${{secrets.FIREBASE_APP_ID_ANDROID}}
