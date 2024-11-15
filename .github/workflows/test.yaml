@@ -54,8 +54,8 @@ jobs:
         id: app_version
         run: echo "new_version=`cat pubspec.yaml | grep -o 'version:[^:]*' | cut -f2 -d":" | cut -d"+" -f1 | xargs`" >> "$GITHUB_OUTPUT"
 
-  build_android_test:
-    name: Android-test
+  build_app_test:
+    name: App Test
     needs: [details]
     uses: ./.github/workflows/build-test.yaml
     with:
