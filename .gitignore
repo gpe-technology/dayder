@@ -45,3 +45,4 @@ app.*.map.json
 /tests.output
 /coverage/
 /sonar-project.properties
+lib/firebase_options.dart
