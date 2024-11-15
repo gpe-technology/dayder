@@ -35,8 +35,8 @@ jobs:
       - name: Firebase options
         run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
 
-      - name: Build runner
-        run: flutter build ios
+      - name: Build ipa
+        run: flutter build ipa
 
   build-android:
     name: Build Android

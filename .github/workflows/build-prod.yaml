@@ -10,10 +10,32 @@ on:
       FIREBASE_OPTIONS:
         required: true
 
-name: Build android prod
+name: Build prod
 jobs:
+  build-ios:
+    name: Build IOS
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install java
+        uses: actions/setup-java@v3
+        with:
+          java-version: "17.0.1"
+          distribution: "oracle"
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+      - name: Firebase options
+        run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
+
+      - name: Build ipa
+        run: flutter build ipa
+
   build-android:
-    name: Build
+    name: Build Android
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
