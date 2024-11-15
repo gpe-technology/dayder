@@ -26,6 +26,7 @@ jobs:
       version: ${{needs.details.outputs.new_version}}
     secrets:
       KEY_PROPERTIES: ${{secrets.KEY_PROPERTIES}}
+      FIREBASE_OPTIONS: ${{secrets.FIREBASE_OPTIONS}}
 
   github_release:
     name: Create GitHub Release

@@ -11,7 +11,8 @@ on:
         required: true
       FIREBASE_APP_ID_ANDROID:
         required: true
-
+      FIREBASE_OPTIONS:
+        required: true
 name: Build android debug
 jobs:
   build-apk:
@@ -36,6 +37,9 @@ jobs:
 
       - name: Service account key
         run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      - name: Firebase options
+        run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
 
       - name: Build apk
         run: flutter build apk --debug

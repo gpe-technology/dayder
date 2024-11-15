@@ -61,3 +61,4 @@ jobs:
       KEY_PROPERTIES: ${{secrets.KEY_PROPERTIES}}
       SA_FIREBASE: ${{secrets.SA_FIREBASE}}
       FIREBASE_APP_ID_ANDROID: ${{secrets.FIREBASE_APP_ID_ANDROID}}
+      FIREBASE_OPTIONS: ${{secrets.FIREBASE_OPTIONS}}

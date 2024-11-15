@@ -7,6 +7,8 @@ on:
     secrets:
       KEY_PROPERTIES:
         required: true
+      FIREBASE_OPTIONS:
+        required: true
 
 name: Build android prod
 jobs:
@@ -32,6 +34,9 @@ jobs:
 
       - name: Service account key
         run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      - name: Firebase options
+        run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
 
       - name: Build aab
         run: flutter build appbundle --release
