@@ -20,8 +20,8 @@ class AccountMenu extends StatelessWidget {
             AppListTile(
               title: 'Profile',
               icon: Icons.person_rounded,
-              onTap: () {
-                context.pushRoute(const Profile());
+              onTap: () async {
+                await context.pushRoute(const Profile());
               },
             ),
             const AppListTile(
@@ -29,7 +29,7 @@ class AccountMenu extends StatelessWidget {
               icon: Icons.help_rounded,
             ),
             TextButton(
-              onPressed: () async {
+              onPressed: () {
                 context.read<AppBloc>().add(const AppLogoutRequested());
               },
               child: const Text('Logout'),
