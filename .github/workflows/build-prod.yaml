@@ -9,6 +9,8 @@ on:
         required: true
       FIREBASE_OPTIONS:
         required: true
+      GOOGLE_SERVICES:
+        required: true
 
 name: Build prod
 jobs:
@@ -56,6 +58,9 @@ jobs:
 
       - name: Service account key
         run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      - name: Google Services
+        run: echo "${{ secrets.GOOGLE_SERVICES }}" > android/app/google-services.json
 
       - name: Firebase options
         run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
