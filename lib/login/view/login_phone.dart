@@ -36,14 +36,18 @@ class _LoginPhoneState extends State<LoginPhone> {
               ),
             ),
             ElevatedButton(
-              onPressed:() async {
-                      await context
-                          .read<LoginCubit>()
-                          .verifyPhoneNumber(number: _phoneController.text)
-                          .then((_) {
-                        context.router.navigate(const LoginPhoneVerification());
-                      });
-                    },
+              onPressed: () async {
+                await context
+                    .read<LoginCubit>()
+                    .verifyPhoneNumber(number: _phoneController.text)
+                    .then(
+                  (_) {
+                    if (context.mounted) {
+                      context.router.navigate(const LoginPhoneVerification());
+                    }
+                  },
+                );
+              },
               child: const Text('Next'),
             )
           ],

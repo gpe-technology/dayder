@@ -7,11 +7,15 @@ on:
     secrets:
       KEY_PROPERTIES:
         required: true
+      FIREBASE_OPTIONS:
+        required: true
+      GOOGLE_SERVICES:
+        required: true
 
-name: Build android prod
+name: Build prod
 jobs:
-  build-aab:
-    name: Build
+  build-android:
+    name: Build Android
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -30,8 +34,14 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Service account key
+      - name: Write Google Services
+        run: echo "${{ secrets.GOOGLE_SERVICES }}" | base64 -d > android/app/google-services.json
+
+      - name: Write Service account key
         run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      - name: Write Firebase options
+        run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
 
       - name: Build aab
         run: flutter build appbundle --release
