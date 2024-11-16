@@ -14,28 +14,6 @@ on:
 
 name: Build prod
 jobs:
-  build-ios:
-    name: Build IOS
-    runs-on: macos-latest
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Install java
-        uses: actions/setup-java@v3
-        with:
-          java-version: "17.0.1"
-          distribution: "oracle"
-
-      - name: Install flutter
-        uses: subosito/flutter-action@v2
-        with:
-          channel: "stable"
-      - name: Firebase options
-        run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
-
-      - name: Build ipa
-        run: flutter build ipa
-
   build-android:
     name: Build Android
     runs-on: ubuntu-latest
@@ -56,13 +34,13 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Service account key
+      - name: Write Google Services
+        run: echo "${{ secrets.GOOGLE_SERVICES }}" | base64  > android/app/google-services.json
+
+      - name: Write Service account key
         run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
 
-      - name: Google Services
-        run: echo "${{ secrets.GOOGLE_SERVICES }}" > android/app/google-services.json
-
-      - name: Firebase options
+      - name: Write Firebase options
         run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
 
       - name: Build aab
