@@ -45,7 +45,9 @@ class _LoginEmailState extends State<LoginEmail> {
                         password: 'alphasow',
                       )
                       .then((_) {
-                    context.router.popUntilRoot();
+                    if (context.mounted) {
+                      context.router.popUntilRoot();
+                    }
                   });
                 },
                 child: const Text('SingIn'),

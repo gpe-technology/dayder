@@ -4,4 +4,4 @@ import 'package:injectable/injectable.dart';
 
 @InjectableInit()
 Future<GetIt> initDI(GetIt getIt) =>
-    getIt.init(environment: const String.fromEnvironment("ENV"));
+    getIt.init(environment: const String.fromEnvironment('ENV'));
