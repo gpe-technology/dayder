@@ -38,13 +38,13 @@ jobs:
       - name: Setup Android SDK
         uses: android-actions/setup-android@v2
 
-      - name: Google Services
-        run: echo "${{ secrets.GOOGLE_SERVICES }}" > android/app/google-services.json
+      - name: Write Google Services
+        run: echo "${{ secrets.GOOGLE_SERVICES }}" | base64  > android/app/google-services.json
 
-      - name: Service account key
+      - name: Write Service account key
         run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
 
-      - name: Firebase options
+      - name: Write Firebase options
         run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
 
       - name: Flutter get
