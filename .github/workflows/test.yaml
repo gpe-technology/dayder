@@ -6,7 +6,7 @@ on:
       - "release/*"
       - "chore/*"
 
-name: Test coverage
+name: Test
 env:
   SC_VERSION: 5.0.1.3006
 jobs:
@@ -59,7 +59,7 @@ jobs:
     needs: [details]
     uses: ./.github/workflows/build-test.yaml
     with:
-      version: "${{needs.details.outputs.new_version}}-branch-name"
+      version: "${{needs.details.outputs.new_version}}"
     secrets:
       KEY_PROPERTIES: ${{secrets.KEY_PROPERTIES}}
       SA_FIREBASE: ${{secrets.SA_FIREBASE}}
