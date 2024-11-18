@@ -32,7 +32,7 @@ platform :android do
     lane :uploadToPlayStore do
         upload_to_play_store(
             json_key: "fastlane/play-store-credentials.json",
-            aab: "../build/app/outputs/bundle/release/app-release.aab",
+            aab: ENV["AAB_PATH"],
             release_status:"draft"
         )
     end
