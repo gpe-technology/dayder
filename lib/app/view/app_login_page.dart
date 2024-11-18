@@ -36,13 +36,13 @@ class AppLoginPage extends StatelessWidget {
                   const login.GoogleSignInButton(),
                   ElevatedButton(
                     onPressed: () async {
-                      context.router.navigate(const LoginEmail());
+                      await context.router.navigate(const LoginEmail());
                     },
                     child: const Text('Email'),
                   ),
                   ElevatedButton(
                     onPressed: () async {
-                      context.router.navigate(const LoginPhone());
+                      await context.router.navigate(const LoginPhone());
                     },
                     child: const Text('Phone'),
                   )

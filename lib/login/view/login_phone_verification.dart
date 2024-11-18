@@ -39,9 +39,13 @@ class _LoginPhoneVerificationState extends State<LoginPhoneVerification> {
                 await context
                     .read<LoginCubit>()
                     .signInWithPhone(smsCode: _codeController.text)
-                    .then((_) {
-                  context.router.popUntilRoot();
-                });
+                    .then(
+                  (_) {
+                    if (context.mounted) {
+                      context.router.popUntilRoot();
+                    }
+                  },
+                );
               },
               child: const Text('Send'),
             ),

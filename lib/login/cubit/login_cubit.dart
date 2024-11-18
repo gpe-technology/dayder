@@ -14,7 +14,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   final AuthenticationRepository _authenticationRepository;
 
-  String _verificationId = "";
+  String _verificationId = '';
 
   Future<void> signInWithEmailAndPassword({
     required String email,

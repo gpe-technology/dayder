@@ -26,8 +26,8 @@ class LoginPage extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {
-                  context.router.replace(const LoginPhone());
+                onPressed: () async {
+                  await context.router.replace(const LoginPhone());
                 },
                 child: const Text('Phone'),
               ),
