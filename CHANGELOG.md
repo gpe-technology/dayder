@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/alpha-sow/dayder/compare/1.0.10...1.0.11) (2024-11-20)
+
+
+### Bug Fixes
+
+* build ([6075cff](https://github.com/alpha-sow/dayder/commit/6075cffefcb7424f648e7c81b65916d1005dc7cd))
+
 ## [1.0.10](https://github.com/alpha-sow/dayder/compare/1.0.9...1.0.10) (2024-11-20)
 
 
