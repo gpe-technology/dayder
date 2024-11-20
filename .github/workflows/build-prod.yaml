@@ -16,7 +16,6 @@ name: Build prod
 jobs:
   build-android:
     name: Build Android
-
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -61,7 +60,7 @@ jobs:
     runs-on: ubuntu-latest
     needs: build-android
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Setup ruby
         uses: ruby/setup-ruby@v1
