@@ -1,4 +1,4 @@
-name: Build prod
+name: Build
 
 on:
   workflow_call:
@@ -16,7 +16,7 @@ on:
 
 jobs:
   build-android:
-    name: Build Android
+    name: Android
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -57,7 +57,7 @@ jobs:
           path: build/app/outputs/bundle/release
 
   build-ios:
-    name: Build ios
+    name: ios
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3

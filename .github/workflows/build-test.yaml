@@ -1,3 +1,5 @@
+name: Build
+
 on:
   workflow_call:
     inputs:
@@ -16,10 +18,9 @@ on:
       GOOGLE_SERVICES:
         required: true
 
-name: Build
 jobs:
   build-android:
-    name: Build Android
+    name: Android
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -63,7 +64,7 @@ jobs:
           path: build/app/outputs/apk/debug/
 
   build-ios:
-    name: Build ios
+    name: ios
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
