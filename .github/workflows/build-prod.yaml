@@ -1,0 +1,65 @@
+name: Build
+
+on:
+  workflow_call:
+    inputs:
+      version:
+        required: true
+        type: string
+    secrets:
+      KEY_PROPERTIES:
+        required: true
+      FIREBASE_OPTIONS:
+        required: true
+      GOOGLE_SERVICES:
+        required: true
+
+jobs:
+  build-android:
+    name: Android
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install java
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "corretto"
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: "stable"
+
+      - name: Setup Android SDK
+        uses: android-actions/setup-android@v2
+
+      - name: Write Google Services
+        run: echo "${{ secrets.GOOGLE_SERVICES }}" | base64 -d > android/app/google-services.json
+
+      - name: Write Service account key
+        run: echo "${{ secrets.KEY_PROPERTIES }}" > android/key.properties
+
+      - name: Write Firebase options
+        run: echo "${{secrets.FIREBASE_OPTIONS}}" > lib/firebase_options.dart
+
+      - name: Build aab
+        run: flutter build appbundle --release
+
+      - name: Rename aab
+        run: mv build/app/outputs/bundle/release/app-release.aab build/app/outputs/bundle/release/app-${{inputs.version}}.aab
+
+      - uses: actions/upload-artifact@v4
+        id: upload-aab
+        with:
+          name: app-${{inputs.version}}.aab
+          path: build/app/outputs/bundle/release
+
+  build-ios:
+    name: ios
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: build ios
+        run: echo "Build ios"
