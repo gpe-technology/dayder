@@ -74,7 +74,7 @@ jobs:
 
   github_release:
     name: Create GitHub Release
-    needs: [create-release, upload-to-appstore]
+    needs: [create-release]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
