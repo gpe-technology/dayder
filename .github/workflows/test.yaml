@@ -1,3 +1,5 @@
+name: Test
+
 on:
   push:
     branches:
@@ -6,9 +8,9 @@ on:
       - "release/*"
       - "chore/*"
 
-name: Test
 env:
   SC_VERSION: 5.0.1.3006
+
 jobs:
   test-coverage:
     name: Test
