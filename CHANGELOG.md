@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/alpha-sow/dayder/compare/1.0.15...1.0.16) (2024-11-21)
+
+
+### Bug Fixes
+
+* upload to playstore internal draft ([2f1b56f](https://github.com/alpha-sow/dayder/commit/2f1b56ffa494a5495b0695013215cb828f8a4a40))
+
 ## [1.0.15](https://github.com/alpha-sow/dayder/compare/1.0.14...1.0.15) (2024-11-21)
 
 
