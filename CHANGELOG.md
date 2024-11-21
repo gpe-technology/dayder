@@ -1,3 +1,31 @@
+## [1.0.16](https://github.com/alpha-sow/dayder/compare/1.0.15...1.0.16) (2024-11-21)
+
+
+### Bug Fixes
+
+* upload to playstore internal draft ([2f1b56f](https://github.com/alpha-sow/dayder/commit/2f1b56ffa494a5495b0695013215cb828f8a4a40))
+
+## [1.0.15](https://github.com/alpha-sow/dayder/compare/1.0.14...1.0.15) (2024-11-21)
+
+
+### Bug Fixes
+
+* checkout form tag ([98ce516](https://github.com/alpha-sow/dayder/commit/98ce5162cd5ec13ff337a30f4688f2235644e924))
+
+## [1.0.14](https://github.com/alpha-sow/dayder/compare/1.0.13...1.0.14) (2024-11-21)
+
+
+### Bug Fixes
+
+* upload to play store ([c55332b](https://github.com/alpha-sow/dayder/commit/c55332ba2cc6fda58a13be82b79d9a0ccf1f80ea))
+
+## [1.0.13](https://github.com/alpha-sow/dayder/compare/1.0.12...1.0.13) (2024-11-21)
+
+
+### Bug Fixes
+
+* build target 34 ([bce563b](https://github.com/alpha-sow/dayder/commit/bce563b6f7f454b53520aadfabae61b1b6adfe46))
+
 ## [1.0.12](https://github.com/alpha-sow/dayder/compare/1.0.11...1.0.12) (2024-11-20)
 
 
