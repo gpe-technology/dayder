@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/alpha-sow/dayder/compare/1.0.14...1.0.15) (2024-11-21)
+
+
+### Bug Fixes
+
+* checkout form tag ([98ce516](https://github.com/alpha-sow/dayder/commit/98ce5162cd5ec13ff337a30f4688f2235644e924))
+
 ## [1.0.14](https://github.com/alpha-sow/dayder/compare/1.0.13...1.0.14) (2024-11-21)
 
 
