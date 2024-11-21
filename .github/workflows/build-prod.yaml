@@ -19,7 +19,9 @@ jobs:
     name: Android
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{inputs.version}}
 
       - name: Install java
         uses: actions/setup-java@v4
