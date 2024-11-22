@@ -1,3 +1,10 @@
+## [1.0.17](https://github.com/alpha-sow/dayder/compare/1.0.16...1.0.17) (2024-11-22)
+
+
+### Bug Fixes
+
+* create release ([b0876be](https://github.com/alpha-sow/dayder/commit/b0876be0ab5cfec83037da8b49129f7ae069bdea))
+
 ## [1.0.16](https://github.com/alpha-sow/dayder/compare/1.0.15...1.0.16) (2024-11-21)
 
 
