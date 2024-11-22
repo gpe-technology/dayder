@@ -32,7 +32,7 @@ dependencies:
   get_it: ^7.6.4
   google_fonts: ^6.1.0
   image_picker: ^1.0.7
-  injectable: ^2.3.2
+  injectable: ^2.5.0
   json_annotation: ^4.8.1
   logger: ^2.3.0
   melos: ^6.1.0
