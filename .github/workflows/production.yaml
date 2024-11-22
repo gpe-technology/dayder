@@ -8,10 +8,9 @@ on:
 jobs:
   create-release:
     name: create release
-    if: >-
-      contains(github.event.head_commit.message, 'feature') &&
-      contains(github.event.head_commit.message, 'fix') &&
-      contains(github.event.head_commit.message, 'release')
+    if: ${{contains(github.event.head_commit.message, 'feature/')}} &&
+      ${{contains(github.event.head_commit.message, 'fix/')}} &&
+      ${{contains(github.event.head_commit.message, 'release/')}}
 
     runs-on: ubuntu-latest
     outputs:
@@ -36,10 +35,6 @@ jobs:
 
   build-prod:
     name: Build
-    if: >-
-      contains(github.event.head_commit.message, 'feature') &&
-      contains(github.event.head_commit.message, 'fix') &&
-      contains(github.event.head_commit.message, 'release')
     needs: [create-release]
     uses: ./.github/workflows/build-prod.yaml
     with:
@@ -87,10 +82,6 @@ jobs:
 
   github_release:
     name: Create GitHub Release
-    if: >-
-      contains(github.event.head_commit.message, 'feature') &&
-      contains(github.event.head_commit.message, 'fix') &&
-      contains(github.event.head_commit.message, 'release')
     needs: [create-release]
     runs-on: ubuntu-latest
     steps:
