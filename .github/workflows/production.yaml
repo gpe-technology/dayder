@@ -9,7 +9,7 @@ jobs:
   create-release:
     name: create release
     if: >-
-      github.event.head_commit.message == 'feat' &&
+      github.event.head_commit.message == 'feature' &&
       github.event.head_commit.message == 'fix' &&
       github.event.head_commit.message == 'release'
 
