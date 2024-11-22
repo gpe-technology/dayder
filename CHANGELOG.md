@@ -1,3 +1,12 @@
+## [1.0.18](https://github.com/alpha-sow/dayder/compare/1.0.17...1.0.18) (2024-11-22)
+
+
+### Bug Fixes
+
+* production build ([761988d](https://github.com/alpha-sow/dayder/commit/761988d5e8899c56ce635a9fa7370e3251eb6ed2))
+* production build ([2f3619b](https://github.com/alpha-sow/dayder/commit/2f3619bae1e0c5569732dd6823de711eb3967845))
+* production build ([3e551fe](https://github.com/alpha-sow/dayder/commit/3e551fe275dfaeaac3024597a225a0f4ff6c354d))
+
 ## [1.0.17](https://github.com/alpha-sow/dayder/compare/1.0.16...1.0.17) (2024-11-22)
 
 
