@@ -46,7 +46,7 @@ dev_dependencies:
   #https://pub.dev/packages/auto_route_generator
   auto_route_generator: ^8.0.0
   #https://pub.dev/packages/build_runner
-  build_runner: ^2.4.6
+  build_runner: ^2.4.14
   flutter_lints: ^5.0.0
   flutter_test:
     sdk: flutter
