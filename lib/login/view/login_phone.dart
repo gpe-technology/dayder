@@ -26,7 +26,7 @@ class _LoginPhoneState extends State<LoginPhone> {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: TextField(
                 keyboardType: TextInputType.phone,
                 decoration: const InputDecoration(
@@ -49,7 +49,7 @@ class _LoginPhoneState extends State<LoginPhone> {
                 );
               },
               child: const Text('Next'),
-            )
+            ),
           ],
         ),
       ),

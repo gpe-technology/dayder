@@ -18,14 +18,14 @@ class _LoginPhoneVerificationState extends State<LoginPhoneVerification> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Code vérification'),
+        title: const Text('Code verification'),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20.0),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: TextField(
                 keyboardType: TextInputType.number,
                 decoration: const InputDecoration(

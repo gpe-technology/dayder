@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 @RoutePage(name: 'Detail')
 class AnnouncementDetail extends StatelessWidget {
-  const AnnouncementDetail({super.key, required this.announcement});
+  const AnnouncementDetail({required this.announcement, super.key});
 
   final AnnouncementModel announcement;
 
@@ -20,7 +20,7 @@ class AnnouncementDetail extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               children: [
                 Text(

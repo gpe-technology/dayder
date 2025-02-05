@@ -27,10 +27,11 @@ class App extends StatelessWidget {
         theme: theme,
         darkTheme: darkTheme,
         routerConfig: appRouter.config(
-            reevaluateListenable: ReevaluateListenable.stream(
-              diContainer<AppBloc>().stream,
-            ),
-            navigatorObservers: () => [monitoring.navObserver()]),
+          reevaluateListenable: ReevaluateListenable.stream(
+            diContainer<AppBloc>().stream,
+          ),
+          navigatorObservers: () => [monitoring.navObserver()],
+        ),
       ),
     );
   }

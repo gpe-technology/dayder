@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/login/cubit/login_cubit.dart';
 import 'package:dayder/app/view/widgets/input_text_field.dart';
+import 'package:dayder/login/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,38 +23,40 @@ class _LoginEmailState extends State<LoginEmail> {
         title: const Text('Login with email'),
       ),
       body: SafeArea(
-        child: Builder(builder: (context) {
-          return Column(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              InputTextField(
-                hintText: 'Email',
-                controller: _emailController,
-              ),
-              InputTextField(
-                hintText: 'Password',
-                controller: _passwordController,
-                obscureText: true,
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  await context
-                      .read<LoginCubit>()
-                      .signInWithEmailAndPassword(
-                        email: 'alphaseul@yahoo.fr',
-                        password: 'alphasow',
-                      )
-                      .then((_) {
-                    if (context.mounted) {
-                      context.router.popUntilRoot();
-                    }
-                  });
-                },
-                child: const Text('SingIn'),
-              )
-            ],
-          );
-        }),
+        child: Builder(
+          builder: (context) {
+            return Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                InputTextField(
+                  hintText: 'Email',
+                  controller: _emailController,
+                ),
+                InputTextField(
+                  hintText: 'Password',
+                  controller: _passwordController,
+                  obscureText: true,
+                ),
+                ElevatedButton(
+                  onPressed: () async {
+                    await context
+                        .read<LoginCubit>()
+                        .signInWithEmailAndPassword(
+                          email: 'alphaseul@yahoo.fr',
+                          password: 'alphasow',
+                        )
+                        .then((_) {
+                      if (context.mounted) {
+                        context.router.popUntilRoot();
+                      }
+                    });
+                  },
+                  child: const Text('SingIn'),
+                ),
+              ],
+            );
+          },
+        ),
       ),
     );
   }

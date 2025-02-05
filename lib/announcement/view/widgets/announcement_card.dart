@@ -33,7 +33,7 @@ class AnnouncementCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2.0),
+            padding: const EdgeInsets.symmetric(vertical: 2),
             child: Text(
               announcement.description,
               style: const TextStyle(

@@ -13,7 +13,7 @@ class AnnouncementPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     return BlocProvider(
       create: (context) => AnnouncementCubit(),
       child: BlocBuilder<AnnouncementCubit, AnnouncementState>(
@@ -24,11 +24,11 @@ class AnnouncementPage extends StatelessWidget {
                 appBar:
                     AppBar(title: Text(context.router.current.title(context))),
                 body: GridView.count(
-                  padding: const EdgeInsets.all(8.0),
+                  padding: const EdgeInsets.all(8),
                   childAspectRatio: 3 / 4.5,
                   crossAxisCount: GridCrossCount.valueOf(width),
-                  mainAxisSpacing: 12.0,
-                  crossAxisSpacing: 12.0,
+                  mainAxisSpacing: 12,
+                  crossAxisSpacing: 12,
                   children: state.data
                       .map(
                         (announcement) => AnnouncementCard(

@@ -91,7 +91,7 @@ class SideNested extends StatelessWidget {
 }
 
 class NavLink extends StatelessWidget {
-  const NavLink({super.key, required this.iconData, this.onPressed});
+  const NavLink({required this.iconData, super.key, this.onPressed});
 
   final VoidCallback? onPressed;
   final IconData iconData;
@@ -99,7 +99,7 @@ class NavLink extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 10.0),
+      padding: const EdgeInsets.symmetric(vertical: 10),
       child: IconButton(
         onPressed: onPressed,
         icon: Icon(iconData),
