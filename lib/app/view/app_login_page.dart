@@ -8,11 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 @RoutePage()
 class AppLoginPage extends StatelessWidget {
   const AppLoginPage({
-    required void Function(bool success) onResult,
+    required ValueChanged<bool> onResult,
     super.key,
   }) : _onResult = onResult;
 
-  final void Function(bool success) _onResult;
+  final ValueChanged<bool> _onResult;
 
   @override
   Widget build(BuildContext context) {
