@@ -30,10 +30,11 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> verifyPhoneNumber({required String number}) async {
     emit(const LoginState.loading());
     await _authenticationRepository.verifyPhoneNumber(
-        number: number,
-        codeSent: (code, value) {
-          _verificationId = code;
-        });
+      number: number,
+      codeSent: (code, value) {
+        _verificationId = code;
+      },
+    );
   }
 
   Future<void> signInWithPhone({required String smsCode}) async {

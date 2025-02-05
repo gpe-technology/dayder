@@ -6,8 +6,6 @@ part 'announcement_model.g.dart';
 
 @freezed
 class AnnouncementModel with _$AnnouncementModel {
-  const AnnouncementModel._();
-
   factory AnnouncementModel({
     required String id,
     required String title,
@@ -15,6 +13,8 @@ class AnnouncementModel with _$AnnouncementModel {
     required String description,
     required String price,
   }) = _AnnouncementModel;
+  const AnnouncementModel._();
 
-  factory AnnouncementModel.fromJson(json) => _$AnnouncementModelFromJson(json);
+  factory AnnouncementModel.fromJson(Map<String, dynamic> json) =>
+      _$AnnouncementModelFromJson(json);
 }

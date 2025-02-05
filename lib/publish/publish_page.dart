@@ -8,9 +8,9 @@ class PublishPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController titleController = TextEditingController();
-    TextEditingController descriptionController = TextEditingController();
-    TextEditingController priceController = TextEditingController();
+    final titleController = TextEditingController();
+    final descriptionController = TextEditingController();
+    final priceController = TextEditingController();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Add announcement'),

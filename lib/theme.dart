@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
+import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData theme = FlexThemeData.light(
@@ -23,7 +23,7 @@ ThemeData theme = FlexThemeData.light(
     useM2StyleDividerInM3: true,
     alignedDropdown: true,
     useInputDecoratorThemeInDialogs: true,
-    bottomSheetElevation: 2.0,
+    bottomSheetElevation: 2,
     bottomNavigationBarSelectedLabelSchemeColor: SchemeColor.primary,
     bottomNavigationBarSelectedIconSchemeColor: SchemeColor.primary,
     navigationBarSelectedLabelSchemeColor: SchemeColor.onSurface,
@@ -33,7 +33,7 @@ ThemeData theme = FlexThemeData.light(
     navigationBarUnselectedIconSchemeColor: SchemeColor.onSurface,
     navigationBarMutedUnselectedIcon: false,
     navigationBarIndicatorSchemeColor: SchemeColor.secondaryContainer,
-    navigationBarIndicatorOpacity: 1.00,
+    navigationBarIndicatorOpacity: 1,
     bottomNavigationBarType: BottomNavigationBarType.fixed,
   ),
   visualDensity: FlexColorScheme.comfortablePlatformDensity,
@@ -51,7 +51,6 @@ ThemeData darkTheme = FlexThemeData.dark(
     tertiary: Color(0xffdde5f5),
     tertiaryContainer: Color(0xff7297d9),
     appBarColor: Color(0xffdde5f5),
-    error: null,
   ),
   surfaceMode: FlexSurfaceMode.levelSurfacesLowScaffold,
   blendLevel: 13,
@@ -62,7 +61,7 @@ ThemeData darkTheme = FlexThemeData.dark(
     useM2StyleDividerInM3: true,
     alignedDropdown: true,
     useInputDecoratorThemeInDialogs: true,
-    bottomSheetElevation: 2.0,
+    bottomSheetElevation: 2,
     bottomNavigationBarSelectedLabelSchemeColor: SchemeColor.primary,
     bottomNavigationBarSelectedIconSchemeColor: SchemeColor.primary,
     navigationBarSelectedLabelSchemeColor: SchemeColor.onSurface,
@@ -72,7 +71,7 @@ ThemeData darkTheme = FlexThemeData.dark(
     navigationBarUnselectedIconSchemeColor: SchemeColor.onSurface,
     navigationBarMutedUnselectedIcon: false,
     navigationBarIndicatorSchemeColor: SchemeColor.secondaryContainer,
-    navigationBarIndicatorOpacity: 1.00,
+    navigationBarIndicatorOpacity: 1,
     bottomNavigationBarType: BottomNavigationBarType.fixed,
   ),
   visualDensity: FlexColorScheme.comfortablePlatformDensity,

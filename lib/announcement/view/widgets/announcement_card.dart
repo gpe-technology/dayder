@@ -10,7 +10,7 @@ class AnnouncementCard extends StatelessWidget {
   });
 
   final AnnouncementModel announcement;
-  final Function()? onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AnnouncementCard extends StatelessWidget {
             flex: 4,
             child: Card(
               margin: EdgeInsets.zero,
-              elevation: 0.0,
+              elevation: 0,
               child: CachedNetworkImage(
                 imageUrl: announcement.url,
                 placeholder: (context, url) =>

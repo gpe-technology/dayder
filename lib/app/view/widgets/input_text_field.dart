@@ -21,16 +21,16 @@ class InputTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.all(8),
       child: TextField(
         controller: controller,
         keyboardType: keyboardType,
-        style: const TextStyle(fontSize: 14.0),
+        style: const TextStyle(fontSize: 14),
         decoration: InputDecoration(
           hintText: hintText,
           errorText: errorText,
           contentPadding:
-              const EdgeInsets.symmetric(horizontal: 8.0, vertical: 4.0),
+              const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
         ),
         maxLines: maxLines,
         obscureText: obscureText,

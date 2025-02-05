@@ -1,8 +1,7 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:dayder/app/router/router.gr.dart';
 import 'package:dayder/screen/screen_size.dart';
 import 'package:flutter/material.dart';
-
-import '../router/router.gr.dart';
 
 @RoutePage(name: 'Dashboard')
 class DashboardPage extends StatelessWidget {
@@ -10,7 +9,7 @@ class DashboardPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     return width > ScreenSize.sm ? const SideNested() : const BottomNested();
   }
 }
@@ -94,7 +93,7 @@ class SideNested extends StatelessWidget {
 class NavLink extends StatelessWidget {
   const NavLink({super.key, required this.iconData, this.onPressed});
 
-  final Function()? onPressed;
+  final VoidCallback? onPressed;
   final IconData iconData;
 
   @override

@@ -8,11 +8,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 @RoutePage()
 class AppLoginPage extends StatelessWidget {
   const AppLoginPage({
-    required Function(bool success) onResult,
+    required void Function(bool success) onResult,
     super.key,
   }) : _onResult = onResult;
 
-  final Function(bool success) _onResult;
+  final void Function(bool success) _onResult;
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +45,7 @@ class AppLoginPage extends StatelessWidget {
                       await context.router.navigate(const LoginPhone());
                     },
                     child: const Text('Phone'),
-                  )
+                  ),
                 ],
               ),
             ),
