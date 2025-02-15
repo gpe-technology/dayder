@@ -32,18 +32,17 @@ final class AuthenticationRepository {
   Future<void> verifyPhoneNumber({
     required String number,
     required Function(String, int?) codeSent,
-  }) async {
-    await _firebaseAuth.verifyPhoneNumber(
-      phoneNumber: number,
-      timeout: const Duration(seconds: 60),
-      verificationCompleted: _firebaseAuth.signInWithCredential,
-      verificationFailed: (firebase_auth.FirebaseAuthException exception) {
-        Logger().e(exception.message);
-      },
-      codeSent: codeSent,
-      codeAutoRetrievalTimeout: (String verificationId) {},
-    );
-  }
+  }) =>
+      _firebaseAuth.verifyPhoneNumber(
+        phoneNumber: number,
+        timeout: const Duration(seconds: 60),
+        verificationCompleted: _firebaseAuth.signInWithCredential,
+        verificationFailed: (firebase_auth.FirebaseAuthException exception) {
+          Logger().e(exception.message);
+        },
+        codeSent: codeSent,
+        codeAutoRetrievalTimeout: (String verificationId) {},
+      );
 
   Future<void> signInWithPhone({
     required String verificationId,
@@ -55,13 +54,14 @@ final class AuthenticationRepository {
     await _firebaseAuth.signInWithCredential(credential);
   }
 
-  Future<void> signInWithEmailAndPassword({
+  Future<firebase_auth.UserCredential> signInWithEmailAndPassword({
     required String email,
     required String password,
-  }) async {
-    await _firebaseAuth.signInWithEmailAndPassword(
-        email: email, password: password);
-  }
+  }) =>
+      _firebaseAuth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
   Future<void> signInWithGoogle() async {
     final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
