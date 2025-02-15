@@ -8,11 +8,6 @@ scripts:
   analyze:
     exec: dart analyze .
 
-  get:
-    run: flutter pub get
-    exec:
-      concurrency: 1
-    description: flutter pub get
   upgrade:
     run: flutter pub upgrade --major-versions
     exec:

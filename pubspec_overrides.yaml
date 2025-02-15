@@ -1,0 +1,10 @@
+# melos_managed_dependency_overrides: authentication_repository,cache,monitoring_repository,remote_config_repository
+dependency_overrides:
+  authentication_repository:
+    path: packages/authentication_repository
+  cache:
+    path: packages/cache
+  monitoring_repository:
+    path: packages/monitoring_repository
+  remote_config_repository:
+    path: packages/remote_config_repository
