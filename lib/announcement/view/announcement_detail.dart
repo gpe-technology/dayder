@@ -1,5 +1,5 @@
 import 'package:auto_route/annotations.dart';
-import 'package:dayder/announcement/models/announcement_model.dart';
+import 'package:dayder/announcement/announcement.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage(name: 'Detail')

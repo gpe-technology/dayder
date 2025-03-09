@@ -14,7 +14,7 @@ import 'package:dayder/account/view/account_menu_view.dart' as _i1;
 import 'package:dayder/account/view/my_account_page.dart' as _i11;
 import 'package:dayder/account/view/profile_page.dart' as _i12;
 import 'package:dayder/account/view/set_name_page.dart' as _i14;
-import 'package:dayder/announcement/models/announcement_model.dart' as _i17;
+import 'package:dayder/announcement/announcement.dart' as _i17;
 import 'package:dayder/announcement/view/announcement_detail.dart' as _i2;
 import 'package:dayder/announcement/view/announcement_page.dart' as _i3;
 import 'package:dayder/app/view/app_login_page.dart' as _i4;

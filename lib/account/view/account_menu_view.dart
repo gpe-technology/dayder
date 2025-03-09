@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/app/bloc/app_bloc.dart';
-import 'package:dayder/app/router/router.gr.dart';
-import 'package:dayder/app/view/widgets/app_list_tile.dart';
+import 'package:dayder/app/app.dart';
+import 'package:dayder/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

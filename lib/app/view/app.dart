@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/app/bloc/app_bloc.dart';
-import 'package:dayder/app/router/router.dart';
+import 'package:dayder/router/app_router.dart';
 import 'package:dayder/di/di_container.dart';
 import 'package:dayder/login/login.dart';
 import 'package:dayder/theme.dart';

@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/app/view/widgets/input_text_field.dart';
+import 'package:dayder/app/view/widget/input_text_field.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage(name: 'Publish')
@@ -12,9 +12,7 @@ class PublishPage extends StatelessWidget {
     final descriptionController = TextEditingController();
     final priceController = TextEditingController();
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Add announcement'),
-      ),
+      appBar: AppBar(title: const Text('Add announcement')),
       body: SafeArea(
         child: Column(
           children: [

@@ -20,7 +20,8 @@ class _LoginEmailPageState extends State<LoginEmailPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Login with email')),
-      body: SafeArea(
+      body: Padding(
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           spacing: 16,
@@ -31,17 +32,20 @@ class _LoginEmailPageState extends State<LoginEmailPage> {
               controller: _passwordController,
               type: Type.password,
             ),
-            Button(
-              onPressed:
-                  () => context.read<LoginCubit>().signInWithEmailAndPassword(
-                    email: 'alphaseul@yahoo.fr',
-                    password: 'alphasow',
-                  ),
-              child: const Text('LOGIN'),
-            ),
           ],
         ),
       ),
+      persistentFooterAlignment: AlignmentDirectional.center,
+      persistentFooterButtons: [
+        Button(
+          onPressed:
+              () => context.read<LoginCubit>().signInWithEmailAndPassword(
+                email: 'alphaseul@yahoo.fr',
+                password: 'alphasow',
+              ),
+          child: const Text('LOGIN'),
+        ),
+      ],
     );
   }
 

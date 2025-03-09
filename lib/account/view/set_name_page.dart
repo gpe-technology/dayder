@@ -1,5 +1,5 @@
 import 'package:auto_route/annotations.dart';
-import 'package:dayder/app/view/widgets/input_text_field.dart';
+import 'package:dayder/app/app.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage(name: 'SetName')

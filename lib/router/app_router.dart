@@ -1,6 +1,6 @@
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/app/router/router.gr.dart';
+import 'package:dayder/router/router.dart';
 import 'package:flutter/widgets.dart';
 import 'package:injectable/injectable.dart';
 

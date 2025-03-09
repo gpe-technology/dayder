@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/app/router/router.gr.dart';
+import 'package:dayder/router/router.dart';
 import 'package:dayder/screen/screen_size.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +20,7 @@ class BottomNested extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: const [
-        Announcement(),
-        Chat(),
-        Account(),
-      ],
+      routes: const [Announcement(), Chat(), Account()],
       bottomNavigationBuilder: (_, tabsRouter) {
         return BottomNavigationBar(
           currentIndex: tabsRouter.activeIndex,
@@ -100,10 +96,7 @@ class NavLink extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      child: IconButton(
-        onPressed: onPressed,
-        icon: Icon(iconData),
-      ),
+      child: IconButton(onPressed: onPressed, icon: Icon(iconData)),
     );
   }
 }

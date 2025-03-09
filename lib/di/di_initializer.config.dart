@@ -12,9 +12,9 @@
 import 'package:authentication_repository/authentication_repository.dart'
     as _i223;
 import 'package:dayder/app/bloc/app_bloc.dart' as _i674;
-import 'package:dayder/app/router/router.dart' as _i110;
 import 'package:dayder/di/di_app_module.dart' as _i93;
 import 'package:dayder/login/cubit/login_cubit.dart' as _i635;
+import 'package:dayder/router/app_router.dart' as _i1069;
 import 'package:firebase_analytics/firebase_analytics.dart' as _i398;
 import 'package:flutter/material.dart' as _i409;
 import 'package:flutter/widgets.dart' as _i718;
@@ -53,8 +53,8 @@ extension GetItInjectableX on _i174.GetIt {
     gh.factory<_i674.AppBloc>(
       () => _i674.AppBloc(authentication: gh<_i223.AuthenticationRepository>()),
     );
-    gh.factory<_i110.AppRouter>(
-      () => _i110.AppRouter(
+    gh.factory<_i1069.AppRouter>(
+      () => _i1069.AppRouter(
         authenticationRepository: gh<_i223.AuthenticationRepository>(),
         key: gh<_i718.GlobalKey<_i718.NavigatorState>>(),
       ),
