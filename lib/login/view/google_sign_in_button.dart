@@ -12,8 +12,8 @@ class GoogleSignInButton extends StatelessWidget {
       onPressed: () async {
         await context.read<LoginCubit>().signInWithGoogle();
       },
-      text: 'Sign in with google',
-      icon: Icons.golf_course,
+      label: const Text('Sign in with google'),
+      icon: const Icon(Icons.golf_course),
     );
   }
 }

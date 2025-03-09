@@ -47,8 +47,8 @@ class AnnouncementPage extends StatelessWidget {
               ),
               floatingActionButton: ButtonIcon(
                 onPressed: () {},
-                text: 'ADD',
-                icon: Icons.add_rounded,
+                label: const Text('ADD'),
+                icon: const Icon(Icons.add_rounded),
               ),
             ),
           };
