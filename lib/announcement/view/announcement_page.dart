@@ -43,11 +43,13 @@ class AnnouncementPage extends StatelessWidget {
                         )
                         .toList(),
               ),
-              floatingActionButton: ButtonIcon(
-                onPressed: () {},
-                label: const Text('ADD'),
-                icon: const Icon(Icons.add_rounded),
-              ),
+              persistentFooterButtons: [
+                ButtonIcon(
+                  onPressed: () {},
+                  label: const Text('Add Announcement'),
+                  icon: const Icon(Icons.add_rounded),
+                ),
+              ],
             ),
           };
         },

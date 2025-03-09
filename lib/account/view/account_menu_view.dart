@@ -1,3 +1,4 @@
+import 'package:alpha_ui/alpha_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/app/app.dart';
 import 'package:dayder/router/app_router.gr.dart';
@@ -12,29 +13,30 @@ class AccountMenuView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(context.router.current.title(context))),
-      body: ListView(
-        children:
-            ListTile.divideTiles(
-              context: context,
-              tiles: [
-                AppListTile(
-                  title: 'Profile',
-                  icon: Icons.person_rounded,
-                  onTap: () async {
-                    await context.pushRoute(const Profile());
-                  },
-                ),
-                const AppListTile(title: 'Help', icon: Icons.help_rounded),
-                TextButton(
-                  onPressed:
-                      () => context.read<AppBloc>().add(
-                        const AppLogoutRequested(),
-                      ),
-                  child: const Text('Logout'),
-                ),
-              ],
-            ).toList(),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: ListView(
+          children:
+              ListTile.divideTiles(
+                context: context,
+                tiles: [
+                  AppListTile(
+                    title: 'Profile',
+                    icon: Icons.person_rounded,
+                    onTap: () => context.pushRoute(const Profile()),
+                  ),
+                  const AppListTile(title: 'Help', icon: Icons.help_rounded),
+                ],
+              ).toList(),
+        ),
       ),
+      persistentFooterButtons: [
+        Button(
+          onPressed:
+              () => context.read<AppBloc>().add(const AppLogoutRequested()),
+          child: const Text('Logout'),
+        ),
+      ],
     );
   }
 }
