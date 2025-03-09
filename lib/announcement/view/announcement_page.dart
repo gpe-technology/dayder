@@ -1,3 +1,4 @@
+import 'package:alpha_ui/alpha_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/announcement/cubit/announcement_cubit.dart';
 import 'package:dayder/announcement/utils/utils.dart';
@@ -21,34 +22,35 @@ class AnnouncementPage extends StatelessWidget {
           return switch (state.status) {
             AnnouncementStatus.loading => const SplashPage(),
             AnnouncementStatus.loaded => Scaffold(
-                appBar:
-                    AppBar(title: Text(context.router.current.title(context))),
-                body: GridView.count(
-                  padding: const EdgeInsets.all(8),
-                  childAspectRatio: 3 / 4.5,
-                  crossAxisCount: GridCrossCount.valueOf(width),
-                  mainAxisSpacing: 12,
-                  crossAxisSpacing: 12,
-                  children: state.data
-                      .map(
-                        (announcement) => AnnouncementCard(
-                          announcement: announcement,
-                          onTap: () async {
-                            await context.pushRoute(
-                              Detail(announcement: announcement),
-                            );
-                          },
-                        ),
-                      )
-                      .toList(),
-                ),
-                floatingActionButton: FloatingActionButton(
-                  onPressed: () {},
-                  tooltip: 'Publish',
-                  mini: true,
-                  child: const Icon(Icons.add_rounded),
-                ),
+              appBar: AppBar(
+                title: Text(context.router.current.title(context)),
               ),
+              body: GridView.count(
+                padding: const EdgeInsets.all(8),
+                childAspectRatio: 3 / 4.5,
+                crossAxisCount: GridCrossCount.valueOf(width),
+                mainAxisSpacing: 12,
+                crossAxisSpacing: 12,
+                children:
+                    state.data
+                        .map(
+                          (announcement) => AnnouncementCard(
+                            announcement: announcement,
+                            onTap: () async {
+                              await context.pushRoute(
+                                Detail(announcement: announcement),
+                              );
+                            },
+                          ),
+                        )
+                        .toList(),
+              ),
+              floatingActionButton: ButtonIcon(
+                onPressed: () {},
+                text: 'ADD',
+                icon: Icons.add_rounded,
+              ),
+            ),
           };
         },
       ),

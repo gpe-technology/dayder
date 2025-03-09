@@ -1,6 +1,5 @@
 import 'package:alpha_ui/alpha_ui.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/app/view/widgets/input_text_field.dart';
 import 'package:dayder/login/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

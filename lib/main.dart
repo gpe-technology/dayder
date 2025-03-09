@@ -11,7 +11,7 @@ import 'package:monitoring_repository/monitoring_repository.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
-  ThemeUI.init();
+  ThemeUI.init(primary: Colors.blue, secondary: Colors.brown);
   await initDI(diContainer);
   await diContainer<AuthenticationRepository>().user.first;
   final monitoring = diContainer<Monitoring>();
