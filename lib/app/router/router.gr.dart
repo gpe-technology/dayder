@@ -10,7 +10,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i16;
-import 'package:dayder/account/view/account_menu.dart' as _i1;
+import 'package:dayder/account/view/account_menu_view.dart' as _i1;
 import 'package:dayder/account/view/my_account_page.dart' as _i11;
 import 'package:dayder/account/view/profile_page.dart' as _i12;
 import 'package:dayder/account/view/set_name_page.dart' as _i14;
@@ -29,7 +29,7 @@ import 'package:dayder/publish/publish_page.dart' as _i13;
 import 'package:flutter/material.dart' as _i18;
 
 /// generated route for
-/// [_i1.AccountMenu]
+/// [_i1.AccountMenuView]
 class AccountMenu extends _i16.PageRouteInfo<void> {
   const AccountMenu({List<_i16.PageRouteInfo>? children})
     : super(AccountMenu.name, initialChildren: children);
@@ -39,7 +39,7 @@ class AccountMenu extends _i16.PageRouteInfo<void> {
   static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i1.AccountMenu();
+      return const _i1.AccountMenuView();
     },
   );
 }

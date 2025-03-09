@@ -16,7 +16,11 @@ class ProfilePage extends StatelessWidget {
         children:
             ListTile.divideTiles(
               context: context,
-              tiles: [ListTile(title: Text(user.email ?? ''), onTap: () {})],
+              tiles: [
+                ListTile(title: Text(user.email ?? ''), onTap: () {}),
+                ListTile(title: Text(user.name ?? ''), onTap: () {}),
+                ListTile(title: Text(user.phoneNumber ?? ''), onTap: () {}),
+              ],
             ).toList(),
       ),
     );

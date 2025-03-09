@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage(name: 'AccountMenu')
-class AccountMenu extends StatelessWidget {
-  const AccountMenu({super.key});
+class AccountMenuView extends StatelessWidget {
+  const AccountMenuView({super.key});
 
   @override
   Widget build(BuildContext context) {
