@@ -19,38 +19,26 @@ class _LoginEmailState extends State<LoginEmail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login with email'),
-      ),
+      appBar: AppBar(title: const Text('Login with email')),
       body: SafeArea(
         child: Builder(
           builder: (context) {
             return Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                InputTextField(
-                  hintText: 'Email',
-                  controller: _emailController,
-                ),
+                InputTextField(hintText: 'Email', controller: _emailController),
                 InputTextField(
                   hintText: 'Password',
                   controller: _passwordController,
                   obscureText: true,
                 ),
                 ElevatedButton(
-                  onPressed: () async {
-                    await context
-                        .read<LoginCubit>()
-                        .signInWithEmailAndPassword(
-                          email: 'alphaseul@yahoo.fr',
-                          password: 'alphasow',
-                        )
-                        .then((_) {
-                      if (context.mounted) {
-                        context.router.popUntilRoot();
-                      }
-                    });
-                  },
+                  onPressed:
+                      () =>
+                          context.read<LoginCubit>().signInWithEmailAndPassword(
+                            email: 'alphaseul@yahoo.fr',
+                            password: 'alphasow',
+                          ),
                   child: const Text('SingIn'),
                 ),
               ],

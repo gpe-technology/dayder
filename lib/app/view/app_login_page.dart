@@ -7,10 +7,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class AppLoginPage extends StatelessWidget {
-  const AppLoginPage({
-    required ValueChanged<bool> onResult,
-    super.key,
-  }) : _onResult = onResult;
+  const AppLoginPage({required ValueChanged<bool> onResult, super.key})
+    : _onResult = onResult;
 
   final ValueChanged<bool> _onResult;
 
@@ -23,9 +21,7 @@ class AppLoginPage extends StatelessWidget {
         }
       },
       child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Login'),
-        ),
+        appBar: AppBar(title: const Text('Login')),
         body: SafeArea(
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
@@ -35,15 +31,13 @@ class AppLoginPage extends StatelessWidget {
                 children: [
                   const login.GoogleSignInButton(),
                   ElevatedButton(
-                    onPressed: () async {
-                      await context.router.navigate(const LoginEmail());
-                    },
+                    onPressed:
+                        () => context.router.navigate(const LoginEmail()),
                     child: const Text('Email'),
                   ),
                   ElevatedButton(
-                    onPressed: () async {
-                      await context.router.navigate(const LoginPhone());
-                    },
+                    onPressed:
+                        () => context.router.navigate(const LoginPhone()),
                     child: const Text('Phone'),
                   ),
                 ],

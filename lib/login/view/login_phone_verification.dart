@@ -17,9 +17,7 @@ class _LoginPhoneVerificationState extends State<LoginPhoneVerification> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Code verification'),
-      ),
+      appBar: AppBar(title: const Text('Code verification')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
@@ -28,25 +26,20 @@ class _LoginPhoneVerificationState extends State<LoginPhoneVerification> {
               padding: const EdgeInsets.all(8),
               child: TextField(
                 keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  hintText: 'Code',
-                ),
+                decoration: const InputDecoration(hintText: 'Code'),
                 controller: _codeController,
               ),
             ),
             ElevatedButton(
-              onPressed: () async {
-                await context
-                    .read<LoginCubit>()
-                    .signInWithPhone(smsCode: _codeController.text)
-                    .then(
-                  (_) {
-                    if (context.mounted) {
-                      context.router.popUntilRoot();
-                    }
-                  },
-                );
-              },
+              onPressed:
+                  () => context
+                      .read<LoginCubit>()
+                      .signInWithPhone(smsCode: _codeController.text)
+                      .then((_) {
+                        if (context.mounted) {
+                          context.router.popUntilRoot();
+                        }
+                      }),
               child: const Text('Send'),
             ),
           ],

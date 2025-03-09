@@ -18,9 +18,7 @@ class _LoginPhoneState extends State<LoginPhone> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Login with phone'),
-      ),
+      appBar: AppBar(title: const Text('Login with phone')),
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
@@ -29,25 +27,22 @@ class _LoginPhoneState extends State<LoginPhone> {
               padding: const EdgeInsets.all(8),
               child: TextField(
                 keyboardType: TextInputType.phone,
-                decoration: const InputDecoration(
-                  hintText: 'Phone',
-                ),
+                decoration: const InputDecoration(hintText: 'Phone'),
                 controller: _phoneController,
               ),
             ),
             ElevatedButton(
-              onPressed: () async {
-                await context
-                    .read<LoginCubit>()
-                    .verifyPhoneNumber(number: _phoneController.text)
-                    .then(
-                  (_) {
-                    if (context.mounted) {
-                      context.router.navigate(const LoginPhoneVerification());
-                    }
-                  },
-                );
-              },
+              onPressed:
+                  () => context
+                      .read<LoginCubit>()
+                      .verifyPhoneNumber(number: _phoneController.text)
+                      .then((_) {
+                        if (context.mounted) {
+                          context.router.navigate(
+                            const LoginPhoneVerification(),
+                          );
+                        }
+                      }),
               child: const Text('Next'),
             ),
           ],

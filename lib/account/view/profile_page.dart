@@ -11,19 +11,13 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final user = context.select((AppBloc bloc) => bloc.state.user);
     return Scaffold(
-      appBar: AppBar(
-        title: Text(context.router.current.title(context)),
-      ),
+      appBar: AppBar(title: Text(context.router.current.title(context))),
       body: Column(
-        children: ListTile.divideTiles(
-          context: context,
-          tiles: [
-            ListTile(
-              title: Text(user.email ?? ''),
-              onTap: () {},
-            ),
-          ],
-        ).toList(),
+        children:
+            ListTile.divideTiles(
+              context: context,
+              tiles: [ListTile(title: Text(user.email ?? ''), onTap: () {})],
+            ).toList(),
       ),
     );
   }

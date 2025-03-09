@@ -6,7 +6,7 @@ import 'package:injectable/injectable.dart';
 
 @Injectable()
 @AutoRouterConfig()
-class AppRouter extends RootStackRouter implements AutoRouteGuard {
+class AppRouter extends RootStackRouter {
   AppRouter({
     required AuthenticationRepository authenticationRepository,
     required GlobalKey<NavigatorState> key,
@@ -22,7 +22,6 @@ class AppRouter extends RootStackRouter implements AutoRouteGuard {
   List<AutoRoute> get routes => [
     AutoRoute(
       path: '/dashboard',
-      initial: true,
       page: Dashboard.page,
       children: [
         AutoRoute(
@@ -47,13 +46,14 @@ class AppRouter extends RootStackRouter implements AutoRouteGuard {
         ),
       ],
     ),
+
+    AutoRoute(path: '/login', page: AppLoginRoute.page),
     AutoRoute(path: '/login-email', page: LoginEmail.page),
     AutoRoute(path: '/login-phone', page: LoginPhone.page),
     AutoRoute(
       path: '/login-phone-verification',
       page: LoginPhoneVerification.page,
     ),
-    AutoRoute(path: '/login', page: AppLoginRoute.page),
     AutoRoute(path: '/splash', page: Splash.page),
     AutoRoute(path: '/publish', page: Publish.page),
     AutoRoute(path: '/set-name', page: SetName.page),
@@ -62,24 +62,27 @@ class AppRouter extends RootStackRouter implements AutoRouteGuard {
   ];
 
   @override
-  void onNavigation(NavigationResolver resolver, StackRouter router) {
-    final routeAuthorized = [
-      AppLoginRoute.name,
-      LoginEmail.name,
-      LoginPhone.name,
-      LoginPhoneVerification.name,
-    ];
-    if (_authenticationRepository.currentUser.isNotEmpty ||
-        routeAuthorized.contains(resolver.route.name)) {
-      resolver.next();
-    } else {
-      resolver.redirect(
-        AppLoginRoute(
-          onResult: (success) {
-            resolver.resolveNext(success, reevaluateNext: false);
-          },
-        ),
-      );
-    }
-  }
+  late final List<AutoRouteGuard> guards = [
+    AutoRouteGuard.simple((resolver, router) {
+      final routeAuthorized = [
+        AppLoginRoute.name,
+        LoginEmail.name,
+        LoginPhone.name,
+        LoginPhoneVerification.name,
+      ];
+      if (_authenticationRepository.currentUser.isNotEmpty ||
+          routeAuthorized.contains(resolver.route.name)) {
+        resolver.next();
+      } else {
+        resolver.redirectUntil(
+          AppLoginRoute(
+            onResult: (success) {
+              if (resolver.isResolved) return;
+              resolver.resolveNext(success, reevaluateNext: false);
+            },
+          ),
+        );
+      }
+    }),
+  ];
 }

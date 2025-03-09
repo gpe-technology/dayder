@@ -14,28 +14,27 @@ class AccountMenu extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text(context.router.current.title(context))),
       body: ListView(
-        children: ListTile.divideTiles(
-          context: context,
-          tiles: [
-            AppListTile(
-              title: 'Profile',
-              icon: Icons.person_rounded,
-              onTap: () async {
-                await context.pushRoute(const Profile());
-              },
-            ),
-            const AppListTile(
-              title: 'Help',
-              icon: Icons.help_rounded,
-            ),
-            TextButton(
-              onPressed: () {
-                context.read<AppBloc>().add(const AppLogoutRequested());
-              },
-              child: const Text('Logout'),
-            ),
-          ],
-        ).toList(),
+        children:
+            ListTile.divideTiles(
+              context: context,
+              tiles: [
+                AppListTile(
+                  title: 'Profile',
+                  icon: Icons.person_rounded,
+                  onTap: () async {
+                    await context.pushRoute(const Profile());
+                  },
+                ),
+                const AppListTile(title: 'Help', icon: Icons.help_rounded),
+                TextButton(
+                  onPressed:
+                      () => context.read<AppBloc>().add(
+                        const AppLogoutRequested(),
+                      ),
+                  child: const Text('Logout'),
+                ),
+              ],
+            ).toList(),
       ),
     );
   }
