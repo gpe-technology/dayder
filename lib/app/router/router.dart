@@ -52,11 +52,11 @@ class AppRouter extends RootStackRouter {
       page: AppLoginRoute.page,
       children: [
         AutoRoute(path: '', page: LoginRoute.page),
-        AutoRoute(path: 'email', page: LoginEmail.page),
-        AutoRoute(path: 'login-phone', page: LoginPhone.page),
+        AutoRoute(path: 'email', page: LoginEmailRoute.page),
+        AutoRoute(path: 'login-phone', page: LoginPhoneRoute.page),
         AutoRoute(
           path: 'login-phone-verification',
-          page: LoginPhoneVerification.page,
+          page: LoginPhoneVerificationRoute.page,
         ),
       ],
     ),
@@ -69,9 +69,9 @@ class AppRouter extends RootStackRouter {
       final routeAuthorized = [
         AppLoginRoute.name,
         LoginRoute.name,
-        LoginEmail.name,
-        LoginPhone.name,
-        LoginPhoneVerification.name,
+        LoginEmailRoute.name,
+        LoginPhoneRoute.name,
+        LoginPhoneVerificationRoute.name,
       ];
       if (_authenticationRepository.currentUser.isNotEmpty ||
           routeAuthorized.contains(resolver.routeName)) {

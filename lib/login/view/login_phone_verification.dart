@@ -4,14 +4,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class LoginPhoneVerification extends StatefulWidget {
-  const LoginPhoneVerification({super.key});
+class LoginPhoneVerificationPage extends StatefulWidget {
+  const LoginPhoneVerificationPage({super.key});
 
   @override
-  State<LoginPhoneVerification> createState() => _LoginPhoneVerificationState();
+  State<LoginPhoneVerificationPage> createState() =>
+      _LoginPhoneVerificationPageState();
 }
 
-class _LoginPhoneVerificationState extends State<LoginPhoneVerification> {
+class _LoginPhoneVerificationPageState
+    extends State<LoginPhoneVerificationPage> {
   final TextEditingController _codeController = TextEditingController();
 
   @override

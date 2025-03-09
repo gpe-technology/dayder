@@ -170,17 +170,17 @@ class Dashboard extends _i16.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i7.LoginEmail]
-class LoginEmail extends _i16.PageRouteInfo<void> {
-  const LoginEmail({List<_i16.PageRouteInfo>? children})
-    : super(LoginEmail.name, initialChildren: children);
+/// [_i7.LoginEmailPage]
+class LoginEmailRoute extends _i16.PageRouteInfo<void> {
+  const LoginEmailRoute({List<_i16.PageRouteInfo>? children})
+    : super(LoginEmailRoute.name, initialChildren: children);
 
-  static const String name = 'LoginEmail';
+  static const String name = 'LoginEmailRoute';
 
   static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i7.LoginEmail();
+      return const _i7.LoginEmailPage();
     },
   );
 }
@@ -202,33 +202,33 @@ class LoginRoute extends _i16.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i9.LoginPhone]
-class LoginPhone extends _i16.PageRouteInfo<void> {
-  const LoginPhone({List<_i16.PageRouteInfo>? children})
-    : super(LoginPhone.name, initialChildren: children);
+/// [_i9.LoginPhonePage]
+class LoginPhoneRoute extends _i16.PageRouteInfo<void> {
+  const LoginPhoneRoute({List<_i16.PageRouteInfo>? children})
+    : super(LoginPhoneRoute.name, initialChildren: children);
 
-  static const String name = 'LoginPhone';
+  static const String name = 'LoginPhoneRoute';
 
   static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i9.LoginPhone();
+      return const _i9.LoginPhonePage();
     },
   );
 }
 
 /// generated route for
-/// [_i10.LoginPhoneVerification]
-class LoginPhoneVerification extends _i16.PageRouteInfo<void> {
-  const LoginPhoneVerification({List<_i16.PageRouteInfo>? children})
-    : super(LoginPhoneVerification.name, initialChildren: children);
+/// [_i10.LoginPhoneVerificationPage]
+class LoginPhoneVerificationRoute extends _i16.PageRouteInfo<void> {
+  const LoginPhoneVerificationRoute({List<_i16.PageRouteInfo>? children})
+    : super(LoginPhoneVerificationRoute.name, initialChildren: children);
 
-  static const String name = 'LoginPhoneVerification';
+  static const String name = 'LoginPhoneVerificationRoute';
 
   static _i16.PageInfo page = _i16.PageInfo(
     name,
     builder: (data) {
-      return const _i10.LoginPhoneVerification();
+      return const _i10.LoginPhoneVerificationPage();
     },
   );
 }

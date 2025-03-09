@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class LoginPhone extends StatefulWidget {
-  const LoginPhone({super.key});
+class LoginPhonePage extends StatefulWidget {
+  const LoginPhonePage({super.key});
 
   @override
-  State<LoginPhone> createState() => _LoginPhoneState();
+  State<LoginPhonePage> createState() => _LoginPhonePageState();
 }
 
-class _LoginPhoneState extends State<LoginPhone> {
+class _LoginPhonePageState extends State<LoginPhonePage> {
   final TextEditingController _phoneController = TextEditingController();
 
   @override
@@ -39,7 +39,7 @@ class _LoginPhoneState extends State<LoginPhone> {
                       .then((_) {
                         if (context.mounted) {
                           context.router.navigate(
-                            const LoginPhoneVerification(),
+                            const LoginPhoneVerificationRoute(),
                           );
                         }
                       }),

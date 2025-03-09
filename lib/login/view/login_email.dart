@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
-class LoginEmail extends StatefulWidget {
-  const LoginEmail({super.key});
+class LoginEmailPage extends StatefulWidget {
+  const LoginEmailPage({super.key});
 
   @override
-  State<LoginEmail> createState() => _LoginEmailState();
+  State<LoginEmailPage> createState() => _LoginEmailPageState();
 }
 
-class _LoginEmailState extends State<LoginEmail> {
+class _LoginEmailPageState extends State<LoginEmailPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
