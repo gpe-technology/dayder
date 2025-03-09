@@ -6,7 +6,7 @@ import 'package:dayder/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-@RoutePage(name: 'Announcement')
+@RoutePage()
 class AnnouncementPage extends StatelessWidget {
   const AnnouncementPage({super.key});
 
@@ -36,7 +36,9 @@ class AnnouncementPage extends StatelessWidget {
                             announcement: announcement,
                             onTap:
                                 () => context.pushRoute(
-                                  Detail(announcement: announcement),
+                                  AnnouncementDetailRoute(
+                                    announcement: announcement,
+                                  ),
                                 ),
                           ),
                         )

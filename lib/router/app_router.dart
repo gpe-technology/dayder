@@ -30,8 +30,8 @@ class AppRouter extends RootStackRouter {
           page: AnnouncementHomeRoute.page,
           title: (_, __) => 'Announcement',
           children: [
-            AutoRoute(path: '', page: Announcement.page),
-            AutoRoute(path: 'detail', page: Detail.page),
+            AutoRoute(path: '', page: AnnouncementRoute.page),
+            AutoRoute(path: 'detail', page: AnnouncementDetailRoute.page),
           ],
         ),
         AutoRoute(path: 'chat', page: Chat.page, title: (_, __) => 'Chat'),

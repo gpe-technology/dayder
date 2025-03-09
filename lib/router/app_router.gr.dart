@@ -16,8 +16,8 @@ import 'package:dayder/account/view/profile_page.dart' as _i13;
 import 'package:dayder/account/view/set_name_page.dart' as _i15;
 import 'package:dayder/announcement/announcement.dart' as _i18;
 import 'package:dayder/announcement/view/announcement_detail_page.dart' as _i2;
-import 'package:dayder/announcement/view/announcement_page.dart' as _i4;
 import 'package:dayder/announcement/view/announcement_home_screen.dart' as _i3;
+import 'package:dayder/announcement/view/announcement_page.dart' as _i4;
 import 'package:dayder/app/view/app_login_page.dart' as _i5;
 import 'package:dayder/app/view/dashboard_page.dart' as _i7;
 import 'package:dayder/app/view/splash_page.dart' as _i16;
@@ -47,23 +47,27 @@ class AccountMenu extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.AnnouncementDetailPage]
-class Detail extends _i17.PageRouteInfo<DetailArgs> {
-  Detail({
+class AnnouncementDetailRoute
+    extends _i17.PageRouteInfo<AnnouncementDetailRouteArgs> {
+  AnnouncementDetailRoute({
     required _i18.AnnouncementModel announcement,
     _i19.Key? key,
     List<_i17.PageRouteInfo>? children,
   }) : super(
-         Detail.name,
-         args: DetailArgs(announcement: announcement, key: key),
+         AnnouncementDetailRoute.name,
+         args: AnnouncementDetailRouteArgs(
+           announcement: announcement,
+           key: key,
+         ),
          initialChildren: children,
        );
 
-  static const String name = 'Detail';
+  static const String name = 'AnnouncementDetailRoute';
 
   static _i17.PageInfo page = _i17.PageInfo(
     name,
     builder: (data) {
-      final args = data.argsAs<DetailArgs>();
+      final args = data.argsAs<AnnouncementDetailRouteArgs>();
       return _i2.AnnouncementDetailPage(
         announcement: args.announcement,
         key: args.key,
@@ -72,8 +76,8 @@ class Detail extends _i17.PageRouteInfo<DetailArgs> {
   );
 }
 
-class DetailArgs {
-  const DetailArgs({required this.announcement, this.key});
+class AnnouncementDetailRouteArgs {
+  const AnnouncementDetailRouteArgs({required this.announcement, this.key});
 
   final _i18.AnnouncementModel announcement;
 
@@ -81,7 +85,7 @@ class DetailArgs {
 
   @override
   String toString() {
-    return 'DetailArgs{announcement: $announcement, key: $key}';
+    return 'AnnouncementDetailRouteArgs{announcement: $announcement, key: $key}';
   }
 }
 
@@ -103,11 +107,11 @@ class AnnouncementHomeRoute extends _i17.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.AnnouncementPage]
-class Announcement extends _i17.PageRouteInfo<void> {
-  const Announcement({List<_i17.PageRouteInfo>? children})
-    : super(Announcement.name, initialChildren: children);
+class AnnouncementRoute extends _i17.PageRouteInfo<void> {
+  const AnnouncementRoute({List<_i17.PageRouteInfo>? children})
+    : super(AnnouncementRoute.name, initialChildren: children);
 
-  static const String name = 'Announcement';
+  static const String name = 'AnnouncementRoute';
 
   static _i17.PageInfo page = _i17.PageInfo(
     name,

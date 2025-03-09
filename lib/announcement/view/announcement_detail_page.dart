@@ -1,8 +1,8 @@
-import 'package:auto_route/annotations.dart';
+import 'package:auto_route/auto_route.dart';
 import 'package:dayder/announcement/announcement.dart';
 import 'package:flutter/material.dart';
 
-@RoutePage(name: 'Detail')
+@RoutePage()
 class AnnouncementDetailPage extends StatelessWidget {
   const AnnouncementDetailPage({required this.announcement, super.key});
 
@@ -11,7 +11,7 @@ class AnnouncementDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: const Text('Detail')),
       body: ListView(
         children: [
           AspectRatio(
@@ -28,6 +28,7 @@ class AnnouncementDetailPage extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 Text(announcement.description),
+                Text(announcement.price),
               ],
             ),
           ),
