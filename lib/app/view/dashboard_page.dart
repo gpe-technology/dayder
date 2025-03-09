@@ -20,7 +20,7 @@ class BottomNested extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AutoTabsScaffold(
-      routes: const [Announcement(), Chat(), Account()],
+      routes: const [AnnouncementHomeRoute(), Chat(), Account()],
       bottomNavigationBuilder: (_, tabsRouter) {
         return BottomNavigationBar(
           currentIndex: tabsRouter.activeIndex,
@@ -60,7 +60,7 @@ class SideNested extends StatelessWidget {
               children: [
                 NavLink(
                   onPressed: () {
-                    context.router.push(const Announcement());
+                    context.router.push(const AnnouncementHomeRoute());
                   },
                   iconData: Icons.search_rounded,
                 ),

@@ -27,8 +27,12 @@ class AppRouter extends RootStackRouter {
         AutoRoute(
           initial: true,
           path: 'Announcement',
-          page: Announcement.page,
+          page: AnnouncementHomeRoute.page,
           title: (_, __) => 'Announcement',
+          children: [
+            AutoRoute(path: '', page: Announcement.page),
+            AutoRoute(path: 'detail', page: Detail.page),
+          ],
         ),
         AutoRoute(path: 'chat', page: Chat.page, title: (_, __) => 'Chat'),
         AutoRoute(
@@ -40,10 +44,6 @@ class AppRouter extends RootStackRouter {
             AutoRoute(path: 'profile', page: Profile.page),
           ],
         ),
-        AutoRoute(path: 'splash', page: Splash.page),
-        AutoRoute(path: 'publish', page: Publish.page),
-        AutoRoute(path: 'set-name', page: SetName.page),
-        AutoRoute(path: 'detail', page: Detail.page),
       ],
     ),
 

@@ -34,11 +34,10 @@ class AnnouncementPage extends StatelessWidget {
                         .map(
                           (announcement) => AnnouncementCard(
                             announcement: announcement,
-                            onTap: () async {
-                              await context.pushRoute(
-                                Detail(announcement: announcement),
-                              );
-                            },
+                            onTap:
+                                () => context.pushRoute(
+                                  Detail(announcement: announcement),
+                                ),
                           ),
                         )
                         .toList(),

@@ -3,8 +3,8 @@ import 'package:dayder/announcement/announcement.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage(name: 'Detail')
-class AnnouncementDetail extends StatelessWidget {
-  const AnnouncementDetail({required this.announcement, super.key});
+class AnnouncementDetailPage extends StatelessWidget {
+  const AnnouncementDetailPage({required this.announcement, super.key});
 
   final AnnouncementModel announcement;
 
