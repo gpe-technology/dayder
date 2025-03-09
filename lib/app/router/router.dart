@@ -6,12 +6,12 @@ import 'package:injectable/injectable.dart';
 
 @Injectable()
 @AutoRouterConfig()
-class AppRouter extends $AppRouter implements AutoRouteGuard {
+class AppRouter extends RootStackRouter implements AutoRouteGuard {
   AppRouter({
     required AuthenticationRepository authenticationRepository,
     required GlobalKey<NavigatorState> key,
-  })  : _authenticationRepository = authenticationRepository,
-        super(navigatorKey: key);
+  }) : _authenticationRepository = authenticationRepository,
+       super(navigatorKey: key);
 
   final AuthenticationRepository _authenticationRepository;
 
@@ -20,64 +20,46 @@ class AppRouter extends $AppRouter implements AutoRouteGuard {
 
   @override
   List<AutoRoute> get routes => [
+    AutoRoute(
+      path: '/dashboard',
+      initial: true,
+      page: Dashboard.page,
+      children: [
         AutoRoute(
-          path: '/dashboard',
           initial: true,
-          page: Dashboard.page,
+          path: 'Announcement',
+          page: Announcement.page,
+          title: (_, routeData) => 'Announcement',
+        ),
+        AutoRoute(
+          path: 'chat',
+          page: Chat.page,
+          title: (_, routeData) => 'Chat',
+        ),
+        AutoRoute(
+          path: 'my-account',
+          page: Account.page,
+          title: (_, routeData) => 'My account',
           children: [
-            AutoRoute(
-              initial: true,
-              path: 'Announcement',
-              page: Announcement.page,
-              title: (_, routeData) => 'Announcement',
-            ),
-            AutoRoute(
-              path: 'chat',
-              page: Chat.page,
-              title: (_, routeData) => 'Chat',
-            ),
-            AutoRoute(
-              path: 'my-account',
-              page: Account.page,
-              title: (_, routeData) => 'My account',
-              children: [
-                AutoRoute(
-                  path: '',
-                  page: AccountMenu.page,
-                ),
-                AutoRoute(
-                  path: 'profile',
-                  page: Profile.page,
-                ),
-              ],
-            ),
+            AutoRoute(path: '', page: AccountMenu.page),
+            AutoRoute(path: 'profile', page: Profile.page),
           ],
         ),
-        AutoRoute(path: '/login-email', page: LoginEmail.page),
-        AutoRoute(path: '/login-phone', page: LoginPhone.page),
-        AutoRoute(
-          path: '/login-phone-verification',
-          page: LoginPhoneVerification.page,
-        ),
-        AutoRoute(path: '/login', page: AppLoginRoute.page),
-        AutoRoute(
-          path: '/splash',
-          page: Splash.page,
-        ),
-        AutoRoute(
-          path: '/publish',
-          page: Publish.page,
-        ),
-        AutoRoute(
-          path: '/set-name',
-          page: SetName.page,
-        ),
-        AutoRoute(
-          path: '/detail',
-          page: Detail.page,
-        ),
-        RedirectRoute(path: '/', redirectTo: '/dashboard'),
-      ];
+      ],
+    ),
+    AutoRoute(path: '/login-email', page: LoginEmail.page),
+    AutoRoute(path: '/login-phone', page: LoginPhone.page),
+    AutoRoute(
+      path: '/login-phone-verification',
+      page: LoginPhoneVerification.page,
+    ),
+    AutoRoute(path: '/login', page: AppLoginRoute.page),
+    AutoRoute(path: '/splash', page: Splash.page),
+    AutoRoute(path: '/publish', page: Publish.page),
+    AutoRoute(path: '/set-name', page: SetName.page),
+    AutoRoute(path: '/detail', page: Detail.page),
+    RedirectRoute(path: '/', redirectTo: '/dashboard'),
+  ];
 
   @override
   void onNavigation(NavigationResolver resolver, StackRouter router) {

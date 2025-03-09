@@ -26,18 +26,6 @@
       "request": "launch",
       "type": "dart",
       "flutterMode": "release"
-    },
-    {
-      "name": "authentication_repository",
-      "cwd": "packages/authentication_repository",
-      "request": "launch",
-      "type": "dart"
-    },
-    {
-      "name": "remote_config_repository",
-      "cwd": "packages/remote_config_repository",
-      "request": "launch",
-      "type": "dart"
     }
   ]
 }

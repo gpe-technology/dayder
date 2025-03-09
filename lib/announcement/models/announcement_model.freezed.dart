@@ -1,3 +1,4 @@
+// dart format width=80
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
@@ -9,224 +10,151 @@ part of 'announcement_model.dart';
 // FreezedGenerator
 // **************************************************************************
 
+// dart format off
 T _$identity<T>(T value) => value;
-
-final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
-
-AnnouncementModel _$AnnouncementModelFromJson(Map<String, dynamic> json) {
-  return _AnnouncementModel.fromJson(json);
-}
 
 /// @nodoc
 mixin _$AnnouncementModel {
-  String get id => throw _privateConstructorUsedError;
-  String get title => throw _privateConstructorUsedError;
-  String get url => throw _privateConstructorUsedError;
-  String get description => throw _privateConstructorUsedError;
-  String get price => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $AnnouncementModelCopyWith<AnnouncementModel> get copyWith =>
-      throw _privateConstructorUsedError;
+ String get id; String get title; String get url; String get description; String get price;
+/// Create a copy of AnnouncementModel
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AnnouncementModelCopyWith<AnnouncementModel> get copyWith => _$AnnouncementModelCopyWithImpl<AnnouncementModel>(this as AnnouncementModel, _$identity);
+
+  /// Serializes this AnnouncementModel to a JSON map.
+  Map<String, dynamic> toJson();
+
+
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AnnouncementModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.url, url) || other.url == url)&&(identical(other.description, description) || other.description == description)&&(identical(other.price, price) || other.price == price));
+}
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,title,url,description,price);
+
+@override
+String toString() {
+  return 'AnnouncementModel(id: $id, title: $title, url: $url, description: $description, price: $price)';
+}
+
+
 }
 
 /// @nodoc
-abstract class $AnnouncementModelCopyWith<$Res> {
-  factory $AnnouncementModelCopyWith(
-          AnnouncementModel value, $Res Function(AnnouncementModel) then) =
-      _$AnnouncementModelCopyWithImpl<$Res, AnnouncementModel>;
-  @useResult
-  $Res call(
-      {String id, String title, String url, String description, String price});
-}
+abstract mixin class $AnnouncementModelCopyWith<$Res>  {
+  factory $AnnouncementModelCopyWith(AnnouncementModel value, $Res Function(AnnouncementModel) _then) = _$AnnouncementModelCopyWithImpl;
+@useResult
+$Res call({
+ String id, String title, String url, String description, String price
+});
 
+
+
+
+}
 /// @nodoc
-class _$AnnouncementModelCopyWithImpl<$Res, $Val extends AnnouncementModel>
+class _$AnnouncementModelCopyWithImpl<$Res>
     implements $AnnouncementModelCopyWith<$Res> {
-  _$AnnouncementModelCopyWithImpl(this._value, this._then);
+  _$AnnouncementModelCopyWithImpl(this._self, this._then);
 
-  // ignore: unused_field
-  final $Val _value;
-  // ignore: unused_field
-  final $Res Function($Val) _then;
+  final AnnouncementModel _self;
+  final $Res Function(AnnouncementModel) _then;
 
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? url = null,
-    Object? description = null,
-    Object? price = null,
-  }) {
-    return _then(_value.copyWith(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as String,
-    ) as $Val);
-  }
+/// Create a copy of AnnouncementModel
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? id = null,Object? title = null,Object? url = null,Object? description = null,Object? price = null,}) {
+  return _then(_self.copyWith(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,price: null == price ? _self.price : price // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
 }
 
-/// @nodoc
-abstract class _$$AnnouncementModelImplCopyWith<$Res>
-    implements $AnnouncementModelCopyWith<$Res> {
-  factory _$$AnnouncementModelImplCopyWith(_$AnnouncementModelImpl value,
-          $Res Function(_$AnnouncementModelImpl) then) =
-      __$$AnnouncementModelImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call(
-      {String id, String title, String url, String description, String price});
 }
 
-/// @nodoc
-class __$$AnnouncementModelImplCopyWithImpl<$Res>
-    extends _$AnnouncementModelCopyWithImpl<$Res, _$AnnouncementModelImpl>
-    implements _$$AnnouncementModelImplCopyWith<$Res> {
-  __$$AnnouncementModelImplCopyWithImpl(_$AnnouncementModelImpl _value,
-      $Res Function(_$AnnouncementModelImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? id = null,
-    Object? title = null,
-    Object? url = null,
-    Object? description = null,
-    Object? price = null,
-  }) {
-    return _then(_$AnnouncementModelImpl(
-      id: null == id
-          ? _value.id
-          : id // ignore: cast_nullable_to_non_nullable
-              as String,
-      title: null == title
-          ? _value.title
-          : title // ignore: cast_nullable_to_non_nullable
-              as String,
-      url: null == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String,
-      description: null == description
-          ? _value.description
-          : description // ignore: cast_nullable_to_non_nullable
-              as String,
-      price: null == price
-          ? _value.price
-          : price // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
-}
 
 /// @nodoc
 @JsonSerializable()
-class _$AnnouncementModelImpl extends _AnnouncementModel {
-  _$AnnouncementModelImpl(
-      {required this.id,
-      required this.title,
-      required this.url,
-      required this.description,
-      required this.price})
-      : super._();
 
-  factory _$AnnouncementModelImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AnnouncementModelImplFromJson(json);
+class _AnnouncementModel extends AnnouncementModel {
+   _AnnouncementModel({required this.id, required this.title, required this.url, required this.description, required this.price}): super._();
+  factory _AnnouncementModel.fromJson(Map<String, dynamic> json) => _$AnnouncementModelFromJson(json);
 
-  @override
-  final String id;
-  @override
-  final String title;
-  @override
-  final String url;
-  @override
-  final String description;
-  @override
-  final String price;
+@override final  String id;
+@override final  String title;
+@override final  String url;
+@override final  String description;
+@override final  String price;
 
-  @override
-  String toString() {
-    return 'AnnouncementModel(id: $id, title: $title, url: $url, description: $description, price: $price)';
-  }
+/// Create a copy of AnnouncementModel
+/// with the given fields replaced by the non-null parameter values.
+@override @JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+_$AnnouncementModelCopyWith<_AnnouncementModel> get copyWith => __$AnnouncementModelCopyWithImpl<_AnnouncementModel>(this, _$identity);
 
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$AnnouncementModelImpl &&
-            (identical(other.id, id) || other.id == id) &&
-            (identical(other.title, title) || other.title == title) &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.description, description) ||
-                other.description == description) &&
-            (identical(other.price, price) || other.price == price));
-  }
-
-  @JsonKey(ignore: true)
-  @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, title, url, description, price);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$AnnouncementModelImplCopyWith<_$AnnouncementModelImpl> get copyWith =>
-      __$$AnnouncementModelImplCopyWithImpl<_$AnnouncementModelImpl>(
-          this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$AnnouncementModelImplToJson(
-      this,
-    );
-  }
+@override
+Map<String, dynamic> toJson() {
+  return _$AnnouncementModelToJson(this, );
 }
 
-abstract class _AnnouncementModel extends AnnouncementModel {
-  factory _AnnouncementModel(
-      {required final String id,
-      required final String title,
-      required final String url,
-      required final String description,
-      required final String price}) = _$AnnouncementModelImpl;
-  _AnnouncementModel._() : super._();
-
-  factory _AnnouncementModel.fromJson(Map<String, dynamic> json) =
-      _$AnnouncementModelImpl.fromJson;
-
-  @override
-  String get id;
-  @override
-  String get title;
-  @override
-  String get url;
-  @override
-  String get description;
-  @override
-  String get price;
-  @override
-  @JsonKey(ignore: true)
-  _$$AnnouncementModelImplCopyWith<_$AnnouncementModelImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+@override
+bool operator ==(Object other) {
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is _AnnouncementModel&&(identical(other.id, id) || other.id == id)&&(identical(other.title, title) || other.title == title)&&(identical(other.url, url) || other.url == url)&&(identical(other.description, description) || other.description == description)&&(identical(other.price, price) || other.price == price));
 }
+
+@JsonKey(includeFromJson: false, includeToJson: false)
+@override
+int get hashCode => Object.hash(runtimeType,id,title,url,description,price);
+
+@override
+String toString() {
+  return 'AnnouncementModel(id: $id, title: $title, url: $url, description: $description, price: $price)';
+}
+
+
+}
+
+/// @nodoc
+abstract mixin class _$AnnouncementModelCopyWith<$Res> implements $AnnouncementModelCopyWith<$Res> {
+  factory _$AnnouncementModelCopyWith(_AnnouncementModel value, $Res Function(_AnnouncementModel) _then) = __$AnnouncementModelCopyWithImpl;
+@override @useResult
+$Res call({
+ String id, String title, String url, String description, String price
+});
+
+
+
+
+}
+/// @nodoc
+class __$AnnouncementModelCopyWithImpl<$Res>
+    implements _$AnnouncementModelCopyWith<$Res> {
+  __$AnnouncementModelCopyWithImpl(this._self, this._then);
+
+  final _AnnouncementModel _self;
+  final $Res Function(_AnnouncementModel) _then;
+
+/// Create a copy of AnnouncementModel
+/// with the given fields replaced by the non-null parameter values.
+@override @pragma('vm:prefer-inline') $Res call({Object? id = null,Object? title = null,Object? url = null,Object? description = null,Object? price = null,}) {
+  return _then(_AnnouncementModel(
+id: null == id ? _self.id : id // ignore: cast_nullable_to_non_nullable
+as String,title: null == title ? _self.title : title // ignore: cast_nullable_to_non_nullable
+as String,url: null == url ? _self.url : url // ignore: cast_nullable_to_non_nullable
+as String,description: null == description ? _self.description : description // ignore: cast_nullable_to_non_nullable
+as String,price: null == price ? _self.price : price // ignore: cast_nullable_to_non_nullable
+as String,
+  ));
+}
+
+
+}
+
+// dart format on
