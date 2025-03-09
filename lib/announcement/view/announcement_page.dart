@@ -17,12 +17,9 @@ class AnnouncementPage extends StatelessWidget {
       create: (context) => AnnouncementCubit(),
       child: BlocBuilder<AnnouncementCubit, AnnouncementState>(
         builder: (context, state) {
-          return switch (state.status) {
-            AnnouncementStatus.loading => const SplashPage(),
-            AnnouncementStatus.loaded => Scaffold(
-              appBar: AppBar(
-                title: Text(context.router.current.title(context)),
-              ),
+          return switch (state) {
+            Loaded(:final data) => Scaffold(
+              appBar: AppBar(title: const Text('Announcements')),
               body: GridView.count(
                 padding: const EdgeInsets.all(8),
                 childAspectRatio: 3 / 4.5,
@@ -30,7 +27,7 @@ class AnnouncementPage extends StatelessWidget {
                 mainAxisSpacing: 12,
                 crossAxisSpacing: 12,
                 children:
-                    state.data
+                    data
                         .map(
                           (announcement) => AnnouncementCard(
                             announcement: announcement,
@@ -52,6 +49,10 @@ class AnnouncementPage extends StatelessWidget {
                 ),
               ],
             ),
+            Error(:final error) => Scaffold(
+              body: Center(child: Text(error.toString())),
+            ),
+            Loading() => const SplashPage(),
           };
         },
       ),
