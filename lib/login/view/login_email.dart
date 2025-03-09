@@ -1,3 +1,4 @@
+import 'package:alpha_ui/alpha_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/app/view/widgets/input_text_field.dart';
 import 'package:dayder/login/cubit/login_cubit.dart';
@@ -23,20 +24,21 @@ class _LoginEmailPageState extends State<LoginEmailPage> {
       body: SafeArea(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
+          spacing: 16,
           children: [
-            InputTextField(hintText: 'Email', controller: _emailController),
-            InputTextField(
+            Input(hintText: 'Email', controller: _emailController),
+            Input(
               hintText: 'Password',
               controller: _passwordController,
-              obscureText: true,
+              type: Type.password,
             ),
-            ElevatedButton(
+            Button(
               onPressed:
                   () => context.read<LoginCubit>().signInWithEmailAndPassword(
                     email: 'alphaseul@yahoo.fr',
                     password: 'alphasow',
                   ),
-              child: const Text('SingIn'),
+              child: const Text('LOGIN'),
             ),
           ],
         ),

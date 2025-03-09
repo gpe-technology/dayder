@@ -1,3 +1,4 @@
+import 'package:alpha_ui/alpha_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/app/router/router.gr.dart';
 import 'package:dayder/login/login.dart';
@@ -16,11 +17,11 @@ class LoginPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             const GoogleSignInButton(),
-            ElevatedButton(
+            Button(
               onPressed: () => context.router.push(const LoginEmailRoute()),
               child: const Text('Login with Email'),
             ),
-            ElevatedButton(
+            Button(
               onPressed: () => context.router.push(const LoginPhoneRoute()),
               child: const Text('Login with Phone'),
             ),

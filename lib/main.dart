@@ -1,3 +1,4 @@
+import 'package:alpha_ui/alpha_ui.dart';
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:dayder/app/app.dart';
 import 'package:dayder/di/di_container.dart';
@@ -9,9 +10,8 @@ import 'package:monitoring_repository/monitoring_repository.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  ThemeUI.init();
   await initDI(diContainer);
   await diContainer<AuthenticationRepository>().user.first;
   final monitoring = diContainer<Monitoring>();
