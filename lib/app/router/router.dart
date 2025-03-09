@@ -40,20 +40,26 @@ class AppRouter extends RootStackRouter {
             AutoRoute(path: 'profile', page: Profile.page),
           ],
         ),
+        AutoRoute(path: 'splash', page: Splash.page),
+        AutoRoute(path: 'publish', page: Publish.page),
+        AutoRoute(path: 'set-name', page: SetName.page),
+        AutoRoute(path: 'detail', page: Detail.page),
       ],
     ),
 
-    AutoRoute(path: '/login', page: AppLoginRoute.page),
-    AutoRoute(path: '/login-email', page: LoginEmail.page),
-    AutoRoute(path: '/login-phone', page: LoginPhone.page),
     AutoRoute(
-      path: '/login-phone-verification',
-      page: LoginPhoneVerification.page,
+      path: '/login',
+      page: AppLoginRoute.page,
+      children: [
+        AutoRoute(path: '', page: LoginRoute.page),
+        AutoRoute(path: 'email', page: LoginEmail.page),
+        AutoRoute(path: 'login-phone', page: LoginPhone.page),
+        AutoRoute(
+          path: 'login-phone-verification',
+          page: LoginPhoneVerification.page,
+        ),
+      ],
     ),
-    AutoRoute(path: '/splash', page: Splash.page),
-    AutoRoute(path: '/publish', page: Publish.page),
-    AutoRoute(path: '/set-name', page: SetName.page),
-    AutoRoute(path: '/detail', page: Detail.page),
     RedirectRoute(path: '/', redirectTo: '/dashboard'),
   ];
 
@@ -62,6 +68,7 @@ class AppRouter extends RootStackRouter {
     AutoRouteGuard.simple((resolver, router) {
       final routeAuthorized = [
         AppLoginRoute.name,
+        LoginRoute.name,
         LoginEmail.name,
         LoginPhone.name,
         LoginPhoneVerification.name,
