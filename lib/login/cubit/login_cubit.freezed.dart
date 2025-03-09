@@ -45,8 +45,8 @@ $LoginStateCopyWith(LoginState _, $Res Function(LoginState) __);
 /// @nodoc
 
 
-class Inital implements LoginState {
-  const Inital();
+class Initial implements LoginState {
+  const Initial();
   
 
 
@@ -56,7 +56,7 @@ class Inital implements LoginState {
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Inital);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Initial);
 }
 
 
@@ -110,32 +110,68 @@ String toString() {
 
 
 class Error implements LoginState {
-  const Error();
+  const Error(this.error, this.stackTrace);
   
 
+ final  Exception error;
+ final  StackTrace stackTrace;
 
-
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$ErrorCopyWith<Error> get copyWith => _$ErrorCopyWithImpl<Error>(this, _$identity);
 
 
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is Error);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is Error&&(identical(other.error, error) || other.error == error)&&(identical(other.stackTrace, stackTrace) || other.stackTrace == stackTrace));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,error,stackTrace);
 
 @override
 String toString() {
-  return 'LoginState.error()';
+  return 'LoginState.error(error: $error, stackTrace: $stackTrace)';
 }
 
 
 }
 
+/// @nodoc
+abstract mixin class $ErrorCopyWith<$Res> implements $LoginStateCopyWith<$Res> {
+  factory $ErrorCopyWith(Error value, $Res Function(Error) _then) = _$ErrorCopyWithImpl;
+@useResult
+$Res call({
+ Exception error, StackTrace stackTrace
+});
 
 
+
+
+}
+/// @nodoc
+class _$ErrorCopyWithImpl<$Res>
+    implements $ErrorCopyWith<$Res> {
+  _$ErrorCopyWithImpl(this._self, this._then);
+
+  final Error _self;
+  final $Res Function(Error) _then;
+
+/// Create a copy of LoginState
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') $Res call({Object? error = null,Object? stackTrace = null,}) {
+  return _then(Error(
+null == error ? _self.error : error // ignore: cast_nullable_to_non_nullable
+as Exception,null == stackTrace ? _self.stackTrace : stackTrace // ignore: cast_nullable_to_non_nullable
+as StackTrace,
+  ));
+}
+
+
+}
 
 // dart format on

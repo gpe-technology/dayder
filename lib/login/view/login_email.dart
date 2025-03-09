@@ -21,29 +21,24 @@ class _LoginEmailState extends State<LoginEmail> {
     return Scaffold(
       appBar: AppBar(title: const Text('Login with email')),
       body: SafeArea(
-        child: Builder(
-          builder: (context) {
-            return Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                InputTextField(hintText: 'Email', controller: _emailController),
-                InputTextField(
-                  hintText: 'Password',
-                  controller: _passwordController,
-                  obscureText: true,
-                ),
-                ElevatedButton(
-                  onPressed:
-                      () =>
-                          context.read<LoginCubit>().signInWithEmailAndPassword(
-                            email: 'alphaseul@yahoo.fr',
-                            password: 'alphasow',
-                          ),
-                  child: const Text('SingIn'),
-                ),
-              ],
-            );
-          },
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            InputTextField(hintText: 'Email', controller: _emailController),
+            InputTextField(
+              hintText: 'Password',
+              controller: _passwordController,
+              obscureText: true,
+            ),
+            ElevatedButton(
+              onPressed:
+                  () => context.read<LoginCubit>().signInWithEmailAndPassword(
+                    email: 'alphaseul@yahoo.fr',
+                    password: 'alphasow',
+                  ),
+              child: const Text('SingIn'),
+            ),
+          ],
         ),
       ),
     );

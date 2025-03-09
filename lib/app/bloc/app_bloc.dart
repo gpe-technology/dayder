@@ -17,23 +17,21 @@ enum AppStatus { authenticated, unAuthenticated }
 @Injectable()
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc({required AuthenticationRepository authentication})
-      : _authentication = authentication,
-        super(AppState.unAuthenticated()) {
+    : _authentication = authentication,
+      super(AppState.unAuthenticated()) {
     on<_AppUserChanged>(_onUserChange);
     on<AppLogoutRequested>(_onLogoutRequested);
-    _userSubscription = _authentication.user.listen(
-      (user) {
-        add(_AppUserChanged(user));
-        monitoring.setUserInfos(
-          user: m.User(
-            id: user.id,
-            firstName: user.name ?? '',
-            lastName: user.name ?? '',
-            email: user.email ?? '',
-          ),
-        );
-      },
-    );
+    _userSubscription = _authentication.user.listen((user) {
+      add(_AppUserChanged(user));
+      monitoring.setUserInfos(
+        user: m.User(
+          id: user.id,
+          firstName: user.name ?? '',
+          lastName: user.name ?? '',
+          email: user.email ?? '',
+        ),
+      );
+    });
   }
 
   final AuthenticationRepository _authentication;

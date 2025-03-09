@@ -67,7 +67,7 @@ class AppRouter extends RootStackRouter {
         LoginPhoneVerification.name,
       ];
       if (_authenticationRepository.currentUser.isNotEmpty ||
-          routeAuthorized.contains(resolver.route.name)) {
+          routeAuthorized.contains(resolver.routeName)) {
         resolver.next();
       } else {
         resolver.redirectUntil(
@@ -77,6 +77,7 @@ class AppRouter extends RootStackRouter {
               resolver.next(didLogin);
             },
           ),
+          replace: true,
         );
       }
     }),
