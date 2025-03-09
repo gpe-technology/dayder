@@ -28,17 +28,13 @@ class AppRouter extends RootStackRouter {
           initial: true,
           path: 'Announcement',
           page: Announcement.page,
-          title: (_, routeData) => 'Announcement',
+          title: (_, __) => 'Announcement',
         ),
-        AutoRoute(
-          path: 'chat',
-          page: Chat.page,
-          title: (_, routeData) => 'Chat',
-        ),
+        AutoRoute(path: 'chat', page: Chat.page, title: (_, __) => 'Chat'),
         AutoRoute(
           path: 'my-account',
           page: Account.page,
-          title: (_, routeData) => 'My account',
+          title: (_, __) => 'My account',
           children: [
             AutoRoute(path: '', page: AccountMenu.page),
             AutoRoute(path: 'profile', page: Profile.page),
@@ -76,9 +72,9 @@ class AppRouter extends RootStackRouter {
       } else {
         resolver.redirectUntil(
           AppLoginRoute(
-            onResult: (success) {
+            onResult: (didLogin) {
               if (resolver.isResolved) return;
-              resolver.resolveNext(success, reevaluateNext: false);
+              resolver.next(didLogin);
             },
           ),
         );
