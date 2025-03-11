@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/alpha-sow/dayder/compare/1.0.18...1.1.0) (2025-03-11)
+
+
+### Features
+
+* add announcement ([4d0dc14](https://github.com/alpha-sow/dayder/commit/4d0dc14fabdf32561e523cd8357b2351954123e7))
+* build ([29280ce](https://github.com/alpha-sow/dayder/commit/29280ce96f40fde8546309b0cc1a2ccf84c3b66b))
+
 ## [1.0.18](https://github.com/alpha-sow/dayder/compare/1.0.17...1.0.18) (2024-11-22)
 
 
