@@ -1,17 +1,17 @@
-import 'package:auto_route/annotations.dart';
-import 'package:dayder/announcement/models/announcement_model.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:dayder/announcement/announcement.dart';
 import 'package:flutter/material.dart';
 
-@RoutePage(name: 'Detail')
-class AnnouncementDetail extends StatelessWidget {
-  const AnnouncementDetail({super.key, required this.announcement});
+@RoutePage()
+class AnnouncementDetailPage extends StatelessWidget {
+  const AnnouncementDetailPage({required this.announcement, super.key});
 
   final AnnouncementModel announcement;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(title: const Text('Detail')),
       body: ListView(
         children: [
           AspectRatio(
@@ -20,7 +20,7 @@ class AnnouncementDetail extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               children: [
                 Text(
@@ -28,6 +28,7 @@ class AnnouncementDetail extends StatelessWidget {
                   style: Theme.of(context).textTheme.headlineSmall,
                 ),
                 Text(announcement.description),
+                Text(announcement.price),
               ],
             ),
           ),

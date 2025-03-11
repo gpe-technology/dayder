@@ -17,36 +17,36 @@ enum AppStatus { authenticated, unAuthenticated }
 @Injectable()
 class AppBloc extends Bloc<AppEvent, AppState> {
   AppBloc({required AuthenticationRepository authentication})
-      : _authentication = authentication,
-        super(AppState.unAuthenticated()) {
+    : _authentication = authentication,
+      super(AppState.unAuthenticated()) {
     on<_AppUserChanged>(_onUserChange);
     on<AppLogoutRequested>(_onLogoutRequested);
-    _userSubscription = _authentication.user.listen(
-      (user) {
-        add(_AppUserChanged(user));
-        monitoring.setUserInfos(
-          user: m.User(
-            id: user.id,
-            firstName: user.name ?? '',
-            lastName: user.name ?? '',
-            email: user.email ?? '',
-          ),
-        );
-      },
-    );
+    _userSubscription = _authentication.user.listen((user) {
+      add(_AppUserChanged(user));
+      monitoring.setUserInfos(
+        user: m.User(
+          id: user.id,
+          firstName: user.name ?? '',
+          lastName: user.name ?? '',
+          email: user.email ?? '',
+        ),
+      );
+    });
   }
 
   final AuthenticationRepository _authentication;
   final m.Monitoring monitoring = diContainer<m.Monitoring>();
   late final StreamSubscription<User> _userSubscription;
 
-  _onUserChange(_AppUserChanged event, Emitter<AppState> emit) {
-    emit(event.user.isNotEmpty
-        ? AppState.authenticated(event.user)
-        : AppState.unAuthenticated());
+  void _onUserChange(_AppUserChanged event, Emitter<AppState> emit) {
+    emit(
+      event.user.isNotEmpty
+          ? AppState.authenticated(event.user)
+          : AppState.unAuthenticated(),
+    );
   }
 
-  _onLogoutRequested(AppLogoutRequested event, Emitter<AppState> emit) {
+  void _onLogoutRequested(AppLogoutRequested event, Emitter<AppState> emit) {
     unawaited(_authentication.logout());
   }
 

@@ -1,7 +1,6 @@
 import 'package:auto_route/annotations.dart';
+import 'package:dayder/app/app.dart';
 import 'package:flutter/material.dart';
-
-import '../../app/view/widgets/input_text_field.dart';
 
 @RoutePage(name: 'SetName')
 class SetNamePage extends StatelessWidget {
@@ -9,7 +8,7 @@ class SetNamePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController controller = TextEditingController();
+    final controller = TextEditingController();
     return Scaffold(
       appBar: AppBar(title: const Text('Update')),
       body: Column(
@@ -18,13 +17,13 @@ class SetNamePage extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(10),
               child: ElevatedButton(
                 onPressed: () {},
                 child: const Text('Update'),
               ),
             ),
-          )
+          ),
         ],
       ),
     );

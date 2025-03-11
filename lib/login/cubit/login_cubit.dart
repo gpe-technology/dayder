@@ -10,7 +10,7 @@ part 'login_cubit.freezed.dart';
 @Injectable()
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this._authenticationRepository)
-      : super(const LoginState.initial());
+    : super(const LoginState.initial());
 
   final AuthenticationRepository _authenticationRepository;
 
@@ -20,32 +20,49 @@ class LoginCubit extends Cubit<LoginState> {
     required String email,
     required String password,
   }) async {
-    emit(const LoginState.loading());
-    await _authenticationRepository.signInWithEmailAndPassword(
-      email: email,
-      password: password,
-    );
+    try {
+      emit(const LoginState.loading());
+      await _authenticationRepository.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+    } on Exception catch (error, stackTrace) {
+      emit(LoginState.error(error, stackTrace));
+    }
   }
 
   Future<void> verifyPhoneNumber({required String number}) async {
-    emit(const LoginState.loading());
-    await _authenticationRepository.verifyPhoneNumber(
+    try {
+      emit(const LoginState.loading());
+      await _authenticationRepository.verifyPhoneNumber(
         number: number,
         codeSent: (code, value) {
           _verificationId = code;
-        });
+        },
+      );
+    } on Exception catch (error, stackTrace) {
+      emit(LoginState.error(error, stackTrace));
+    }
   }
 
   Future<void> signInWithPhone({required String smsCode}) async {
-    emit(const LoginState.loading());
-    await _authenticationRepository.signInWithPhone(
-      verificationId: _verificationId,
-      smsCode: smsCode,
-    );
+    try {
+      emit(const LoginState.loading());
+      await _authenticationRepository.signInWithPhone(
+        verificationId: _verificationId,
+        smsCode: smsCode,
+      );
+    } on Exception catch (error, stackTrace) {
+      emit(LoginState.error(error, stackTrace));
+    }
   }
 
   Future<void> signInWithGoogle() async {
-    emit(const LoginState.loading());
-    await _authenticationRepository.signInWithGoogle();
+    try {
+      emit(const LoginState.loading());
+      await _authenticationRepository.signInWithGoogle();
+    } on Exception catch (error, stackTrace) {
+      emit(LoginState.error(error, stackTrace));
+    }
   }
 }

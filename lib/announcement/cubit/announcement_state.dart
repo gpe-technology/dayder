@@ -1,19 +1,15 @@
 part of 'announcement_cubit.dart';
 
-enum AnnouncementStatus { loading, loaded }
+enum AnnouncementStatus { loading, loaded, error }
 
-final class AnnouncementState extends Equatable {
-  const AnnouncementState._({required this.status, this.data = const []});
+@freezed
+sealed class AnnouncementState with _$AnnouncementState {
+  const factory AnnouncementState.loading() = Loading;
 
-  const AnnouncementState.loading()
-      : this._(status: AnnouncementStatus.loading);
+  const factory AnnouncementState.loaded(List<AnnouncementModel> data) = Loaded;
 
-  const AnnouncementState.loaded(List<AnnouncementModel> data)
-      : this._(status: AnnouncementStatus.loaded, data: data);
-
-  final AnnouncementStatus status;
-  final List<AnnouncementModel> data;
-
-  @override
-  List<Object?> get props => [status, data];
+  const factory AnnouncementState.error(
+    Exception error,
+    StackTrace stackTrace,
+  ) = Error;
 }
