@@ -1,3 +1,3 @@
-export './view/app.dart';
-export './view/splash_page.dart';
-export './bloc/app_bloc.dart';
+export 'bloc/bloc.dart';
+export 'theme.dart';
+export 'view/view.dart';
