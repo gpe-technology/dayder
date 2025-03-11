@@ -1,4 +1,4 @@
-import 'package:alpha_ui/alpha_ui.dart';
+import 'package:app_ui/app_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/login/login.dart';
 import 'package:dayder/router/router.dart';

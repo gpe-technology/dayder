@@ -13,10 +13,10 @@ workspace:
   - packages/cache
   - packages/monitoring_repository
   - packages/remote_config_repository
-  - packages/alpha_ui
+  - packages/app_ui
 
 dependencies:
-  alpha_ui: 1.0.0
+  app_ui: 0.0.1
   authentication_repository: 1.0.0
   auto_route: ^10.0.1
   bloc: ^9.0.0

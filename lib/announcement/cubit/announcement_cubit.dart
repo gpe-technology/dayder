@@ -6,16 +6,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'announcement_cubit.freezed.dart';
 part 'announcement_state.dart';
 
+String collectionPath() => 'announcements';
+
 class AnnouncementCubit extends Cubit<AnnouncementState> {
   AnnouncementCubit() : super(const AnnouncementState.loading()) {
-    getAll();
+    fetchAllAnnouncement();
   }
 
   final FirebaseFirestore _firebaseFirestore = FirebaseFirestore.instance;
 
-  Future<void> getAll() async {
+  Future<void> fetchAllAnnouncement() async {
     try {
-      final data = await _firebaseFirestore.collection('announcements').get();
+      final data = await _firebaseFirestore.collection(collectionPath()).get();
       final result =
           data.docs
               .map((snapshot) => AnnouncementModel.fromJson(snapshot.data()))

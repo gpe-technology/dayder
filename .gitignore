@@ -52,3 +52,4 @@ android/app/google-services.json
 ios/Runner/GoogleService-Info.plist
 ios/fastlane/apple-store-credentials.json
 android/app/.cxx
+packages/alpha_ui/.dart_tool

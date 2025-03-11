@@ -1,4 +1,4 @@
-import 'package:alpha_ui/alpha_ui.dart';
+import 'package:app_ui/app_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/login/cubit/login_cubit.dart';
 import 'package:flutter/material.dart';
@@ -40,8 +40,8 @@ class _LoginEmailPageState extends State<LoginEmailPage> {
         Button(
           onPressed:
               () => context.read<LoginCubit>().signInWithEmailAndPassword(
-                email: 'alphaseul@yahoo.fr',
-                password: 'alphasow',
+                email: _emailController.text,
+                password: _passwordController.text,
               ),
           child: const Text('LOGIN'),
         ),

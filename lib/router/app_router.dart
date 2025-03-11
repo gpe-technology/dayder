@@ -22,26 +22,32 @@ class AppRouter extends RootStackRouter {
   List<AutoRoute> get routes => [
     AutoRoute(
       path: '/dashboard',
-      page: Dashboard.page,
+      page: AppDashboardRoute.page,
       children: [
         AutoRoute(
           initial: true,
-          path: 'Announcement',
-          page: AnnouncementHomeRoute.page,
+          path: 'announcement',
+          page: AppAnnouncementRoute.page,
           title: (_, __) => 'Announcement',
           children: [
             AutoRoute(path: '', page: AnnouncementRoute.page),
             AutoRoute(path: 'detail', page: AnnouncementDetailRoute.page),
+            AutoRoute(path: 'add', page: AnnouncementAddRoute.page),
           ],
         ),
-        AutoRoute(path: 'chat', page: Chat.page, title: (_, __) => 'Chat'),
         AutoRoute(
-          path: 'my-account',
-          page: Account.page,
-          title: (_, __) => 'My account',
+          path: 'chat',
+          page: AppChatRoute.page,
+          title: (_, __) => 'Chat',
+          children: [AutoRoute(path: '', page: Chat.page)],
+        ),
+        AutoRoute(
+          path: 'account',
+          page: AppAccountRoute.page,
+          title: (_, __) => 'Account',
           children: [
-            AutoRoute(path: '', page: AccountMenu.page),
-            AutoRoute(path: 'profile', page: Profile.page),
+            AutoRoute(path: '', page: AccountRoute.page),
+            AutoRoute(path: 'profile', page: AccountProfileRoute.page),
           ],
         ),
       ],

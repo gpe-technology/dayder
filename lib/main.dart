@@ -1,4 +1,4 @@
-import 'package:alpha_ui/alpha_ui.dart';
+import 'package:app_ui/app_ui.dart';
 import 'package:authentication_repository/authentication_repository.dart';
 import 'package:dayder/app/app.dart';
 import 'package:dayder/di/di_container.dart';
