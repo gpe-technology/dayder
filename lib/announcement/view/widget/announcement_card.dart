@@ -1,16 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dayder/announcement/models/announcement_model.dart';
+import 'package:dayder/announcement/announcement.dart';
 import 'package:flutter/material.dart';
 
 class AnnouncementCard extends StatelessWidget {
-  const AnnouncementCard({
-    required this.announcement,
-    this.onTap,
-    super.key,
-  });
+  const AnnouncementCard({required this.announcement, this.onTap, super.key});
 
   final AnnouncementModel announcement;
-  final Function()? onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -22,18 +18,19 @@ class AnnouncementCard extends StatelessWidget {
             flex: 4,
             child: Card(
               margin: EdgeInsets.zero,
-              elevation: 0.0,
+              elevation: 0,
               child: CachedNetworkImage(
                 imageUrl: announcement.url,
-                placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
+                placeholder:
+                    (context, url) =>
+                        const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => Text('$error'),
                 fit: BoxFit.cover,
               ),
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 2.0),
+            padding: const EdgeInsets.symmetric(vertical: 2),
             child: Text(
               announcement.description,
               style: const TextStyle(

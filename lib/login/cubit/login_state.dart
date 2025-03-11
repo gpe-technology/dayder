@@ -1,15 +1,13 @@
 part of 'login_cubit.dart';
 
-enum LoginStatus {
-  numberVerification,
-  codeVerification,
-}
+enum LoginStatus { numberVerification, codeVerification }
 
 @freezed
-class LoginState with _$LoginState {
-  const factory LoginState.initial() = Inital;
+abstract class LoginState with _$LoginState {
+  const factory LoginState.initial() = Initial;
 
   const factory LoginState.loading() = Loading;
 
-  const factory LoginState.error() = Error;
+  const factory LoginState.error(Exception error, StackTrace stackTrace) =
+      Error;
 }

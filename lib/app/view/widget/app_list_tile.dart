@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 class AppListTile extends StatelessWidget {
   const AppListTile({
-    super.key,
     required this.title,
+    super.key,
     this.icon,
     this.onTap,
   });
 
   final String title;
   final IconData? icon;
-  final Function()? onTap;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {

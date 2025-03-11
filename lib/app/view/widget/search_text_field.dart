@@ -12,16 +12,16 @@ class SearchTextField extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8),
         child: SizedBox(
           height: 40,
           child: TextField(
             controller: controller,
-            style: const TextStyle(fontSize: 14.0),
+            style: const TextStyle(fontSize: 14),
             decoration: const InputDecoration(
               prefixIcon: Icon(Icons.search_rounded),
               hintText: 'Search',
-              contentPadding: EdgeInsets.symmetric(horizontal: 8.0),
+              contentPadding: EdgeInsets.symmetric(horizontal: 8),
             ),
           ),
         ),
