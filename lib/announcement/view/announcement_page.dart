@@ -1,4 +1,3 @@
-import 'package:alpha_ui/alpha_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/announcement/announcement.dart';
 import 'package:dayder/app/app.dart';
@@ -19,7 +18,16 @@ class AnnouncementPage extends StatelessWidget {
         builder: (context, state) {
           return switch (state) {
             Loaded(:final data) => Scaffold(
-              appBar: AppBar(title: const Text('Announcements')),
+              appBar: AppBar(
+                title: const Text('Announcements'),
+                actions: [
+                  IconButton(
+                    icon: const Icon(Icons.add),
+                    onPressed:
+                        () => context.pushRoute(const AnnouncementAddRoute()),
+                  ),
+                ],
+              ),
               body: GridView.count(
                 padding: const EdgeInsets.all(8),
                 childAspectRatio: 3 / 4.5,
@@ -41,18 +49,11 @@ class AnnouncementPage extends StatelessWidget {
                         )
                         .toList(),
               ),
-              persistentFooterButtons: [
-                ButtonIcon(
-                  onPressed: () {},
-                  label: const Text('Add Announcement'),
-                  icon: const Icon(Icons.add_rounded),
-                ),
-              ],
             ),
             Error(:final error) => Scaffold(
               body: Center(child: Text(error.toString())),
             ),
-            Loading() => const SplashPage(),
+            Loading() => const AppSplashPage(),
           };
         },
       ),
