@@ -26,8 +26,13 @@ class _LoginEmailPageState extends State<LoginEmailPage> {
           mainAxisAlignment: MainAxisAlignment.end,
           spacing: 16,
           children: [
-            Input(hintText: 'Email', controller: _emailController),
             Input(
+              label: 'Email',
+              hintText: 'Email',
+              controller: _emailController,
+            ),
+            Input(
+              label: 'Password',
               hintText: 'Password',
               controller: _passwordController,
               type: Type.password,

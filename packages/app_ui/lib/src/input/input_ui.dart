@@ -1,9 +1,10 @@
-import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 
-enum Type { email, password, phone }
+enum Type {
+  email,
+  password,
+  phone;
 
-extension TypeExtension on Type {
   TextInputType get keyboardType {
     switch (this) {
       case Type.email:

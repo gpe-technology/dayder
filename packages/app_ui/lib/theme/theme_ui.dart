@@ -13,6 +13,9 @@ abstract final class ThemeUI {
       elevatedButtonElevation: radius,
       outlinedButtonRadius: radius,
       textButtonRadius: radius,
+
+      /// input border type
+      inputDecoratorBorderType: FlexInputBorderType.outline,
     ),
   );
   static ThemeData dark = FlexThemeData.dark(
@@ -23,6 +26,9 @@ abstract final class ThemeUI {
       elevatedButtonElevation: radius,
       outlinedButtonRadius: radius,
       textButtonRadius: radius,
+
+      /// input border type
+      inputDecoratorBorderType: FlexInputBorderType.outline,
     ),
   );
 }
