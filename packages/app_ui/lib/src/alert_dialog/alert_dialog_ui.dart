@@ -1,4 +1,3 @@
-import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 
 alertDialogUI({
@@ -6,6 +5,7 @@ alertDialogUI({
   Widget? title,
   Widget? content,
   List<Widget>? actions,
+  double? radius,
 }) {
   return showDialog(
     context: context,
@@ -15,7 +15,7 @@ alertDialogUI({
         child: AlertDialog(
           elevation: 0.0,
           shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(theme.radius),
+            borderRadius: BorderRadius.circular(radius ?? 6),
           ),
           title: title,
           content: Container(

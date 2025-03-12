@@ -1,3 +1,4 @@
+import 'package:app_ui/app_ui.dart';
 import 'package:auto_route/auto_route.dart';
 import 'package:dayder/app/app.dart';
 import 'package:dayder/di/di_container.dart';
@@ -23,8 +24,8 @@ class App extends StatelessWidget {
       child: MaterialApp.router(
         title: 'Dayder',
         debugShowCheckedModeBanner: false,
-        theme: theme,
-        darkTheme: darkTheme,
+        theme: ThemeUI.light,
+        darkTheme: ThemeUI.dark,
         routerConfig: appRouter.config(
           reevaluateListenable: ReevaluateListenable.stream(
             diContainer<AppBloc>().stream,

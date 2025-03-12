@@ -1,10 +1,15 @@
-import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 
 class CheckboxUI extends StatelessWidget {
-  const CheckboxUI({super.key, this.value, required this.onChanged});
+  const CheckboxUI({
+    super.key,
+    this.value,
+    required this.onChanged,
+    this.borderRadius = 6.0,
+  });
   final bool? value;
   final void Function(bool?)? onChanged;
+  final double borderRadius;
 
   @override
   Widget build(BuildContext context) {
@@ -14,10 +19,9 @@ class CheckboxUI extends StatelessWidget {
       child: Checkbox(
         value: value,
         onChanged: onChanged,
-        activeColor: theme.primary,
         splashRadius: 0.0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(theme.radius),
+          borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
     );
