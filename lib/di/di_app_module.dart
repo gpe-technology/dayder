@@ -13,11 +13,11 @@ abstract class DIAppModule {
   @lazySingleton
   AuthenticationRepository get auth => AuthenticationRepository();
 
-  @preResolve
-  Future<RemoteConfigRepository> remote() => RemoteConfigRepository().setup();
-
   @lazySingleton
   FirebaseAnalytics get firebaseAnalytics => FirebaseAnalytics.instance;
+
+  @preResolve
+  Future<RemoteConfigRepository> get remote => RemoteConfigRepository().setup();
 
   @preResolve
   Future<Monitoring> monitoring() async {

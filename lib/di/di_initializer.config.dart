@@ -33,7 +33,7 @@ extension GetItInjectableX on _i174.GetIt {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
     final dIAppModule = _$DIAppModule();
     await gh.factoryAsync<_i812.RemoteConfigRepository>(
-      () => dIAppModule.remote(),
+      () => dIAppModule.remote,
       preResolve: true,
     );
     await gh.factoryAsync<_i568.Monitoring>(

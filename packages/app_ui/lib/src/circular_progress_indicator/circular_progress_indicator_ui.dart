@@ -1,4 +1,3 @@
-import 'package:app_ui/app_ui.dart';
 import 'package:flutter/material.dart';
 
 class CircularProgressIndicatorUI extends StatelessWidget {
@@ -11,10 +10,7 @@ class CircularProgressIndicatorUI extends StatelessWidget {
     return SizedBox(
       width: size ?? 14.0,
       height: size ?? 14.0,
-      child: CircularProgressIndicator(
-        strokeWidth: strokeWidth ?? 2.0,
-        color: theme.primary,
-      ),
+      child: CircularProgressIndicator(strokeWidth: strokeWidth ?? 2.0),
     );
   }
 }

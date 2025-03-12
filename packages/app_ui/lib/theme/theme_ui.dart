@@ -1,32 +1,28 @@
+import 'package:app_ui/app_ui.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 
-final theme = ThemeUI.instance();
+const radius = 6.0;
 
-class ThemeUI {
-  ThemeUI._internal({
-    required this.primary,
-    required this.secondary,
-    required this.radius,
-  });
-
-  static late ThemeUI _instance;
-
-  final Color primary;
-  final Color secondary;
-  final double radius;
-
-  static ThemeUI instance() => _instance;
-
-  factory ThemeUI.init({
-    Color? primary,
-    Color? secondary,
-    double? radius,
-  }) {
-    _instance = ThemeUI._internal(
-      primary: primary ?? Colors.black,
-      secondary: secondary ?? Colors.grey,
-      radius: radius ?? 6.0,
-    );
-    return _instance;
-  }
+abstract final class ThemeUI {
+  static ThemeData light = FlexThemeData.light(
+    colorScheme: lightColorScheme,
+    subThemesData: FlexSubThemesData(
+      /// button radius
+      filledButtonRadius: radius,
+      elevatedButtonElevation: radius,
+      outlinedButtonRadius: radius,
+      textButtonRadius: radius,
+    ),
+  );
+  static ThemeData dark = FlexThemeData.dark(
+    colorScheme: darkColorScheme,
+    subThemesData: FlexSubThemesData(
+      /// button radius
+      filledButtonRadius: radius,
+      elevatedButtonElevation: radius,
+      outlinedButtonRadius: radius,
+      textButtonRadius: radius,
+    ),
+  );
 }
