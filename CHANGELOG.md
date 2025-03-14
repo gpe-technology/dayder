@@ -1,3 +1,10 @@
+## [1.2.5](https://github.com/gpe-technology/dayder/compare/1.2.4...1.2.5) (2025-03-14)
+
+
+### Bug Fixes
+
+* remove GitHub release steps from production workflow and add GitHub plugin to semantic-release configuration ([1d53ee0](https://github.com/gpe-technology/dayder/commit/1d53ee030e2f4fe790b357b408d39455d88ff49a))
+
 ## [1.2.4](https://github.com/gpe-technology/dayder/compare/1.2.3...1.2.4) (2025-03-14)
 
 
