@@ -42,13 +42,18 @@ class _LoginEmailPageState extends State<LoginEmailPage> {
       ),
       persistentFooterAlignment: AlignmentDirectional.center,
       persistentFooterButtons: [
-        Button(
-          onPressed:
-              () => context.read<LoginCubit>().signInWithEmailAndPassword(
-                email: _emailController.text,
-                password: _passwordController.text,
-              ),
-          child: const Text('LOGIN'),
+        BlocBuilder<LoginCubit, LoginState>(
+          builder: (context, state) {
+            return Button(
+              isLoading: state is Loading,
+              onPressed:
+                  () => context.read<LoginCubit>().signInWithEmailAndPassword(
+                    email: _emailController.text,
+                    password: _passwordController.text,
+                  ),
+              child: const Text('LOGIN'),
+            );
+          },
         ),
       ],
     );
