@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/alpha-sow/dayder/compare/1.1.0...1.2.0) (2025-03-14)
+
+
+### Features
+
+* enhance input and button components with new variants and labels ([5a2abe3](https://github.com/alpha-sow/dayder/commit/5a2abe38d3d777331c53116ed8233e07aaafdcbb))
+
 # [1.1.0](https://github.com/alpha-sow/dayder/compare/1.0.18...1.1.0) (2025-03-11)
 
 
