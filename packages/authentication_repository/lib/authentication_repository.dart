@@ -3,5 +3,4 @@
 /// More dartdocs go here.
 library;
 
-export 'src/models/models.dart';
-export 'src/authentication_repository.dart';
+export 'src/src.dart';
