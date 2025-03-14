@@ -1,3 +1,12 @@
+## [1.2.1](https://github.com/gpe-technology/dayder/compare/1.2.0...1.2.1) (2025-03-14)
+
+
+### Bug Fixes
+
+* update analysis options to use very_good_analysis and exclude generated files ([b4b1419](https://github.com/gpe-technology/dayder/commit/b4b1419ece55b65eba3ef7894d0a40b0851ac1d6))
+* update GitHub Actions production workflow to add write permissions for actions ([62a8035](https://github.com/gpe-technology/dayder/commit/62a80355224149a16ca05551ffeedb2da6d6e00d))
+* update GitHub Actions production workflow to grant write permissions for contents ([b3677f5](https://github.com/gpe-technology/dayder/commit/b3677f519eec22e0b380758cc11e9ac7a9cea315))
+
 # [1.2.0](https://github.com/alpha-sow/dayder/compare/1.1.0...1.2.0) (2025-03-14)
 
 
