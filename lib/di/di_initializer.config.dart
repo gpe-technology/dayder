@@ -47,11 +47,11 @@ extension GetItInjectableX on _i174.GetIt {
     gh.lazySingleton<_i398.FirebaseAnalytics>(
       () => dIAppModule.firebaseAnalytics,
     );
-    gh.factory<_i635.LoginCubit>(
-      () => _i635.LoginCubit(gh<_i223.AuthenticationRepository>()),
-    );
     gh.factory<_i674.AppBloc>(
       () => _i674.AppBloc(authentication: gh<_i223.AuthenticationRepository>()),
+    );
+    gh.factory<_i635.LoginCubit>(
+      () => _i635.LoginCubit(gh<_i223.AuthenticationRepository>()),
     );
     gh.factory<_i1069.AppRouter>(
       () => _i1069.AppRouter(

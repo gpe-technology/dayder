@@ -1,9 +1,7 @@
 import 'package:app_ui/app_ui.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:dayder/app/app.dart';
 import 'package:dayder/router/app_router.gr.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class AccountPage extends StatelessWidget {
@@ -21,22 +19,23 @@ class AccountPage extends StatelessWidget {
                 context: context,
                 tiles: [
                   AppListTile(
-                    title: 'Profile',
-                    icon: Icons.person_rounded,
+                    title: const Text('Profile'),
+                    icon: const Icon(Icons.person_rounded),
                     onTap: () => context.pushRoute(const AccountProfileRoute()),
                   ),
-                  const AppListTile(title: 'Help', icon: Icons.help_rounded),
+                  AppListTile(
+                    title: const Text('Settings'),
+                    icon: const Icon(Icons.settings_rounded),
+                    onTap: () => context.pushRoute(const AccountSettingRoute()),
+                  ),
+                  const AppListTile(
+                    title: Text('Help'),
+                    icon: Icon(Icons.help_rounded),
+                  ),
                 ],
               ).toList(),
         ),
       ),
-      persistentFooterButtons: [
-        Button(
-          onPressed:
-              () => context.read<AppBloc>().add(const AppLogoutRequested()),
-          child: const Text('Logout'),
-        ),
-      ],
     );
   }
 }
