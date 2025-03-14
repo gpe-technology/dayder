@@ -1,3 +1,11 @@
+## [1.2.3](https://github.com/gpe-technology/dayder/compare/1.2.2...1.2.3) (2025-03-14)
+
+
+### Bug Fixes
+
+* add GitHub plugin to semantic-release configuration ([a815f8b](https://github.com/gpe-technology/dayder/commit/a815f8b7701cf8ad0264520c035a717cee68025b))
+* update GitHub Actions production workflow to set global write permissions ([9ee9d67](https://github.com/gpe-technology/dayder/commit/9ee9d67927ce4da72335c47da4596abcb7359035))
+
 ## [1.2.2](https://github.com/gpe-technology/dayder/compare/1.2.1...1.2.2) (2025-03-14)
 
 
