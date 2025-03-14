@@ -1,3 +1,10 @@
+## [1.2.2](https://github.com/gpe-technology/dayder/compare/1.2.1...1.2.2) (2025-03-14)
+
+
+### Bug Fixes
+
+* update GitHub Actions production workflow to grant write permissions for contents ([83a206a](https://github.com/gpe-technology/dayder/commit/83a206a6d1e6a32c73c6729547dff4667d96cb71))
+
 ## [1.2.1](https://github.com/gpe-technology/dayder/compare/1.2.0...1.2.1) (2025-03-14)
 
 
