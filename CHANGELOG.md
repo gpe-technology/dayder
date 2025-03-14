@@ -1,3 +1,10 @@
+## [1.2.6](https://github.com/gpe-technology/dayder/compare/1.2.5...1.2.6) (2025-03-14)
+
+
+### Bug Fixes
+
+* update login cubit export and enhance login button with loading state ([3ff5df9](https://github.com/gpe-technology/dayder/commit/3ff5df951ee30594c8915974fe756933bafa18ae))
+
 ## [1.2.5](https://github.com/gpe-technology/dayder/compare/1.2.4...1.2.5) (2025-03-14)
 
 
