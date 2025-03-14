@@ -1,10 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
+// ignore_for_file: public_member_api_docs
+
 import 'package:cache/cache.dart';
+import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
 
-import 'models/models.dart';
+import 'package:authentication_repository/src/models/models.dart';
 
 final class AuthenticationRepository {
   AuthenticationRepository({
@@ -33,7 +35,7 @@ final class AuthenticationRepository {
 
   Future<void> verifyPhoneNumber({
     required String number,
-    required Function(String, int?) codeSent,
+    required void Function(String, int?) codeSent,
   }) => _firebaseAuth.verifyPhoneNumber(
     phoneNumber: number,
     timeout: const Duration(seconds: 60),
@@ -49,8 +51,7 @@ final class AuthenticationRepository {
     required String verificationId,
     required String smsCode,
   }) async {
-    firebase_auth.PhoneAuthCredential credential = firebase_auth
-        .PhoneAuthProvider.credential(
+    final credential = firebase_auth.PhoneAuthProvider.credential(
       verificationId: verificationId,
       smsCode: smsCode,
     );
@@ -66,10 +67,9 @@ final class AuthenticationRepository {
   );
 
   Future<void> signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    final googleUser = await GoogleSignIn().signIn();
 
-    final GoogleSignInAuthentication? googleAuth =
-        await googleUser?.authentication;
+    final googleAuth = await googleUser?.authentication;
 
     final credential = firebase_auth.GoogleAuthProvider.credential(
       accessToken: googleAuth?.accessToken,
