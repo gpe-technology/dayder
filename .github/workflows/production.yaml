@@ -1,5 +1,7 @@
 name: Production
 
+permissions: write-all
+
 on:
   push:
     branches:
@@ -10,8 +12,6 @@ jobs:
     name: create release
     if: contains(github.event.head_commit.message, 'feat') || contains(github.event.head_commit.message, 'fix') || contains(github.event.head_commit.message, 'release')
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     outputs:
       release_version: ${{ steps.semantic-release.outputs.new_release_version }}
     steps:
@@ -83,8 +83,6 @@ jobs:
     name: Create GitHub Release
     needs: [create-release]
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
         with:
