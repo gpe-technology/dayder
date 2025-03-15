@@ -1,12 +1,11 @@
 // ignore_for_file: public_member_api_docs
 
+import 'package:authentication_repository/src/models/models.dart';
 import 'package:cache/cache.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:logger/logger.dart';
 import 'package:meta/meta.dart';
-
-import 'package:authentication_repository/src/models/models.dart';
 
 final class AuthenticationRepository {
   AuthenticationRepository({
