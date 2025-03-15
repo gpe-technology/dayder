@@ -26,29 +26,33 @@ class AppRouter extends RootStackRouter {
       children: [
         AutoRoute(
           initial: true,
-          path: 'announcement',
-          page: AppAnnouncementRoute.page,
-          title: (_, __) => 'Announcement',
+          path: 'marketplace',
+          page: AppMarketplaceRoute.page,
           children: [
-            AutoRoute(path: '', page: AnnouncementRoute.page),
-            AutoRoute(path: 'detail', page: AnnouncementDetailRoute.page),
-            AutoRoute(path: 'add', page: AnnouncementAddRoute.page),
+            AutoRoute(
+              path: '',
+              page: MarketplaceRoute.page,
+              children: [
+                AutoRoute(path: '', page: AnnouncementsRoute.page),
+                AutoRoute(path: 'detail', page: AnnouncementDetailRoute.page),
+                AutoRoute(path: 'add', page: AnnouncementAddRoute.page),
+              ],
+            ),
           ],
         ),
         AutoRoute(
-          path: 'chat',
-          page: AppChatRoute.page,
+          path: 'discussions',
+          page: AppDiscussionsRoute.page,
           title: (_, __) => 'Chat',
-          children: [AutoRoute(path: '', page: Chat.page)],
+          children: [AutoRoute(path: '', page: DiscussionsRoute.page)],
         ),
         AutoRoute(
-          path: 'account',
-          page: AppAccountRoute.page,
-          title: (_, __) => 'Account',
+          path: 'menu',
+          page: AppMenuRoute.page,
           children: [
-            AutoRoute(path: '', page: AccountRoute.page),
-            AutoRoute(path: 'profile', page: AccountProfileRoute.page),
-            AutoRoute(path: 'setting', page: AccountSettingRoute.page),
+            AutoRoute(path: '', page: MenuRoute.page),
+            AutoRoute(path: 'profile', page: MenuProfileRoute.page),
+            AutoRoute(path: 'setting', page: MenuSettingRoute.page),
             AutoRoute(path: 'edit', page: AccountEditRoute.page),
           ],
         ),

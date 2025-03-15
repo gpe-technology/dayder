@@ -20,7 +20,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     : _authentication = authentication,
       super(AppState.unAuthenticated()) {
     on<_AppUserChanged>(_onUserChange);
-    on<AppLogoutRequested>(_onLogoutRequested);
     _userSubscription = _authentication.user.listen((user) {
       add(_AppUserChanged(user));
       monitoring.setUserInfos(
@@ -44,10 +43,6 @@ class AppBloc extends Bloc<AppEvent, AppState> {
           ? AppState.authenticated(event.user)
           : AppState.unAuthenticated(),
     );
-  }
-
-  void _onLogoutRequested(AppLogoutRequested event, Emitter<AppState> emit) {
-    unawaited(_authentication.logout());
   }
 
   @override

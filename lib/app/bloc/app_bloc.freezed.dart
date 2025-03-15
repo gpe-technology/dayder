@@ -15,36 +15,67 @@ T _$identity<T>(T value) => value;
 /// @nodoc
 mixin _$AppEvent implements DiagnosticableTreeMixin {
 
-
+ User get user;
+/// Create a copy of AppEvent
+/// with the given fields replaced by the non-null parameter values.
+@JsonKey(includeFromJson: false, includeToJson: false)
+@pragma('vm:prefer-inline')
+$AppEventCopyWith<AppEvent> get copyWith => _$AppEventCopyWithImpl<AppEvent>(this as AppEvent, _$identity);
 
 
 @override
 void debugFillProperties(DiagnosticPropertiesBuilder properties) {
   properties
     ..add(DiagnosticsProperty('type', 'AppEvent'))
-    ;
+    ..add(DiagnosticsProperty('user', user));
 }
 
 @override
 bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppEvent);
+  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppEvent&&(identical(other.user, user) || other.user == user));
 }
 
 
 @override
-int get hashCode => runtimeType.hashCode;
+int get hashCode => Object.hash(runtimeType,user);
 
 @override
 String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'AppEvent()';
+  return 'AppEvent(user: $user)';
 }
 
 
 }
 
 /// @nodoc
-class $AppEventCopyWith<$Res>  {
-$AppEventCopyWith(AppEvent _, $Res Function(AppEvent) __);
+abstract mixin class $AppEventCopyWith<$Res>  {
+  factory $AppEventCopyWith(AppEvent value, $Res Function(AppEvent) _then) = _$AppEventCopyWithImpl;
+@useResult
+$Res call({
+ User user
+});
+
+
+
+
+}
+/// @nodoc
+class _$AppEventCopyWithImpl<$Res>
+    implements $AppEventCopyWith<$Res> {
+  _$AppEventCopyWithImpl(this._self, this._then);
+
+  final AppEvent _self;
+  final $Res Function(AppEvent) _then;
+
+/// Create a copy of AppEvent
+/// with the given fields replaced by the non-null parameter values.
+@pragma('vm:prefer-inline') @override $Res call({Object? user = null,}) {
+  return _then(_self.copyWith(
+user: null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
+as User,
+  ));
+}
+
 }
 
 
@@ -55,11 +86,11 @@ class _AppUserChanged with DiagnosticableTreeMixin implements AppEvent {
   const _AppUserChanged(this.user);
   
 
- final  User user;
+@override final  User user;
 
 /// Create a copy of AppEvent
 /// with the given fields replaced by the non-null parameter values.
-@JsonKey(includeFromJson: false, includeToJson: false)
+@override @JsonKey(includeFromJson: false, includeToJson: false)
 @pragma('vm:prefer-inline')
 _$AppUserChangedCopyWith<_AppUserChanged> get copyWith => __$AppUserChangedCopyWithImpl<_AppUserChanged>(this, _$identity);
 
@@ -91,7 +122,7 @@ String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
 /// @nodoc
 abstract mixin class _$AppUserChangedCopyWith<$Res> implements $AppEventCopyWith<$Res> {
   factory _$AppUserChangedCopyWith(_AppUserChanged value, $Res Function(_AppUserChanged) _then) = __$AppUserChangedCopyWithImpl;
-@useResult
+@override @useResult
 $Res call({
  User user
 });
@@ -110,7 +141,7 @@ class __$AppUserChangedCopyWithImpl<$Res>
 
 /// Create a copy of AppEvent
 /// with the given fields replaced by the non-null parameter values.
-@pragma('vm:prefer-inline') $Res call({Object? user = null,}) {
+@override @pragma('vm:prefer-inline') $Res call({Object? user = null,}) {
   return _then(_AppUserChanged(
 null == user ? _self.user : user // ignore: cast_nullable_to_non_nullable
 as User,
@@ -119,44 +150,6 @@ as User,
 
 
 }
-
-/// @nodoc
-
-
-class AppLogoutRequested with DiagnosticableTreeMixin implements AppEvent {
-  const AppLogoutRequested();
-  
-
-
-
-
-
-@override
-void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-  properties
-    ..add(DiagnosticsProperty('type', 'AppEvent.appLogoutRequested'))
-    ;
-}
-
-@override
-bool operator ==(Object other) {
-  return identical(this, other) || (other.runtimeType == runtimeType&&other is AppLogoutRequested);
-}
-
-
-@override
-int get hashCode => runtimeType.hashCode;
-
-@override
-String toString({ DiagnosticLevel minLevel = DiagnosticLevel.info }) {
-  return 'AppEvent.appLogoutRequested()';
-}
-
-
-}
-
-
-
 
 /// @nodoc
 mixin _$AppState implements DiagnosticableTreeMixin {
