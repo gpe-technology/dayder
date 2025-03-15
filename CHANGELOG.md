@@ -1,3 +1,11 @@
+# [1.3.0](https://github.com/gpe-technology/dayder/compare/1.2.6...1.3.0) (2025-03-15)
+
+
+### Features
+
+* refactor account pages and introduce new settings and edit pages ([633801d](https://github.com/gpe-technology/dayder/commit/633801dc98e660abebe115cd1b4b8ec53c514567))
+* update account pages to use ListView for improved layout ([b6c328e](https://github.com/gpe-technology/dayder/commit/b6c328e523d20f3747a637140057978942526c53))
+
 ## [1.2.6](https://github.com/gpe-technology/dayder/compare/1.2.5...1.2.6) (2025-03-14)
 
 
